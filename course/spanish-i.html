@@ -1,0 +1,1967 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Spanish I • Rocklin Ratings</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="canonical" href="/course/spanish-i.html">
+  <meta name="description" content="Spanish I — Foreign Language • Standard. Read student reviews and ratings for this course on Rocklin Ratings.">
+
+  <link rel="icon" href="/assets/images/logo.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --blue-950:#0e1f46;
+      --blue-900:#12306a;
+      --blue-800:#1a49a7;
+      --blue-700:#2f6bff;
+      --blue-600:#4d86ff;
+
+      --nav-bg: rgba(18,48,106,.72);
+      --nav-border: rgba(255,255,255,.14);
+
+      --text:#0b1220;
+      --muted:#5c667a;
+
+      --card:#ffffff;
+      --card-border:#e6eeff;
+
+      --shadow-soft: 0 14px 32px rgba(0,0,0,.10);
+
+      --radius: 18px;
+      --radius-lg: 24px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background: #f3f7ff;
+      overflow-x:hidden;
+    }
+
+    .hero{
+      position:relative;
+      min-height: 46vh;
+      display:flex;
+      flex-direction:column;
+      isolation:isolate;
+      overflow:hidden;
+      background:#071124;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:0;
+      background:
+        radial-gradient(1200px 650px at 22% 18%, rgba(103,163,255,.40), transparent 60%),
+        radial-gradient(900px 520px at 78% 22%, rgba(77,134,255,.28), transparent 58%),
+        radial-gradient(900px 520px at 60% 95%, rgba(47,107,255,.22), transparent 62%),
+        linear-gradient(135deg, #081028 0%, #0b1636 36%, #0d2250 100%);
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      z-index:1;
+      background: linear-gradient(180deg, rgba(7,12,24,.58), rgba(7,12,24,.28) 55%, rgba(7,12,24,.10));
+      pointer-events:none;
+    }
+
+    .nav{
+      position:relative;
+      z-index:3;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding: 14px 22px;
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--nav-border);
+      backdrop-filter: blur(12px);
+    }
+    .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; user-select:none; }
+    .brand-logo{ height:28px; width:auto; display:block; filter: drop-shadow(0 10px 28px rgba(0,0,0,.22)); }
+
+    .navlinks{ display:flex; align-items:center; justify-content:flex-end; gap:6px; flex-wrap:wrap; }
+    .navlinks a{
+      color: rgba(255,255,255,.94);
+      text-decoration:none;
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: .18s ease;
+      display:inline-flex; align-items:center; gap:8px;
+      user-select:none;
+    }
+    .navlinks a:hover{ background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.16); }
+    .navlinks a.cta{
+      background:#fff;
+      color: var(--blue-900);
+      border-color: rgba(255,255,255,.70);
+      font-weight: 950;
+      padding: 10px 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.12);
+    }
+    .navlinks a.cta:hover{ transform: translateY(-1px); }
+
+    @media (max-width: 680px){
+      .nav{ padding: 12px 14px; }
+      .brand-logo{ height:24px; }
+      .navlinks a span.txt{ display:none; }
+      .navlinks a{ gap:0; padding: 10px 10px; font-size: 12px; }
+      .navlinks a i{ font-size: 14px; }
+      .navlinks a.cta{ padding: 10px 12px; }
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:5;
+      max-width: 1150px;
+      margin: 0 auto;
+      width:100%;
+      padding: 34px 18px 22px;
+      display:flex;
+      align-items:flex-end;
+    }
+
+    .hero-top{
+      width:100%;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .crumbs{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+      color: rgba(255,255,255,.75);
+      font-size: 12px;
+      user-select:none;
+    }
+    .crumbs a{ color: rgba(255,255,255,.88); text-decoration:none; }
+    .crumbs a:hover{ text-decoration:underline; }
+
+    .title{
+      margin: 10px 0 0;
+      color:#fff;
+      font-size: clamp(34px, 4.8vw, 58px);
+      letter-spacing: -1px;
+      font-weight: 950;
+      text-shadow: 0 18px 60px rgba(0,0,0,.45);
+      line-height: 1.05;
+    }
+
+    .subtitle{
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.86);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 90ch;
+    }
+
+    .chips{
+      margin-top: 14px;
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.94);
+      font-size: 12px;
+      backdrop-filter: blur(12px);
+      user-select:none;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+      margin-top: 10px;
+    }
+
+    .hbtn{
+      border: 1px solid rgba(255,255,255,.20);
+      background: rgba(255,255,255,.14);
+      color:#fff;
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-weight: 950;
+      font-size: 13px;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      user-select:none;
+      text-decoration:none;
+      white-space:nowrap;
+      backdrop-filter: blur(10px);
+    }
+    .hbtn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.26); }
+    .hbtn.primary{
+      background:#fff;
+      color: var(--blue-900);
+      border-color: rgba(255,255,255,.70);
+      box-shadow: 0 16px 40px rgba(0,0,0,.14);
+      backdrop-filter: none;
+    }
+    .hbtn.primary:hover{ background:#fff; }
+
+    @media (max-width: 680px){
+      .hero-inner{ padding: 26px 14px 18px; }
+      .hero-top{ align-items:stretch; }
+      .hero-actions{ width:100%; justify-content:stretch; }
+      .hbtn{ flex:1; width:100%; justify-content:center; }
+      .chips{ gap:8px; }
+      .chip{ padding: 9px 12px; }
+    }
+    @media (max-width: 420px){
+      .title{ font-size: 34px; }
+    }
+
+    .wave{ position:relative; z-index:2; margin-top:auto; height: 95px; }
+    .wave svg{ position:absolute; bottom:-1px; left:0; width:100%; height:100%; display:block; }
+
+    main{
+      background: #f3f7ff;
+      padding: 22px 18px 64px;
+      min-height: 50vh;
+    }
+    .container{ max-width: 1150px; margin: 0 auto; }
+
+    .layout{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 14px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .layout{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: #fff;
+      border: 1px solid #e6eeff;
+      border-radius: 18px;
+      box-shadow: 0 14px 32px rgba(0,0,0,.10);
+      padding: 16px;
+      overflow:hidden;
+    }
+
+    .stack{ display:flex; flex-direction:column; gap:14px; }
+
+    .section-title{
+      margin:0 0 10px;
+      font-size: 14px;
+      font-weight: 950;
+      letter-spacing: .1px;
+      color:#0b1220;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .section-title .hint{
+      font-size: 12px;
+      color: #6a7486;
+      font-weight: 800;
+    }
+
+    .stat-grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 980px){
+      .stat-grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+    .stat{
+      border-radius: 14px;
+      padding: 12px 12px;
+      border: 1px solid #e2ebff;
+      background: #ffffff;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:6px;
+      min-width: 0;
+    }
+    .stat .k{
+      font-size: 11px;
+      color:#4e5a72;
+      font-weight: 900;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+    }
+    .stat .v{
+      font-size: 18px;
+      font-weight: 950;
+      color: #12306a;
+      letter-spacing: .1px;
+      line-height: 1;
+      min-height: 18px;
+    }
+
+    .btnrow{
+      margin-top:12px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      justify-content:center;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 950;
+      border: 1px solid rgba(18,48,106,.14);
+      background: #fff;
+      color: #12306a;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      user-select:none;
+      box-shadow: 0 12px 26px rgba(0,0,0,.06);
+      white-space:nowrap;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, #1a49a7, #4d86ff);
+      border-color: rgba(77,134,255,.30);
+      color:#fff;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+
+    .review{
+      padding: 14px 0;
+      border-top: 1px solid #eef3ff;
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+    }
+    .review:first-of-type{ border-top: 0; padding-top: 0; }
+
+    .avatar{
+      width: 42px; height: 42px;
+      border-radius: 16px;
+      background: rgba(77,134,255,.14);
+      border: 1px solid rgba(77,134,255,.22);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: #12306a;
+      overflow:hidden;
+      flex: 0 0 auto;
+    }
+    .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    .review-main{ min-width:0; flex:1; }
+    .review-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .review-head .who{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      min-width:0;
+    }
+    .review-head strong{
+      display:block;
+      font-size: 13px;
+      font-weight: 950;
+      color:#0b1220;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width: 55ch;
+    }
+
+    .review-subline{
+      color: #6a7486;
+      font-size: 12px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 1px;
+    }
+    .review-subline .dot{
+      opacity:.55;
+      margin: 0 2px;
+    }
+    .timechip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(18,48,106,.12);
+      background: rgba(243,247,255,.95);
+      line-height: 1;
+      white-space:nowrap;
+    }
+    .timechip i{ margin-right:1px; }
+
+    .pill{
+      min-width: 64px;
+      height: 34px;
+      padding: 0 12px;
+      border-radius: 14px;
+      background: rgba(103,163,255,.20);
+      border: 1px solid rgba(103,163,255,.30);
+      color: #12306a;
+      font-weight: 950;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 13px;
+      letter-spacing:.1px;
+      flex: 0 0 auto;
+    }
+
+    .small-metrics{
+      margin-top: 10px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    @media (max-width: 520px){
+      .small-metrics{ grid-template-columns: 1fr; }
+    }
+    .sm{
+      border-radius: 14px;
+      padding: 10px 10px;
+      border: 1px solid #e2ebff;
+      background: #f3f7ff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      min-width: 0;
+    }
+    .sm .k{
+      font-size: 11px;
+      color:#4e5a72;
+      font-weight: 900;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .sm .v{
+      font-size: 12px;
+      font-weight: 950;
+      color: #12306a;
+    }
+
+    .comment{
+      margin-top: 10px;
+      color:#4a556b;
+      font-size: 12.75px;
+      line-height: 1.65;
+      white-space:pre-wrap;
+      word-break:break-word;
+    }
+
+    .teacher-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 12px 0;
+      border-top: 1px solid #eef3ff;
+    }
+    .teacher-row:first-of-type{ border-top: 0; padding-top: 0; }
+    .teacher-left{ display:flex; align-items:center; gap:12px; min-width:0; }
+    .teacher-left strong{
+      font-size: 13px;
+      font-weight: 950;
+      color:#0b1220;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width: 48ch;
+    }
+    .teacher-left .sub{
+      font-size: 12px;
+      color:#6a7486;
+      margin-top: 3px;
+      display:flex;
+      gap:12px; /* more breathing room */
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .teacher-left .sub span{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+    }
+
+    .teacher-right{ display:flex; align-items:center; gap:10px; flex:0 0 auto; }
+
+    .hintlink{
+      color:#12306a;
+      text-decoration:none;
+      font-weight: 900;
+    }
+    .hintlink:hover{ text-decoration:underline; }
+
+    .empty{
+      border-radius: 24px;
+      border: 1px solid #e6eeff;
+      background: linear-gradient(180deg, #ffffff, #f6f9ff);
+      box-shadow: 0 14px 32px rgba(0,0,0,.10);
+      padding: 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .empty .left{ display:flex; align-items:flex-start; gap:14px; min-width:0; }
+    .empty .icon{
+      width:44px; height:44px; border-radius: 14px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(77,134,255,.16);
+      border: 1px solid rgba(77,134,255,.26);
+      color: #12306a;
+      flex:0 0 auto;
+    }
+    .empty h3{ margin:0; font-size: 15px; letter-spacing: -.2px; font-weight: 950; color: #0b1220; }
+    .empty p{ margin:6px 0 0; color:#5a667c; font-size: 12.75px; line-height: 1.6; max-width: 80ch; }
+
+    .footer{
+      margin-top: 22px;
+      border-top: 1px solid rgba(18,48,106,.10);
+      padding-top: 18px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      color:#6a7486;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+    .footer .brandline{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#334055;
+      font-weight: 900;
+    }
+    .footer .brandline i{ color: #2f6bff; }
+    .footer a{
+      color: #12306a;
+      text-decoration:none;
+      font-weight: 900;
+    }
+    .footer a:hover{ text-decoration:underline; }
+
+    .toast{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%) translateY(14px);
+      background: rgba(11,18,32,.92);
+      color: #fff;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 18px 50px rgba(0,0,0,.22);
+      font-size: 13px;
+      font-weight: 900;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      opacity: 0;
+      pointer-events:none;
+      transition: opacity .18s ease, transform .18s ease;
+      z-index: 9999;
+    }
+    .toast.show{
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+        
+<style>
+  /* ============================
+     Rocklin Ratings Navbar (hard-namespaced + high specificity)
+     Goal: NEVER lose to page CSS
+     Fix: CTA icon/text MUST stay blue (was inheriting white)
+  ============================ */
+
+  #rrx9n-nav{
+    position: relative !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    padding: 14px 22px !important;
+
+    background: rgba(18,48,106,.84) !important;
+    border-bottom: 1px solid rgba(255,255,255,.14) !important;
+    backdrop-filter: blur(12px) !important;
+
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial !important;
+    line-height: 1.2 !important;
+  }
+
+  #rrx9n-nav *{ box-sizing: border-box !important; }
+
+  #rrx9n-nav a{
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  #rrx9n-nav i{
+    color: inherit !important;
+    display: inline-block !important;
+  }
+
+  #rrx9n-nav img{
+    display: block !important;
+    max-width: 100% !important;
+  }
+
+  #rrx9n-nav .rrx9n-brand{
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    user-select: none !important;
+  }
+
+  #rrx9n-nav .rrx9n-logo{
+    height: 28px !important;
+    width: auto !important;
+    filter: drop-shadow(0 10px 28px rgba(0,0,0,.22)) !important;
+  }
+
+  #rrx9n-nav .rrx9n-links{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+    max-width: 100% !important;
+  }
+
+  #rrx9n-nav .rrx9n-link{
+    color: rgba(255,255,255,.94) !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255,255,255,0) !important;
+
+    background: rgba(255,255,255,0) !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+
+    transition: transform .18s ease, background .18s ease, border-color .18s ease !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    white-space: nowrap !important;
+  }
+
+  #rrx9n-nav .rrx9n-link:hover{
+    background: rgba(255,255,255,.10) !important;
+    border-color: rgba(255,255,255,.16) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  #rrx9n-nav .rrx9n-link.rrx9n-active{
+    background: rgba(255,255,255,.14) !important;
+    border-color: rgba(255,255,255,.22) !important;
+  }
+
+  /* CTA always white, always readable */
+  #rrx9n-nav .rrx9n-link.rrx9n-cta{
+    background: #ffffff !important;
+    color: #12306a !important;
+    border-color: rgba(255,255,255,.70) !important;
+    font-weight: 950 !important;
+    padding: 10px 14px !important;
+    box-shadow: 0 16px 40px rgba(0,0,0,.14) !important;
+  }
+
+  #rrx9n-nav .rrx9n-link.rrx9n-cta:hover{
+    background: #ffffff !important;
+    color: #12306a !important;
+  }
+
+  /* ✅ IMPORTANT FIX:
+     Force CTA children (icon + text) to be blue too.
+     Some page CSS is overriding span/i colors. */
+  #rrx9n-nav .rrx9n-link.rrx9n-cta i,
+  #rrx9n-nav .rrx9n-link.rrx9n-cta .rrx9n-txt{
+    color: #12306a !important;
+  }
+
+  #rrx9n-nav .rrx9n-account{ max-width: 260px !important; }
+
+  #rrx9n-nav .rrx9n-txt{ display: inline-block !important; }
+
+  #rrx9n-nav .rrx9n-account .rrx9n-txt{
+    max-width: 170px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  #rrx9n-nav .rrx9n-avatar{
+    width: 22px !important;
+    height: 22px !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    display: inline-block !important;
+    border: 1px solid rgba(255,255,255,.22) !important;
+    flex: 0 0 auto !important;
+  }
+
+  #rrx9n-nav .rrx9n-avatar img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  @media (max-width: 680px){
+    #rrx9n-nav{ padding: 12px 14px !important; }
+    #rrx9n-nav .rrx9n-logo{ height: 24px !important; }
+    #rrx9n-nav .rrx9n-txt{ display: none !important; }
+
+    #rrx9n-nav .rrx9n-link{
+      gap: 0 !important;
+      padding: 10px 10px !important;
+      font-size: 12px !important;
+    }
+
+    #rrx9n-nav .rrx9n-link i{ font-size: 14px !important; }
+    #rrx9n-nav .rrx9n-link.rrx9n-cta{ padding: 10px 12px !important; }
+  }
+
+  @media (max-width: 440px){
+    #rrx9n-nav{ padding: 10px 12px !important; }
+    #rrx9n-nav .rrx9n-link{ border-radius: 12px !important; }
+  }
+</style>
+
+<div id="rrx9n-nav">
+  <a class="rrx9n-brand" href="/index.html" aria-label="Rocklin Ratings home">
+    <img class="rrx9n-logo" src="/assets/images/logo.png" alt="Rocklin Ratings">
+  </a>
+
+  <div class="rrx9n-links">
+    <a class="rrx9n-link" href="/index.html">
+      <i class="fa-solid fa-house"></i><span class="rrx9n-txt">Home</span>
+    </a>
+
+    <a class="rrx9n-link" href="/trending.html">
+      <i class="fa-solid fa-fire"></i><span class="rrx9n-txt">Trending</span>
+    </a>
+
+          <a class="rrx9n-link" href="/signup.html">
+        <i class="fa-solid fa-user-plus"></i><span class="rrx9n-txt">Sign In</span>
+      </a>
+    
+    <a class="rrx9n-link rrx9n-cta" href="/review.html">
+      <i class="fa-solid fa-pen-to-square"></i><span class="rrx9n-txt">Create Review</span>
+    </a>
+  </div>
+</div>
+
+  <section class="hero">
+
+    <div class="hero-inner">
+      <div class="hero-top">
+        <div>
+          <div class="crumbs">
+            <a href="/index.html">Home</a>
+            <span>•</span>
+            <span>Course</span>
+          </div>
+
+          <h1 class="title">Spanish I</h1>
+
+                      <p class="subtitle">Foreign Language • Standard</p>
+          
+          <div class="chips">
+            <span class="chip"><i class="fa-solid fa-user-secret"></i>Anonymous by default</span>
+            <span class="chip"><i class="fa-solid fa-comment-dots"></i>Ratings + comments</span>
+                          <span class="chip"><i class="fa-solid fa-database"></i>ratings</span>
+                      </div>
+        </div>
+
+        <div class="hero-actions">
+          <button class="hbtn" type="button" id="shareBtn" data-url="/course/spanish-i">
+            <i class="fa-solid fa-arrow-up-from-bracket"></i>Share
+          </button>
+          <a class="hbtn primary" href="/review?mode=course&amp;course=130.html">
+            <i class="fa-solid fa-pen-to-square"></i>Write a review
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,70 C240,120 420,20 720,70 C1020,120 1200,20 1440,70 L1440,120 L0,120 Z" fill="#f3f7ff"></path>
+        <path d="M0,74 C240,124 420,24 720,74 C1020,124 1200,24 1440,74" fill="none" stroke="rgba(103,163,255,.34)" stroke-width="10"></path>
+      </svg>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <div class="layout">
+        <!-- LEFT: Reviews -->
+        <div class="card" id="reviews">
+          <div class="section-title">
+            <span><i class="fa-solid fa-star"></i> Reviews</span>
+            <span class="hint">34 total</span>
+          </div>
+
+                                                  <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>18 min ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">4.8</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.4</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.7</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.2</div></div>
+                  </div>
+
+                                      <div class="comment">she’s honestly such a nice and understanding teacher. i think she has very realistic grading, and her assignments aren’t very hard. voces is a bit confusing but that’s not on her at all.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>23 min ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">She’s definitely trans</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>1 hour ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">1.0</div></div>
+                  </div>
+
+                                      <div class="comment">She’s a b1tch</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>2 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">She literally made my Spanish 1 a hell hole I would put my head down for a second to write and she would get mad she is so passive aggressive she constantly gave attitude to freshman kids even though she is a adult. But you guys with all the twin and peace sign are not tuff either your just #those people</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>4 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">“Yall just stupid” syau we know its u mrs demeyer 🫩✌️</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>5 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">She deadah tried to scare us w a fake legal threat 🫩✌️</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>6 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">我留著錢，我真的沒有透過這門課，因為這個nga整天直言不諱的猶太人，這讓我想自殺。她那愚蠢的工作表太難讀了，我發誓，射殺查理·柯克是她和以色列的秘密計劃，她的家庭作業讓我寧願被五個黑人訓練，整晚像玩具一樣使用。我很樂意被唐納德的特朗普瘋狂的頭腦遊戲咬掉我的包皮，然後把它從他嘴裡吃掉一千次，然後再上那門課。10分中有0分不會推薦這門課程
+
+Translate into Chinese mandarin traditional</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>9 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">4.5</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.2</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">W teacher</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>9 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">4.5</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.2</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">Ms DeMeyers makes Spanish so fun!</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>10 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">4.5</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.2</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">wonderful teacher!</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>17 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.1</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.3</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">4.0</div></div>
+                  </div>
+
+                                      <div class="comment">lowkirkenuinely the worst spanish class i&#039;ve ever taken. I was thinking abt doing spanish III honors last year but then i found out she teaches it and i immediately took it off my options. She stick pulls and calls on people and it&#039;s so stressing, it felt like going to war every time i stepped into her class. Voces deadline wasn&#039;t that bad but idk how it is now, but the voces workload was insane. She goes off into random unimportant stories in the middle of teaching her unhelpful slides and by the end of the period you literally learned nothing. She was also practically RUNNING to kirky&#039;s turning point club that other day, and she LOVESSS riding on donald&#039;s dihh. Horrible person in general, morally and as a teacher, pls save urselves from the hell that is her class 💔</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>17 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">F*** this ugly republican b**** stupid chud foid. Willingly taking this class should be considered the most extreme form of self harm and render you eligible for a mandatory 72 hour psychiatric hold. I’m literally Hispanic and ashamed of my culture after taking this class and will be trying everything in my power to unlearn the Spanish language.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>18 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Her class is worse than the seventh layer of hell. She lowkirkenueinly makes me wanna tell pop that I have a el wiro so he can take me to the back room and blow my brains out. I would be better off as a rotting corpse in a lake than her class.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>18 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">La señora Demeyer es, sin duda, la peor profesora de esta escuela. Sus opiniones políticas e ideológicas son respetables, pero las impone a sus alumnos en cada oportunidad que tiene. No enseña nada y espera que sepamos lo que entra en los exámenes. Preferiría que me arrancaran el prepucio con unas pinzas antes que volver a tener clase con ella.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>18 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">1.0</div></div>
+                  </div>
+
+                                      <div class="comment">all jokes aside. mrs demeyer is incredibly political and idolizes f4scists, &amp; n4z1s. shes super open about it and even wears merch and encourages her students to like them. Spanish class should not be political, and minorities should be able to feel safe and welcomed in class, but they dont here. its very clear she hates her job and she acts like you killed her first born when you ask a question or need to use the bathroom . you will not feel safe or welcomed in this class, and she shouldnt have a teaching job to begin with.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>19 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Probably the worst course I&#039;ve ever taken, all she does is give you a 20-page packet or put on a song, and the tests are pretty difficult. I&#039;d rather be forcibly neutered without anesthetic then go back to her course.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>19 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">id rather be injected with adrenaline and have my skin torn  off by the cartel then have to take another day of her class ever again</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>19 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">PLEASE do not believe the “legal” threat everyone. California schools by law cannot punish students for anonymous and off-campus reviews on teachers on a private website. High schools don’t control private transcripts, cannot threaten expulsion, cannot threaten legal prosecution, and can’t track users without a court order. A real legal notice would include a law firm, case number, and district policy. A legal or district notice must also include who is issuing it, like a RUSD letterhead or a mailing address. It would also not be sent through the website, but rather as a email sent out to Rocklin parents or as an assembly. Plus what kind of lawyer would include words like “American excellence”? This is very clearly a student-led prank or an ‘scare’ effort by either the school or Mrs. Demeyer to get us to stop. The dramatic writing style of the notice is how angry people write, not lawyers or school districts.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>22 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">1.0</div></div>
+                  </div>
+
+                                      <div class="comment">that fat a** orange a** charlie kirk looking a** facially challenged a** crusty a** f****** b****. She looks like her daddy trumps orange crusting a** tight a******. Genuinely looks like her parents drank with her or dropped her on her head as a baby. She can continue to slurp on trumps and the whole republican party’s balls</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>22 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Yo whoever said that she’s “such a nice teacher” ur a bum. She is literally the devil reincarnated. Her breath smells like her favorite person in the whole wide world daddy trump’s bootyhole. Her classroom smells like straight dogshit. She needs to crawl back into whatever hole she came out of.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>22 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">La señora Demeyer es la persona más gorda que jamás haya existido y ni siquiera habla una pizca de español. Una vez vi cómo mi amigo, que es de piel morena, fue humillado por completo solo por mirarme. Fue una experiencia horrible. Pero supongo que hay que ser amable con las personas autistas.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>22 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Isreals stronest soldier😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭im crine</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Genuinely the most insufferable f****** weasel that’s somehow still living on our earth’s sacred crust. This stupidly obsessive right wind tub of lard always manages to make my sanity levels drop by 1000% every time I look at her nasty-a** dodecahedron side profile. Undoubtedly THE most Wicked witch of the Rocklin neighborhood, don’t take this bih’s classes otherwise you’re most likely to contract aids just from hearing the shrieks of the damned be released at 500km p/h from the sheer  opening of her endless vile vocals when she goes rampant about loving that plump orange. I’d rather smell Princess Fiona’s nasty green box and contract seven different types of syphillis than take this f****** class. B****.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Being in her class was the worst thing Ive ever experienced, I wanted to die &amp; sleep the whole class period. She&#039;s crazy catholic, racist, &amp; bullies students if they aren&#039;t her favorite. She is worst then the devil from the god d*** bible, I hope she rots in hell for everything she put me &amp; my friends through.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">She wants Donald trumps pumpkin dih up her a** and dosent know a lick of Spanish. I would rather have allegations and files made against me ruining my life then ever taking her class again. She definitely came from hell and fs gave the devil lap dances. YOU WILL commit suicide after taking this class</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Spanish students sit around campfires telling scary stories about her. worst Spanish teacher in the world can&#039;t even speak it fr. i would take miles of dih in my ahh then go to her class. this class doesn&#039;t even make me want to die, it makes me want to burn in hell.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Absolutely the worst teacher at this school. She may be a slight bit special. She expects us to already know everything that she is teaching without giving any instructions. Please fire her for the good of the school and its students.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">2.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.5</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">This woman is genuinely suicide inducing. The way and methods she teaches I honestly have no idea how she got a degree. I do not believe she knows Spanish and is just indoctrinating her students to believe what she does. A white woman should NOT in a circumstances be teaching spanish. She is so passive aggressive and genuinely rude I do not know how she still has a job. While I am personally good at Spanish she often uses words I don’t believe are real spanish words. She favors white and loud boys and needs to get fired. I HATE MS. DEMEYER</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">😭😭😭😭😭😭😭😭😭😭😭😭😭 I&#039;m crine 😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭why everyone hating on demeyer 😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭 i dont even remember her class 😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">Raging conservative... 😭😭 took the day off when charlie kirk got shot, gun sticker on her waterbottle, candace owens merch saying &quot;lifes tough&quot; and telling people to &quot;get a helmet&quot;, in the turning point club, has SAID shes a trump supporter, and overall just ACTS like one lol. Dont take the class, shes evil</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Zero respect for students at all. Always very rude and disrespectful to me AND others, and when she happens to give you a compliment, (rarely), it is always backhanded. Questions are always answered with disrespect and content being taught (which shes not good at) is expected to be perfected immediately. Unrealistic expectations of students and their ability. Her teaching is very unclear. Shes overall just very rude and disrespectful towards her students. She should not expect respect when it is not given to us.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">If you don’t know the answer she’ll hate you</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>2 days ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Mrs d***yer is genuinely the devil reincarnate. (Her name is a slur) shes HORRIBLE with communication, HORRIBLE, with teaching, HORRIBLE with grading. Classroom is ALWAYS an unnacepting, hostile, and stress-inducing environment. Is also just a genuinely mean person and is NEVER kind, and BOMBARDS you with constant criticism. Should not be a teacher at rocklin at all. She&#039;s also a known conservative and was spotted at the turning point club so...</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Spanish I • Maria DeMeyer</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>4 days ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">1.5</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">2.3</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">2.5</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">Don&#039;t take her class, she makes it verry obvious she didn&#039;t like teaching. Most the time she sat behind her desk and did nothing. She also had sticks with students names on them to get people to awncer. Her class was stressful and the worst part of my day.</div>
+                                  </div>
+              </div>
+                              </div>
+
+        <!-- RIGHT: Stats + teachers -->
+        <div class="stack">
+          <div class="card">
+            <div class="section-title">
+              <span><i class="fa-solid fa-chart-simple"></i> Course stats</span>
+              <span class="hint">Based on reviews</span>
+            </div>
+
+            <div class="stat-grid">
+              <div class="stat">
+                <div class="k"><i class="fa-solid fa-star"></i>Overall</div>
+                <div class="v">1.4</div>
+              </div>
+              <div class="stat">
+                <div class="k"><i class="fa-solid fa-eye"></i>Clarity</div>
+                <div class="v">1.5</div>
+              </div>
+              <div class="stat">
+                <div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div>
+                <div class="v">1.4</div>
+              </div>
+              <div class="stat">
+                <div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div>
+                <div class="v">4.2</div>
+              </div>
+            </div>
+
+            <div class="btnrow">
+              <a class="btn primary" href="/review?mode=course&amp;course=130.html"><i class="fa-solid fa-pen-to-square"></i>Write a review</a>
+              <a class="btn" href="/search?mode=course&amp;course_id=130&amp;course_name=Spanish+I&amp;subject=Foreign+Language&amp;level=Standard&amp;avg_overall=1.4&amp;avg_clarity=1.5&amp;avg_fairness=1.4&amp;avg_workload=4.2&amp;review_count=34"><i class="fa-solid fa-wand-magic-sparkles"></i>Find similar courses</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="section-title">
+              <span><i class="fa-solid fa-chalkboard-user"></i> Teachers for this course</span>
+              <span class="hint">
+                1 found                <span class="dot">•</span>
+                <a class="hintlink" href="/connect-teacher.html">Missing someone?</a>
+              </span>
+            </div>
+
+                                                          <div class="teacher-row">
+                  <div class="teacher-left">
+                    <div class="avatar">
+                                              <img src="/assets/images/teachers/Maria_DeMeyer.jpg" alt="">
+                                          </div>
+                    <div style="min-width:0;">
+                      <strong>Maria DeMeyer</strong>
+                      <div class="sub">
+                        <span><i class="fa-solid fa-comment-dots"></i>34 reviews</span>
+                                                  <span><i class="fa-solid fa-star"></i>1.4 avg</span>
+                                              </div>
+                    </div>
+                  </div>
+
+                  <div class="teacher-right">
+                    <div class="pill">1.4</div>
+                    <a class="btn" href="/teacher?id=26.html"><i class="fa-solid fa-arrow-right"></i>View</a>
+                  </div>
+                </div>
+                                    </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div>
+Rocklin Ratings is not affiliated with Rocklin High School and reflects student opinions, not official school evaluations.
+</div>
+        <div>
+          <a href="/review.html">Leave a review</a> • <a href="/search.html">Search</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('shareBtn');
+      const toast = document.getElementById('toast');
+      if (!btn || !toast) return;
+
+      const pageUrl = new URL(btn.getAttribute('data-url') || '/', window.location.origin).toString();
+      const title = document.title;
+
+      let toastTimer = null;
+      function showToast(html){
+        toast.innerHTML = html;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove('show'), 1600);
+      }
+
+      async function doShare(){
+        if (navigator.share) {
+          try {
+            await navigator.share({ title, url: pageUrl });
+            showToast('<i class="fa-solid fa-check"></i>Shared');
+            return;
+          } catch (e) {}
+        }
+
+        try {
+          await navigator.clipboard.writeText(pageUrl);
+          showToast('<i class="fa-solid fa-check"></i>Link copied');
+        } catch (e) {
+          window.prompt('Copy this link:', pageUrl);
+        }
+      }
+
+      btn.addEventListener('click', doShare);
+
+      if (window.location.hash === '#reviews') {
+        const el = document.getElementById('reviews');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    })();
+  </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"31b5de29b2114489940d7725ac95fdfc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

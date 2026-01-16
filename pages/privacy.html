@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Privacy • Rocklin Ratings</title>
+
+  <link rel="icon" href="/assets/images/logo.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --blue-950:#0e1f46;
+      --blue-900:#12306a;
+      --blue-800:#1a49a7;
+      --blue-700:#2f6bff;
+      --blue-600:#4d86ff;
+      --blue-500:#67a3ff;
+
+      --white:#fff;
+      --text:#0b1220;
+      --muted:#5c667a;
+
+      --card:#ffffff;
+      --card-border:#e6eeff;
+
+      --shadow: 0 18px 55px rgba(0,0,0,.20);
+      --shadow-soft: 0 14px 32px rgba(0,0,0,.10);
+
+      --radius: 18px;
+      --radius-lg: 24px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background:#071124;
+      overflow-x:hidden;
+    }
+
+    .hero{
+      position:relative;
+      min-height: 46vh;
+      display:flex;
+      flex-direction:column;
+      isolation:isolate;
+    }
+
+    .hero video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transform: translateZ(0);
+      filter: saturate(1.05) contrast(1.03);
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:1;
+      background:
+        linear-gradient(180deg, rgba(7,12,24,.78) 0%, rgba(7,12,24,.60) 55%, rgba(7,12,24,.26) 100%),
+        radial-gradient(1000px 600px at 42% 12%, rgba(103,163,255,.32), transparent 60%);
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:6;
+      max-width: 1150px;
+      margin: 0 auto;
+      width:100%;
+      padding: 42px 18px 26px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:flex-start;
+      flex:1;
+    }
+
+    .hero h1{
+      margin:0;
+      color:#fff;
+      font-size: clamp(34px, 4.6vw, 58px);
+      letter-spacing: -1px;
+      font-weight: 950;
+      text-shadow: 0 18px 60px rgba(0,0,0,.45);
+    }
+
+    .hero .sub{
+      margin: 10px 0 0;
+      max-width: 95ch;
+      color: rgba(255,255,255,.88);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .pillbar{
+      margin-top: 14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.94);
+      font-size: 12px;
+      user-select:none;
+      backdrop-filter: blur(12px);
+      text-decoration:none;
+      line-height: 1;
+    }
+    .pill i{ opacity:.95; }
+
+    .wave{
+      position:relative;
+      z-index:2;
+      margin-top:auto;
+      height: 110px;
+      background: transparent;
+      pointer-events:none;
+    }
+    .wave svg{
+      position:absolute;
+      bottom:-1px;
+      left:0;
+      width:100%;
+      height:100%;
+      display:block;
+    }
+
+    main{
+      background: #f3f7ff;
+      padding: 28px 18px 70px;
+    }
+    .container{ max-width: 1150px; margin: 0 auto; }
+
+    .layout{
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap: 14px;
+      align-items:start;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      overflow:hidden;
+    }
+
+    .side{
+      position: sticky;
+      top: 14px;
+    }
+
+    .side .head{
+      padding: 16px 16px 12px;
+      border-bottom: 1px solid #eef3ff;
+      background: linear-gradient(180deg, #ffffff, #f6f9ff);
+    }
+    .side .head .t{
+      margin:0;
+      font-size: 14px;
+      font-weight: 950;
+      letter-spacing: -.2px;
+      color:#0b1220;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .side .head .d{
+      margin:8px 0 0;
+      font-size: 12.75px;
+      line-height:1.6;
+      color:#5a667c;
+    }
+
+    .side .nav{
+      padding: 10px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .side .nav a{
+      text-decoration:none;
+      color:#0b1220;
+      font-weight: 950;
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      transition:.15s ease;
+    }
+    .side .nav a span{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:0;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .side .nav a i{
+      color: rgba(47,107,255,.85);
+      flex:0 0 auto;
+      width: 18px;
+      text-align:center;
+    }
+    .side .nav a:hover{
+      background: #f3f7ff;
+      border-color: #e2ebff;
+    }
+
+    .content{
+      padding: 18px;
+    }
+
+    .banner{
+      border-radius: 18px;
+      border: 1px solid #e2ebff;
+      background: linear-gradient(180deg, #ffffff, #f6f9ff);
+      padding: 14px 14px;
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      margin-bottom: 14px;
+    }
+    .banner .ic{
+      width:44px; height:44px;
+      border-radius: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(77,134,255,.16);
+      border: 1px solid rgba(77,134,255,.26);
+      color: var(--blue-900);
+      flex:0 0 auto;
+    }
+    .banner h2{
+      margin:0;
+      font-size: 15px;
+      font-weight: 950;
+      letter-spacing: -.2px;
+      color:#0b1220;
+    }
+    .banner p{
+      margin:6px 0 0;
+      color:#5a667c;
+      font-size: 12.75px;
+      line-height: 1.6;
+      max-width: 92ch;
+    }
+
+    .section{
+      padding: 14px 0;
+      border-top: 1px solid #eef3ff;
+    }
+    .section:first-of-type{ border-top: 0; padding-top: 0; }
+    .section h3{
+      margin:0;
+      font-size: 15px;
+      font-weight: 950;
+      letter-spacing: -.2px;
+      color:#0b1220;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .section h3 i{ color: rgba(47,107,255,.85); }
+    .section p{
+      margin: 10px 0 0;
+      color:#4a556b;
+      font-size: 13px;
+      line-height: 1.75;
+      max-width: 98ch;
+    }
+    .section ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color:#4a556b;
+      font-size: 13px;
+      line-height: 1.75;
+    }
+    .section li{ margin: 6px 0; }
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .mini{
+      border-radius: 18px;
+      border: 1px solid #e2ebff;
+      background: #f3f7ff;
+      padding: 12px 12px;
+    }
+    .mini .k{
+      font-weight: 950;
+      font-size: 12px;
+      color:#0b1220;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin:0;
+    }
+    .mini .k i{ color: rgba(47,107,255,.85); }
+    .mini .v{
+      margin: 8px 0 0;
+      color:#4a556b;
+      font-size: 12.75px;
+      line-height: 1.65;
+    }
+
+    .callout{
+      margin-top: 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(77,134,255,.26);
+      background: rgba(77,134,255,.10);
+      padding: 12px 12px;
+      color:#2b3b61;
+      font-size: 12.75px;
+      line-height: 1.65;
+    }
+    .callout strong{ color:#12306a; }
+
+    .actions{
+      margin-top: 14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      justify-content:center;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 950;
+      border: 1px solid rgba(18,48,106,.14);
+      background: #fff;
+      color: var(--blue-900);
+      transition:.18s ease;
+      user-select:none;
+      box-shadow: 0 12px 26px rgba(0,0,0,.06);
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
+      border-color: rgba(77,134,255,.30);
+      color:#fff;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+
+    footer{
+      margin-top: 22px;
+      text-align:center;
+      color: #6a7486;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 980px){
+      .layout{ grid-template-columns: 1fr; }
+      .side{ position: static; }
+      .split{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+    <video autoplay muted playsinline loop preload="metadata">
+      <source src="/assets/video/drone_broll_v2.webm" type="video/webm" />
+    </video>
+
+    
+<style>
+  /* ============================
+     Rocklin Ratings Navbar (hard-namespaced + high specificity)
+     Goal: NEVER lose to page CSS
+     Fix: CTA icon/text MUST stay blue (was inheriting white)
+  ============================ */
+
+  #rrx9n-nav{
+    position: relative !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    padding: 14px 22px !important;
+
+    background: rgba(18,48,106,.84) !important;
+    border-bottom: 1px solid rgba(255,255,255,.14) !important;
+    backdrop-filter: blur(12px) !important;
+
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial !important;
+    line-height: 1.2 !important;
+  }
+
+  #rrx9n-nav *{ box-sizing: border-box !important; }
+
+  #rrx9n-nav a{
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  #rrx9n-nav i{
+    color: inherit !important;
+    display: inline-block !important;
+  }
+
+  #rrx9n-nav img{
+    display: block !important;
+    max-width: 100% !important;
+  }
+
+  #rrx9n-nav .rrx9n-brand{
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    user-select: none !important;
+  }
+
+  #rrx9n-nav .rrx9n-logo{
+    height: 28px !important;
+    width: auto !important;
+    filter: drop-shadow(0 10px 28px rgba(0,0,0,.22)) !important;
+  }
+
+  #rrx9n-nav .rrx9n-links{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+    max-width: 100% !important;
+  }
+
+  #rrx9n-nav .rrx9n-link{
+    color: rgba(255,255,255,.94) !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255,255,255,0) !important;
+
+    background: rgba(255,255,255,0) !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+
+    transition: transform .18s ease, background .18s ease, border-color .18s ease !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    white-space: nowrap !important;
+  }
+
+  #rrx9n-nav .rrx9n-link:hover{
+    background: rgba(255,255,255,.10) !important;
+    border-color: rgba(255,255,255,.16) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  #rrx9n-nav .rrx9n-link.rrx9n-active{
+    background: rgba(255,255,255,.14) !important;
+    border-color: rgba(255,255,255,.22) !important;
+  }
+
+  /* CTA always white, always readable */
+  #rrx9n-nav .rrx9n-link.rrx9n-cta{
+    background: #ffffff !important;
+    color: #12306a !important;
+    border-color: rgba(255,255,255,.70) !important;
+    font-weight: 950 !important;
+    padding: 10px 14px !important;
+    box-shadow: 0 16px 40px rgba(0,0,0,.14) !important;
+  }
+
+  #rrx9n-nav .rrx9n-link.rrx9n-cta:hover{
+    background: #ffffff !important;
+    color: #12306a !important;
+  }
+
+  /* ✅ IMPORTANT FIX:
+     Force CTA children (icon + text) to be blue too.
+     Some page CSS is overriding span/i colors. */
+  #rrx9n-nav .rrx9n-link.rrx9n-cta i,
+  #rrx9n-nav .rrx9n-link.rrx9n-cta .rrx9n-txt{
+    color: #12306a !important;
+  }
+
+  #rrx9n-nav .rrx9n-account{ max-width: 260px !important; }
+
+  #rrx9n-nav .rrx9n-txt{ display: inline-block !important; }
+
+  #rrx9n-nav .rrx9n-account .rrx9n-txt{
+    max-width: 170px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  #rrx9n-nav .rrx9n-avatar{
+    width: 22px !important;
+    height: 22px !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    display: inline-block !important;
+    border: 1px solid rgba(255,255,255,.22) !important;
+    flex: 0 0 auto !important;
+  }
+
+  #rrx9n-nav .rrx9n-avatar img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  @media (max-width: 680px){
+    #rrx9n-nav{ padding: 12px 14px !important; }
+    #rrx9n-nav .rrx9n-logo{ height: 24px !important; }
+    #rrx9n-nav .rrx9n-txt{ display: none !important; }
+
+    #rrx9n-nav .rrx9n-link{
+      gap: 0 !important;
+      padding: 10px 10px !important;
+      font-size: 12px !important;
+    }
+
+    #rrx9n-nav .rrx9n-link i{ font-size: 14px !important; }
+    #rrx9n-nav .rrx9n-link.rrx9n-cta{ padding: 10px 12px !important; }
+  }
+
+  @media (max-width: 440px){
+    #rrx9n-nav{ padding: 10px 12px !important; }
+    #rrx9n-nav .rrx9n-link{ border-radius: 12px !important; }
+  }
+</style>
+
+<div id="rrx9n-nav">
+  <a class="rrx9n-brand" href="/index.html" aria-label="Rocklin Ratings home">
+    <img class="rrx9n-logo" src="/assets/images/logo.png" alt="Rocklin Ratings">
+  </a>
+
+  <div class="rrx9n-links">
+    <a class="rrx9n-link" href="/index.html">
+      <i class="fa-solid fa-house"></i><span class="rrx9n-txt">Home</span>
+    </a>
+
+    <a class="rrx9n-link" href="/trending.html">
+      <i class="fa-solid fa-fire"></i><span class="rrx9n-txt">Trending</span>
+    </a>
+
+          <a class="rrx9n-link" href="/signup.html">
+        <i class="fa-solid fa-user-plus"></i><span class="rrx9n-txt">Sign In</span>
+      </a>
+    
+    <a class="rrx9n-link rrx9n-cta" href="/review.html">
+      <i class="fa-solid fa-pen-to-square"></i><span class="rrx9n-txt">Create Review</span>
+    </a>
+  </div>
+</div>
+
+    <div class="hero-inner">
+      <div>
+        <h1>Privacy Policy</h1>
+        <p class="sub">
+          This Privacy Policy explains how Rocklin Ratings collects, uses, and protects information. We are privacy-forward:
+          we collect only what is reasonably necessary to operate the service, reduce abuse, and keep the platform reliable.
+        </p>
+
+        <div class="pillbar">
+          <span class="pill"><i class="fa-solid fa-minimize"></i>Data minimization</span>
+          <span class="pill"><i class="fa-solid fa-user-secret"></i>Anonymous by default</span>
+          <span class="pill"><i class="fa-solid fa-ban"></i>No data sales</span>
+          <a class="pill" href="/terms.html"><i class="fa-solid fa-file-contract"></i>Terms</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,70 C240,120 420,20 720,70 C1020,120 1200,20 1440,70 L1440,120 L0,120 Z" fill="#f3f7ff"></path>
+        <path d="M0,74 C240,124 420,24 720,74 C1020,124 1200,24 1440,74" fill="none" stroke="rgba(103,163,255,.34)" stroke-width="10"></path>
+      </svg>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <div class="layout">
+
+        <!-- Sidebar -->
+        <aside class="card side">
+          <div class="head">
+            <p class="t"><i class="fa-solid fa-lock"></i> Quick nav</p>
+            <p class="d">What we collect, how we use it, and the choices available to you.</p>
+          </div>
+          <nav class="nav">
+            <a href="#collect"><span><i class="fa-solid fa-database"></i>Information we collect</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#use"><span><i class="fa-solid fa-gear"></i>How we use information</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#anon"><span><i class="fa-solid fa-user-secret"></i>Anonymity</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#accounts"><span><i class="fa-solid fa-id-badge"></i>Accounts</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#moderation"><span><i class="fa-solid fa-gavel"></i>Moderation</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#sharing"><span><i class="fa-solid fa-share-nodes"></i>Sharing</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#security"><span><i class="fa-solid fa-shield"></i>Security</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#retention"><span><i class="fa-solid fa-clock"></i>Retention</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#rights"><span><i class="fa-solid fa-sliders"></i>Your rights & choices</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#changes"><span><i class="fa-solid fa-rotate"></i>Changes</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#contact"><span><i class="fa-solid fa-envelope"></i>Contact</span><i class="fa-solid fa-arrow-right"></i></a>
+          </nav>
+        </aside>
+
+        <!-- Content -->
+        <article class="card content">
+
+          <div class="banner">
+            <div class="ic"><i class="fa-solid fa-user-shield"></i></div>
+            <div>
+              <h2>Summary</h2>
+              <p>
+                We operate a review platform. Reviews are anonymous by default. We collect limited technical information
+                to operate the service, maintain security, prevent abuse, and improve reliability. Optional sign-in features may
+                store basic account information. We do not sell personal information.
+              </p>
+            </div>
+          </div>
+
+          <div class="section" id="collect">
+            <h3><i class="fa-solid fa-database"></i> 1) Information we collect</h3>
+            <p>
+              We collect information in three categories: (a) information you submit, (b) information collected automatically when you use the service,
+              and (c) information associated with optional account features.
+            </p>
+            <ul>
+              <li><strong>Content you submit:</strong> ratings, written comments, selected teacher/course, and related timestamps.</li>
+              <li><strong>Basic technical data:</strong> limited device and browser signals (such as an anonymous device identifier, user agent, and similar operational metadata), and network information (such as an IP address or a privacy-preserving representation of it), to support security, fraud prevention, and service integrity.</li>
+              <li><strong>Usage events:</strong> high-level activity events (e.g., page views and actions) used for reliability, troubleshooting, analytics, and abuse prevention.</li>
+              <li><strong>Optional account information:</strong> if you choose to sign in, we store information necessary to create and maintain your account and provide account-related features.</li>
+            </ul>
+
+            <div class="callout">
+              <strong>Do not submit sensitive personal information.</strong> Please do not post student names, IDs, phone numbers, addresses, schedules, private communications, or any other information that could identify a private individual. Content submitted is user-generated and may be visible to others.
+            </div>
+          </div>
+
+          <div class="section" id="use">
+            <h3><i class="fa-solid fa-gear"></i> 2) How we use information</h3>
+            <p>
+              We use collected information to operate, maintain, secure, and improve the service. This includes displaying content,
+              calculating aggregates, detecting and preventing abuse, debugging, measuring performance, and enforcing service rules.
+              We do not use information to build cross-site advertising profiles.
+            </p>
+
+            <div class="split">
+              <div class="mini">
+                <p class="k"><i class="fa-solid fa-bolt"></i>Operate the service</p>
+                <p class="v">Process and display ratings and comments, maintain platform functionality, and support user features.</p>
+              </div>
+              <div class="mini">
+                <p class="k"><i class="fa-solid fa-shield"></i>Protect integrity</p>
+                <p class="v">Limit spam, automated activity, manipulation, and other misuse to preserve reliability and fairness.</p>
+              </div>
+            </div>
+
+            <p>
+              We may also use aggregated, de-identified, or otherwise non-identifying information for analytics and reporting to understand usage trends and improve the platform.
+            </p>
+          </div>
+
+          <div class="section" id="anon">
+            <h3><i class="fa-solid fa-user-secret"></i> 3) Anonymity and identifiers</h3>
+            <p>
+              Reviews are anonymous by default. The service may associate a review with limited technical signals (for example, an anonymous device identifier and network information)
+              to support security, prevent abuse, and enforce rate limits. These signals are used for operational purposes and are not intended to publicly identify a reviewer.
+            </p>
+          </div>
+
+          <div class="section" id="accounts">
+            <h3><i class="fa-solid fa-id-badge"></i> 4) Accounts and Google sign-in</h3>
+            <p>
+              Creating an account is optional. If you choose to sign in with Google, we receive and store basic account information needed to authenticate you and maintain your account
+              (such as your name, email address, and a Google account identifier). We do not receive your Google password.
+            </p>
+            <p>
+              Account features may include account-based actions or preferences. You can use the service without signing in.
+            </p>
+          </div>
+
+          <div class="section" id="moderation">
+            <h3><i class="fa-solid fa-gavel"></i> 5) Moderation and enforcement</h3>
+            <p>
+              The platform may use a combination of automated and manual processes to support service integrity, enforce rules, and respond to reports of misuse.
+              Actions may include limiting visibility, restricting functionality, removing content, or taking other steps consistent with the Terms.
+            </p>
+            <p>
+              Moderation decisions may consider content signals and limited technical context. We do not guarantee that all content will be reviewed or that any specific moderation outcome will occur.
+            </p>
+          </div>
+
+          <div class="section" id="sharing">
+            <h3><i class="fa-solid fa-share-nodes"></i> 6) Sharing, service providers, and legal requests</h3>
+            <p>
+              <strong>No sale of personal information.</strong> We do not sell personal information and do not share personal information with third parties for targeted advertising.
+            </p>
+            <p>
+              We may share information with vendors and service providers that help operate the platform (for example, hosting, content delivery, analytics, and security services).
+              These providers are permitted to process information only to provide services to us and are expected to protect it consistent with applicable obligations.
+            </p>
+            <p>
+              We may disclose information if we believe it is reasonably necessary to comply with applicable law, respond to valid legal process, protect the safety, integrity, or rights of the service and users,
+              investigate abuse, or prevent fraud and security incidents.
+            </p>
+          </div>
+
+          <div class="section" id="security">
+            <h3><i class="fa-solid fa-shield"></i> 7) Security</h3>
+            <p>
+              We implement reasonable administrative, technical, and physical safeguards designed to protect information. No method of transmission or storage is completely secure,
+              and we cannot guarantee absolute security.
+            </p>
+          </div>
+
+          <div class="section" id="retention">
+            <h3><i class="fa-solid fa-clock"></i> 8) Data retention</h3>
+            <p>
+              We retain information for as long as reasonably necessary to operate the service, enforce the Terms, comply with legal obligations, resolve disputes, and protect the platform from misuse.
+              Retention periods may vary based on the type of information and operational needs. Certain logs may be retained for limited periods for security and troubleshooting.
+            </p>
+          </div>
+
+          <div class="section" id="rights">
+            <h3><i class="fa-solid fa-sliders"></i> 9) Your rights and choices</h3>
+            <p>
+              You can use the service without creating an account. If you choose to sign in, you may stop signing in at any time. Where applicable, you may request access, correction, or deletion of certain information,
+              subject to legal and operational limitations (for example, security logs, integrity controls, and content that must be retained for compliance or platform safety).
+            </p>
+            <p>
+              California residents may have additional rights under applicable privacy laws. We respond to requests as required by law and may need to verify your request before acting on it.
+            </p>
+            <div class="callout">
+              <strong>Practical note:</strong> Because reviews are anonymous by default, we may be unable to reliably verify authorship of specific anonymous submissions without sufficient supporting information.
+            </div>
+          </div>
+
+          <div class="section" id="changes">
+            <h3><i class="fa-solid fa-rotate"></i> 10) Changes to this Privacy Policy</h3>
+            <p>
+              We may update this Privacy Policy from time to time. The “effective” date is the date the policy is posted. Your continued use of the service after an update becomes effective constitutes acceptance of the updated policy to the extent permitted by law.
+            </p>
+          </div>
+
+          <div class="section" id="contact">
+            <h3><i class="fa-solid fa-envelope"></i> 11) Contact</h3>
+            <p>
+              Questions or requests related to privacy should be submitted through the contact options available on the site. If you are reporting a security issue, please include enough detail for us to investigate responsibly.
+            </p>
+
+            <div class="actions">
+              <a class="btn" href="/terms.html"><i class="fa-solid fa-file-contract"></i>Read Terms</a>
+              <a class="btn primary" href="/index.html"><i class="fa-solid fa-house"></i>Back to home</a>
+            </div>
+          </div>
+
+          <footer>
+            Rocklin Ratings is not affiliated with any school. Content reflects user opinions and is not an official evaluation.
+          </footer>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Smooth scroll for sidebar anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (!id || id === '#') return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', id);
+      });
+    });
+  </script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"31b5de29b2114489940d7725ac95fdfc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

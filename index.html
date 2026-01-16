@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rocklin Ratings</title>
+
+  <link rel="icon" href="/assets/images/logo.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --blue-950:#0e1f46;
+      --blue-900:#12306a;
+      --blue-800:#1a49a7;
+      --blue-700:#2f6bff;
+      --blue-600:#4d86ff;
+      --blue-500:#67a3ff;
+
+      --nav-bg: rgba(18,48,106,.85);
+      --nav-border: rgba(255,255,255,.16);
+
+      --white:#fff;
+      --text:#0b1220;
+      --muted:#5c667a;
+
+      --card:#ffffff;
+      --card-border:#e6eeff;
+
+      --shadow: 0 18px 55px rgba(0,0,0,.20);
+      --shadow-soft: 0 14px 32px rgba(0,0,0,.10);
+
+      --radius: 18px;
+      --radius-lg: 24px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background:#071124;
+      overflow-x:hidden;
+    }
+
+    .hero{
+      position:relative;
+      min-height: 78vh;
+      display:flex;
+      flex-direction:column;
+      isolation:isolate;
+    }
+
+    .hero video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transform: translateZ(0);
+      filter: saturate(1.05) contrast(1.03);
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:1;
+      background:
+        linear-gradient(180deg, rgba(7,12,24,.72) 0%, rgba(7,12,24,.55) 38%, rgba(7,12,24,.22) 100%),
+        radial-gradient(1000px 600px at 42% 12%, rgba(103,163,255,.34), transparent 60%);
+    }
+
+    .nav{
+      position:relative;
+      z-index:3;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding: 14px 22px;
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--nav-border);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      min-width: unset;
+      user-select:none;
+    }
+
+    .brand-logo{
+      display:block;
+      height:28px;
+      width:auto;
+      object-fit:contain;
+      background: transparent;
+      border: 0;
+      filter: drop-shadow(0 10px 28px rgba(0,0,0,.22));
+    }
+
+    .navlinks{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap: 6px;
+      flex-wrap:wrap;
+    }
+
+    .navlinks a{
+      color: rgba(255,255,255,.94);
+      text-decoration:none;
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: .18s ease;
+      user-select:none;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .navlinks a:hover{
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.16);
+    }
+    .navlinks a.active{
+      background: rgba(255,255,255,.12);
+      border-color: rgba(255,255,255,.18);
+    }
+
+    .navlinks a.cta{
+      background: #fff;
+      color: var(--blue-900);
+      border-color: rgba(255,255,255,.70);
+      font-weight: 950;
+      padding: 10px 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.12);
+    }
+    .navlinks a.cta:hover{
+      transform: translateY(-1px);
+      background:#fff;
+    }
+
+    @media (max-width: 680px){
+      .nav{ padding: 12px 14px; }
+      .brand-logo{ height:24px; }
+      .navlinks a{ padding: 10px 10px; font-size: 12px; }
+      .navlinks a span.txt{ display:none; }
+      .navlinks a{ gap:0; }
+      .navlinks a i{ font-size: 14px; }
+      .navlinks a.cta{ padding: 10px 12px; }
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:6;
+      max-width: 1150px;
+      margin: 0 auto;
+      width:100%;
+      padding: 52px 18px 32px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      flex:1;
+    }
+.wave{ position:relative; z-index:2; pointer-events:none; }
+.wave svg{ pointer-events:none; }
+
+    .hero h1{
+      margin:0;
+      color:#fff;
+      font-size: clamp(46px, 6vw, 86px);
+      letter-spacing: -1px;
+      font-weight: 950;
+      text-shadow: 0 18px 60px rgba(0,0,0,.45);
+    }
+
+    .hero .sub{
+      margin: 14px auto 0;
+      max-width: 72ch;
+      color: rgba(255,255,255,.88);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .mini-features{
+      margin-top: 14px;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.94);
+      font-size: 12px;
+      user-select:none;
+      backdrop-filter: blur(12px);
+      text-decoration:none;
+      line-height: 1;
+    }
+    .chip i{ opacity:.95; }
+
+    /* Search */
+    .search-stack{
+      margin: 20px auto 0;
+      width: min(780px, 92vw);
+      position:relative;
+    }
+
+    .search-wrap{
+      border-radius: 999px;
+      overflow:hidden;
+      background: rgba(255,255,255,.97);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.55);
+      display:flex;
+      align-items:stretch;
+    }
+
+    .toggle{
+      display:flex;
+      align-items:center;
+      padding: 8px;
+      background: rgba(18,48,106,.05);
+      border-right: 1px solid rgba(18,48,106,.10);
+      gap:6px;
+    }
+    .toggle button{
+      border: 0;
+      background: transparent;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 950;
+      font-size: 12px;
+      color: var(--blue-900);
+      cursor:pointer;
+      transition: .15s ease;
+      user-select:none;
+      white-space:nowrap;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .toggle button.active{
+      background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(77,134,255,.22);
+    }
+
+    .search-wrap input{
+      border:0;
+      outline:none;
+      flex:1;
+      padding: 0 16px;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .search-wrap input::placeholder{ color: #7a859a; }
+
+    .search-wrap .go{
+      border:0;
+      width: 58px;
+      background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
+      color:#fff;
+      font-weight: 950;
+      cursor:pointer;
+      transition:.18s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 16px;
+    }
+    .search-wrap .go:hover{ filter: brightness(1.05); }
+
+    /* Suggestions dropdown */
+    .suggest{
+      position:absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      right: 0;
+      z-index: 10;
+      background: rgba(255,255,255,.98);
+      border: 1px solid rgba(230,238,255,.95);
+      border-radius: 18px;
+      box-shadow: 0 22px 60px rgba(0,0,0,.20);
+      overflow:hidden;
+      backdrop-filter: blur(10px);
+      display:none;
+    }
+    .suggest.open{ display:block; }
+
+    .suggest .head{
+      padding: 12px 14px;
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .2px;
+      color: #5b667c;
+      background: linear-gradient(180deg, #ffffff, #f6f9ff);
+      border-bottom: 1px solid #eef3ff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .suggest .head .hint{
+      font-weight: 900;
+      color:#7a859a;
+    }
+
+    .s-item{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding: 12px 14px;
+      cursor:pointer;
+      transition:.12s ease;
+      border-bottom: 1px solid #f0f4ff;
+    }
+    .s-item:last-child{ border-bottom: 0; }
+    .s-item:hover{ background: #f3f7ff; }
+    .s-item.active{ background: #eaf1ff; }
+
+    .s-avatar{
+      width: 36px;
+      height: 36px;
+      border-radius: 14px;
+      background: rgba(77,134,255,.14);
+      border: 1px solid rgba(77,134,255,.22);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--blue-900);
+      overflow:hidden;
+      flex: 0 0 auto;
+    }
+    .s-avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .s-main{
+      min-width:0;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:3px;
+      flex:1;
+    }
+    .s-label{
+      font-size: 13px;
+      font-weight: 950;
+      color:#0b1220;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width: 100%;
+    }
+    .s-meta{
+      font-size: 12px;
+      color:#657189;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width: 100%;
+    }
+
+    .s-go{
+      color:#7a859a;
+      flex:0 0 auto;
+    }
+
+    .hero-cta{
+      margin-top: 16px;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .hero-cta a{
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      justify-content:center;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 950;
+      border: 1px solid rgba(255,255,255,.20);
+      background: rgba(255,255,255,.12);
+      color:#fff;
+      transition:.18s ease;
+      user-select:none;
+    }
+    .hero-cta a.primary{
+      background:#fff;
+      color: var(--blue-900);
+      border-color: rgba(255,255,255,.70);
+    }
+    .hero-cta a:hover{ transform: translateY(-1px); }
+    .hero-cta a.primary:hover{ background:#fff; }
+
+    .wave{
+      position:relative;
+      z-index:2;
+      margin-top:auto;
+      height: 120px;
+      background: transparent;
+    }
+    .wave svg{
+      position:absolute;
+      bottom:-1px;
+      left:0;
+      width:100%;
+      height:100%;
+      display:block;
+    }
+
+    main{
+      background: #f3f7ff;
+      padding: 34px 18px 70px;
+    }
+    .container{ max-width: 1150px; margin: 0 auto; }
+
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom: 16px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size: 28px;
+      letter-spacing:-.3px;
+      font-weight: 950;
+    }
+    .section-head p{
+      margin:6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height:1.55;
+      max-width: 80ch;
+    }
+
+    .section-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      justify-content:center;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 950;
+      border: 1px solid rgba(18,48,106,.14);
+      background: #fff;
+      color: var(--blue-900);
+      transition:.18s ease;
+      user-select:none;
+      box-shadow: 0 12px 26px rgba(0,0,0,.06);
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
+      border-color: rgba(77,134,255,.30);
+      color:#fff;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    /* Recent review cards */
+    .card{
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 16px;
+      transition: .18s ease;
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .card:hover{ transform: translateY(-2px); }
+
+    .meta-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eef3ff;
+    }
+    .author{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      min-width:0;
+    }
+    .author .name{
+      font-weight: 950;
+      font-size: 13px;
+      letter-spacing:.1px;
+      color:#0b1220;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width: 100%;
+    }
+    .author .when{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size: 12px;
+      color: var(--muted);
+      white-space:nowrap;
+    }
+
+    .score{
+      min-width: 64px;
+      height: 38px;
+      padding: 0 12px;
+      border-radius: 14px;
+      background: rgba(103,163,255,.20);
+      border: 1px solid rgba(103,163,255,.30);
+      color: var(--blue-900);
+      font-weight: 950;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 14px;
+      letter-spacing:.1px;
+      flex: 0 0 auto;
+    }
+
+    .targets{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .t-row{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      min-width:0;
+      color:#0b1220;
+    }
+    .t-row i{
+      margin-top: 2px;
+      color: rgba(47,107,255,.85);
+      flex: 0 0 auto;
+      width: 18px;
+      text-align:center;
+    }
+    .t-row a{
+      color:#0b1220;
+      text-decoration:none;
+      font-weight: 950;
+      font-size: 13px;
+      min-width:0;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .t-row a:hover{ text-decoration: underline; }
+    .t-row .subtxt{
+      margin-left: 8px;
+      color: var(--muted);
+      font-weight: 900;
+      font-size: 12px;
+      white-space:nowrap;
+    }
+
+    .metrics{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 2px;
+    }
+    .metric{
+      border-radius: 14px;
+      padding: 10px 10px;
+      border: 1px solid #e2ebff;
+      background: #f3f7ff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      min-width: 0;
+    }
+    .metric .k{
+      font-size: 11px;
+      color:#4e5a72;
+      font-weight: 900;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      min-width:0;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .metric .v{
+      font-size: 12px;
+      font-weight: 950;
+      color: var(--blue-900);
+      flex:0 0 auto;
+    }
+
+    .comment{
+      border-top: 1px solid #eef3ff;
+      padding-top: 12px;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .comment i{
+      color: rgba(47,107,255,.85);
+      margin-top: 2px;
+      flex: 0 0 auto;
+      width: 18px;
+      text-align:center;
+    }
+    .comment p{
+      margin:0;
+      color:#4a556b;
+      font-size: 12.5px;
+      line-height: 1.6;
+      display:-webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow:hidden;
+    }
+
+    .empty{
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--card-border);
+      background: linear-gradient(180deg, #ffffff, #f6f9ff);
+      box-shadow: var(--shadow-soft);
+      padding: 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .empty .left{ display:flex; align-items:flex-start; gap:14px; min-width:0; }
+    .empty .icon{
+      width:44px; height:44px; border-radius: 14px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(77,134,255,.16);
+      border: 1px solid rgba(77,134,255,.26);
+      color: var(--blue-900);
+      flex:0 0 auto;
+    }
+    .empty h3{ margin:0; font-size: 15px; letter-spacing: -.2px; font-weight: 950; color: #0b1220; }
+    .empty p{ margin:6px 0 0; color:#5a667c; font-size: 12.75px; line-height: 1.6; max-width: 80ch; }
+    .empty .actions{ display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; flex:0 0 auto; }
+
+    footer{
+      margin-top: 26px;
+      text-align:center;
+      color: #6a7486;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+      .empty{ flex-direction:column; align-items:flex-start; }
+      .empty .actions{ width:100%; justify-content:flex-start; }
+      .metrics{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+    <video autoplay muted playsinline loop preload="metadata">
+      <source src="/assets/video/drone_broll_v2.webm" type="video/webm" />
+    </video>
+
+
+<style>
+  /* ============================
+     Rocklin Ratings Navbar (hard-namespaced + high specificity)
+     Goal: NEVER lose to page CSS
+     Fix: CTA icon/text MUST stay blue (was inheriting white)
+  ============================ */
+
+  #rrx9n-nav{
+    position: relative !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    padding: 14px 22px !important;
+
+    background: rgba(18,48,106,.84) !important;
+    border-bottom: 1px solid rgba(255,255,255,.14) !important;
+    backdrop-filter: blur(12px) !important;
+
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial !important;
+    line-height: 1.2 !important;
+  }
+
+  #rrx9n-nav *{ box-sizing: border-box !important; }
+
+  #rrx9n-nav a{
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  #rrx9n-nav i{
+    color: inherit !important;
+    display: inline-block !important;
+  }
+
+  #rrx9n-nav img{
+    display: block !important;
+    max-width: 100% !important;
+  }
+
+  #rrx9n-nav .rrx9n-brand{
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    user-select: none !important;
+  }
+
+  #rrx9n-nav .rrx9n-logo{
+    height: 28px !important;
+    width: auto !important;
+    filter: drop-shadow(0 10px 28px rgba(0,0,0,.22)) !important;
+  }
+
+  #rrx9n-nav .rrx9n-links{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+    max-width: 100% !important;
+  }
+
+  #rrx9n-nav .rrx9n-link{
+    color: rgba(255,255,255,.94) !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255,255,255,0) !important;
+
+    background: rgba(255,255,255,0) !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+
+    transition: transform .18s ease, background .18s ease, border-color .18s ease !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    white-space: nowrap !important;
+  }
+
+  #rrx9n-nav .rrx9n-link:hover{
+    background: rgba(255,255,255,.10) !important;
+    border-color: rgba(255,255,255,.16) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  #rrx9n-nav .rrx9n-link.rrx9n-active{
+    background: rgba(255,255,255,.14) !important;
+    border-color: rgba(255,255,255,.22) !important;
+  }
+
+  /* CTA always white, always readable */
+  #rrx9n-nav .rrx9n-link.rrx9n-cta{
+    background: #ffffff !important;
+    color: #12306a !important;
+    border-color: rgba(255,255,255,.70) !important;
+    font-weight: 950 !important;
+    padding: 10px 14px !important;
+    box-shadow: 0 16px 40px rgba(0,0,0,.14) !important;
+  }
+
+  #rrx9n-nav .rrx9n-link.rrx9n-cta:hover{
+    background: #ffffff !important;
+    color: #12306a !important;
+  }
+
+  /* ✅ IMPORTANT FIX:
+     Force CTA children (icon + text) to be blue too.
+     Some page CSS is overriding span/i colors. */
+  #rrx9n-nav .rrx9n-link.rrx9n-cta i,
+  #rrx9n-nav .rrx9n-link.rrx9n-cta .rrx9n-txt{
+    color: #12306a !important;
+  }
+
+  #rrx9n-nav .rrx9n-account{ max-width: 260px !important; }
+
+  #rrx9n-nav .rrx9n-txt{ display: inline-block !important; }
+
+  #rrx9n-nav .rrx9n-account .rrx9n-txt{
+    max-width: 170px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  #rrx9n-nav .rrx9n-avatar{
+    width: 22px !important;
+    height: 22px !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    display: inline-block !important;
+    border: 1px solid rgba(255,255,255,.22) !important;
+    flex: 0 0 auto !important;
+  }
+
+  #rrx9n-nav .rrx9n-avatar img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  @media (max-width: 680px){
+    #rrx9n-nav{ padding: 12px 14px !important; }
+    #rrx9n-nav .rrx9n-logo{ height: 24px !important; }
+    #rrx9n-nav .rrx9n-txt{ display: none !important; }
+
+    #rrx9n-nav .rrx9n-link{
+      gap: 0 !important;
+      padding: 10px 10px !important;
+      font-size: 12px !important;
+    }
+
+    #rrx9n-nav .rrx9n-link i{ font-size: 14px !important; }
+    #rrx9n-nav .rrx9n-link.rrx9n-cta{ padding: 10px 12px !important; }
+  }
+
+  @media (max-width: 440px){
+    #rrx9n-nav{ padding: 10px 12px !important; }
+    #rrx9n-nav .rrx9n-link{ border-radius: 12px !important; }
+  }
+</style>
+
+<div id="rrx9n-nav">
+  <a class="rrx9n-brand" href="/index.html" aria-label="Rocklin Ratings home">
+    <img class="rrx9n-logo" src="/assets/images/logo.png" alt="Rocklin Ratings">
+  </a>
+
+  <div class="rrx9n-links">
+    <a class="rrx9n-link rrx9n-active" href="/index.html">
+      <i class="fa-solid fa-house"></i><span class="rrx9n-txt">Home</span>
+    </a>
+
+    <a class="rrx9n-link" href="/trending.html">
+      <i class="fa-solid fa-fire"></i><span class="rrx9n-txt">Trending</span>
+    </a>
+
+          <a class="rrx9n-link" href="/signup.html">
+        <i class="fa-solid fa-user-plus"></i><span class="rrx9n-txt">Sign In</span>
+      </a>
+
+    <a class="rrx9n-link rrx9n-cta" href="/review.html">
+      <i class="fa-solid fa-pen-to-square"></i><span class="rrx9n-txt">Create Review</span>
+    </a>
+  </div>
+</div>
+
+<style>
+  /* FORCE popup above literally everything */
+  #rrx9n-popup{
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 2147483647 !important;
+    display: none !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(7,12,24,.78) !important;
+    backdrop-filter: blur(8px) !important;
+  }
+  #rrx9n-popup.rrx9n-show{ display:flex !important; }
+
+  /* IMPORTANT: DO NOT set font-family on * (it breaks Font Awesome) */
+  #rrx9n-popup,
+  #rrx9n-popup .rrx9n-popup-card,
+  #rrx9n-popup .rrx9n-popup-title,
+  #rrx9n-popup .rrx9n-popup-body,
+  #rrx9n-popup .rrx9n-popup-actions,
+  #rrx9n-popup .rrx9n-popup-btn,
+  #rrx9n-popup .rrx9n-popup-dismiss{
+    box-sizing: border-box !important;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial !important;
+  }
+
+  /* Allow Font Awesome to keep its own font-family */
+  #rrx9n-popup i.fa,
+  #rrx9n-popup i.fas,
+  #rrx9n-popup i.far,
+  #rrx9n-popup i.fab,
+  #rrx9n-popup i.fa-solid,
+  #rrx9n-popup i.fa-regular,
+  #rrx9n-popup i.fa-brands{
+    font-family: var(--fa-style-family, "Font Awesome 6 Free") !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    text-rendering: auto !important;
+    line-height: 1 !important;
+  }
+
+  .rrx9n-popup-card{
+    position: relative !important;
+    width: min(92vw, 560px) !important;
+    background: #ffffff !important;
+    border-radius: 22px !important;
+    box-shadow: 0 30px 80px rgba(0,0,0,.35) !important;
+    padding: 22px !important;
+  }
+
+  .rrx9n-popup-head{
+    display:flex !important;
+    align-items:center !important;
+    gap:12px !important;
+    margin-bottom:10px !important;
+  }
+
+  .rrx9n-popup-icon{
+    width:40px !important;
+    height:40px !important;
+    border-radius:14px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    background: rgba(47,107,255,.12) !important;
+    border: 1px solid rgba(47,107,255,.25) !important;
+    color:#12306a !important;
+    flex:0 0 auto !important;
+    font-size: 18px !important;
+  }
+
+  .rrx9n-popup-title{
+    font-size:18px !important;
+    font-weight:950 !important;
+    color:#0b1220 !important;
+    letter-spacing: -.3px !important;
+  }
+
+  .rrx9n-popup-body{
+    margin-top:6px !important;
+    font-size:14px !important;
+    line-height:1.7 !important;
+    color:#4a556b !important;
+    font-weight:700 !important;
+  }
+
+  .rrx9n-popup-actions{
+    display:flex !important;
+    gap:10px !important;
+    flex-wrap:wrap !important;
+    margin-top:16px !important;
+    align-items:center !important;
+  }
+
+  .rrx9n-popup-btn{
+    border:1px solid rgba(18,48,106,.18) !important;
+    background:#ffffff !important;
+    color:#12306a !important;
+    border-radius:14px !important;
+    padding:12px 14px !important;
+    font-size:13px !important;
+    font-weight:950 !important;
+    cursor:pointer !important;
+    text-decoration:none !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    gap:8px !important;
+    box-shadow:0 12px 26px rgba(0,0,0,.08) !important;
+    transition: transform .15s ease !important;
+  }
+
+  .rrx9n-popup-btn.primary{
+    background:linear-gradient(135deg,#1a49a7,#4d86ff) !important;
+    color:#ffffff !important;
+    border-color:rgba(77,134,255,.45) !important;
+  }
+
+  .rrx9n-popup-btn:hover{ transform: translateY(-1px) !important; }
+
+  .rrx9n-popup-dismiss{
+    margin-left:auto !important;
+    background:transparent !important;
+    border:none !important;
+    color:#6a7486 !important;
+    font-size:12px !important;
+    font-weight:800 !important;
+    cursor:pointer !important;
+    padding: 8px 10px !important;
+  }
+</style>
+
+<div id="rrx9n-popup" aria-hidden="true">
+  <div class="rrx9n-popup-card" role="dialog" aria-modal="true" aria-labelledby="rrx9n-popup-title">
+    <div class="rrx9n-popup-head">
+      <div class="rrx9n-popup-icon" aria-hidden="true">
+        <i class="fa-solid fa-bullhorn"></i>
+      </div>
+      <div class="rrx9n-popup-title" id="rrx9n-popup-title">
+        New announcement      </div>
+    </div>
+
+    <div class="rrx9n-popup-body">
+      There has been confusion around a message claiming legal or disciplinary action. We’ve posted an official clarification and updated review standards.    </div>
+
+    <div class="rrx9n-popup-actions">
+      <a class="rrx9n-popup-btn primary" href="/announcement.html">
+        <i class="fa-solid fa-arrow-right"></i>
+        Read the clarification      </a>
+
+      <button class="rrx9n-popup-btn" type="button" id="rrx9n-popup-close">
+        Dismiss
+      </button>
+
+      <button class="rrx9n-popup-dismiss" type="button" id="rrx9n-popup-dismiss">
+        Don’t show again
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ✅ Escape hero stacking contexts: move popup to <body> so it can overlay everything
+  const popup = document.getElementById('rrx9n-popup');
+  if (!popup) return;
+  if (popup.parentElement !== document.body) document.body.appendChild(popup);
+
+  const VERSION = "announcement-2026-01-13";
+  const KEY = 'rrx9n_announcement_seen';
+
+  try{
+    if (localStorage.getItem(KEY) === VERSION) return;
+  }catch(e){}
+
+  popup.classList.add('rrx9n-show');
+  popup.setAttribute('aria-hidden','false');
+
+  function hide(save){
+    popup.classList.remove('rrx9n-show');
+    popup.setAttribute('aria-hidden','true');
+    if (save){
+      try{ localStorage.setItem(KEY, VERSION); }catch(e){}
+    }
+  }
+
+  document.getElementById('rrx9n-popup-close')?.addEventListener('click',()=>hide(false));
+  document.getElementById('rrx9n-popup-dismiss')?.addEventListener('click',()=>hide(true));
+
+  popup.addEventListener('click',(e)=>{
+    if(e.target===popup) hide(false);
+  });
+})();
+</script>
+
+
+    <div class="hero-inner">
+      <div>
+        <h1>Rocklin Ratings</h1>
+        <p class="sub">
+          Anonymous by default. Real RHS feedback with ratings <strong>and</strong> comments — so you can pick classes with confidence.
+        </p>
+
+<div class="mini-features">
+          <span class="chip"><i class="fa-solid fa-user-secret"></i>Anonymous by default</span>
+          <span class="chip"><i class="fa-solid fa-comment-dots"></i>Ratings + comments</span>
+          <span class="chip"><i class="fa-solid fa-circle-check"></i>Free to use</span>
+          <a class="chip" href="https://instagram.com/rocklinratings_" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram"></i>Follow @rocklinratings
+          </a>
+        </div>
+
+        <div class="search-stack">
+          <form class="search-wrap" action="/search" method="GET" id="searchForm" autocomplete="off">
+            <div class="toggle" aria-label="Search type">
+              <button type="button" class="active" id="btnTeacher" data-mode="teacher">
+                <i class="fa-solid fa-chalkboard-user"></i>Teacher
+              </button>
+              <button type="button" id="btnCourse" data-mode="course">
+                <i class="fa-solid fa-book"></i>Course
+              </button>
+            </div>
+
+            <input id="q" name="q" type="text" placeholder="Teacher name" autocomplete="off" />
+            <input id="mode" name="mode" type="hidden" value="teacher" />
+            <button class="go" type="submit" aria-label="Search"><i class="fa-solid fa-arrow-right"></i></button>
+          </form>
+
+          <div class="suggest" id="suggest">
+            <div class="head">
+              <span id="suggestTitle">Suggestions</span>
+              <span class="hint">↑ ↓ Enter</span>
+            </div>
+            <div id="suggestList"></div>
+          </div>
+        </div>
+
+        <div class="hero-cta">
+          <a class="primary" href="/review.html"><i class="fa-solid fa-pen-to-square"></i>Leave a review today</a>
+          <a href="/trending.html"><i class="fa-solid fa-fire"></i>See trending</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,70 C240,120 420,20 720,70 C1020,120 1200,20 1440,70 L1440,120 L0,120 Z" fill="#f3f7ff"></path>
+        <path d="M0,74 C240,124 420,24 720,74 C1020,124 1200,24 1440,74" fill="none" stroke="rgba(103,163,255,.34)" stroke-width="10"></path>
+      </svg>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Most Recent Reviews</h2>
+          <p>Latest ratings + comments from real RHS students.</p>
+        </div>
+
+        <div class="section-actions">
+          <a class="btn" href="/recent.html"><i class="fa-solid fa-clock"></i>View all recent</a>
+          <a class="btn primary" href="/review.html"><i class="fa-solid fa-pen-to-square"></i>Write a review</a>
+        </div>
+      </div>
+
+              <div class="grid">
+                      <article class="card">
+              <div class="meta-top">
+                <div class="author">
+                  <div class="name">Anonymous Student</div>
+                  <div class="when">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>13 min ago</span>
+                  </div>
+                </div>
+                <div class="score">5</div>
+              </div>
+
+              <div class="targets">
+                <div class="t-row">
+                  <i class="fa-solid fa-chalkboard-user"></i>
+                  <a href="/teacher/diane-cameron.html">Diane Cameron</a>
+                  <span class="subtxt">Teacher</span>
+                </div>
+                <div class="t-row">
+                  <i class="fa-solid fa-book"></i>
+                  <a href="/course/integrated-math-2.html">Integrated Math 2</a>
+                  <span class="subtxt">Course</span>
+                </div>
+              </div>
+
+              <div class="metrics">
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-eye"></i>Clarity</div>
+                  <div class="v">5</div>
+                </div>
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div>
+                  <div class="v">5</div>
+                </div>
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div>
+                  <div class="v">1</div>
+                </div>
+              </div>
+
+              <div class="comment">
+                <i class="fa-solid fa-comment"></i>
+                <p>Didn’t do the final assignment but named it “Mrs Cameron the goat rollercoaster” got an 100% best teacher OAT 😍</p>
+              </div>
+            </article>
+                      <article class="card">
+              <div class="meta-top">
+                <div class="author">
+                  <div class="name">Anonymous Student</div>
+                  <div class="when">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>18 min ago</span>
+                  </div>
+                </div>
+                <div class="score">1</div>
+              </div>
+
+              <div class="targets">
+                <div class="t-row">
+                  <i class="fa-solid fa-chalkboard-user"></i>
+                  <a href="/teacher/debi-devinna.html">Debi DeVinna</a>
+                  <span class="subtxt">Teacher</span>
+                </div>
+                <div class="t-row">
+                  <i class="fa-solid fa-book"></i>
+                  <a href="/course/freshman-pe.html">Freshman PE</a>
+                  <span class="subtxt">Course</span>
+                </div>
+              </div>
+
+              <div class="metrics">
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-eye"></i>Clarity</div>
+                  <div class="v">1</div>
+                </div>
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div>
+                  <div class="v">1</div>
+                </div>
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div>
+                  <div class="v">1</div>
+                </div>
+              </div>
+
+              <div class="comment">
+                <i class="fa-solid fa-comment"></i>
+                <p>fat as shi and def lesbian shut yo bith ahh up during dance</p>
+              </div>
+            </article>
+                      <article class="card">
+              <div class="meta-top">
+                <div class="author">
+                  <div class="name">Anonymous Student</div>
+                  <div class="when">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>18 min ago</span>
+                  </div>
+                </div>
+                <div class="score">1</div>
+              </div>
+
+              <div class="targets">
+                <div class="t-row">
+                  <i class="fa-solid fa-chalkboard-user"></i>
+                  <a href="/teacher/kristen-hamm.html">Kristen Hamm</a>
+                  <span class="subtxt">Teacher</span>
+                </div>
+                <div class="t-row">
+                  <i class="fa-solid fa-book"></i>
+                  <a href="/course/human-body-systems.html">Human Body Systems</a>
+                  <span class="subtxt">Course</span>
+                </div>
+              </div>
+
+              <div class="metrics">
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-eye"></i>Clarity</div>
+                  <div class="v">2</div>
+                </div>
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div>
+                  <div class="v">3</div>
+                </div>
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div>
+                  <div class="v">3</div>
+                </div>
+              </div>
+
+              <div class="comment">
+                <i class="fa-solid fa-comment"></i>
+                <p>I’m pretty sure she is annoyed by my condition and IEP.</p>
+              </div>
+            </article>
+                      <article class="card">
+              <div class="meta-top">
+                <div class="author">
+                  <div class="name">Anonymous Student</div>
+                  <div class="when">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>18 min ago</span>
+                  </div>
+                </div>
+                <div class="score">4.8</div>
+              </div>
+
+              <div class="targets">
+                <div class="t-row">
+                  <i class="fa-solid fa-chalkboard-user"></i>
+                  <a href="/teacher/maria-demeyer.html">Maria DeMeyer</a>
+                  <span class="subtxt">Teacher</span>
+                </div>
+                <div class="t-row">
+                  <i class="fa-solid fa-book"></i>
+                  <a href="/course/spanish-i.html">Spanish I</a>
+                  <span class="subtxt">Course</span>
+                </div>
+              </div>
+
+              <div class="metrics">
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-eye"></i>Clarity</div>
+                  <div class="v">4</div>
+                </div>
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div>
+                  <div class="v">4</div>
+                </div>
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div>
+                  <div class="v">3</div>
+                </div>
+              </div>
+
+              <div class="comment">
+                <i class="fa-solid fa-comment"></i>
+                <p>she’s honestly such a nice and understanding teacher. i think she has very realistic grading, and her assignments aren’t very hard. voces is a bit confusing but that’s not on her at all.</p>
+              </div>
+            </article>
+                      <article class="card">
+              <div class="meta-top">
+                <div class="author">
+                  <div class="name">Anonymous Student</div>
+                  <div class="when">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>23 min ago</span>
+                  </div>
+                </div>
+                <div class="score">1</div>
+              </div>
+
+              <div class="targets">
+                <div class="t-row">
+                  <i class="fa-solid fa-chalkboard-user"></i>
+                  <a href="/teacher/maria-demeyer.html">Maria DeMeyer</a>
+                  <span class="subtxt">Teacher</span>
+                </div>
+                <div class="t-row">
+                  <i class="fa-solid fa-book"></i>
+                  <a href="/course/spanish-i.html">Spanish I</a>
+                  <span class="subtxt">Course</span>
+                </div>
+              </div>
+
+              <div class="metrics">
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-eye"></i>Clarity</div>
+                  <div class="v">1</div>
+                </div>
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div>
+                  <div class="v">1</div>
+                </div>
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div>
+                  <div class="v">5</div>
+                </div>
+              </div>
+
+              <div class="comment">
+                <i class="fa-solid fa-comment"></i>
+                <p>She’s definitely trans</p>
+              </div>
+            </article>
+                      <article class="card">
+              <div class="meta-top">
+                <div class="author">
+                  <div class="name">Anonymous Student</div>
+                  <div class="when">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>23 min ago</span>
+                  </div>
+                </div>
+                <div class="score">5</div>
+              </div>
+
+              <div class="targets">
+                <div class="t-row">
+                  <i class="fa-solid fa-chalkboard-user"></i>
+                  <a href="/teacher/laura-douglas.html">Laura Douglas</a>
+                  <span class="subtxt">Teacher</span>
+                </div>
+                <div class="t-row">
+                  <i class="fa-solid fa-book"></i>
+                  <a href="/course/world-history.html">World History</a>
+                  <span class="subtxt">Course</span>
+                </div>
+              </div>
+
+              <div class="metrics">
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-eye"></i>Clarity</div>
+                  <div class="v">5</div>
+                </div>
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div>
+                  <div class="v">5</div>
+                </div>
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div>
+                  <div class="v">3</div>
+                </div>
+              </div>
+
+              <div class="comment">
+                <i class="fa-solid fa-comment"></i>
+                <p>Such a kind and understanding teacher! She makes the class genuinely fun and creates a very good learning experience and atmosphere. I always look forward to her class. She balanced the work very well, and homework is easy. Tests and DBQ’s are also balanced with other things like artistic projects!</p>
+              </div>
+            </article>
+                      <article class="card">
+              <div class="meta-top">
+                <div class="author">
+                  <div class="name">Anonymous Student</div>
+                  <div class="when">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>24 min ago</span>
+                  </div>
+                </div>
+                <div class="score">5</div>
+              </div>
+
+              <div class="targets">
+                <div class="t-row">
+                  <i class="fa-solid fa-chalkboard-user"></i>
+                  <a href="/teacher/michael-wagner.html">Michael Wagner</a>
+                  <span class="subtxt">Teacher</span>
+                </div>
+                <div class="t-row">
+                  <i class="fa-solid fa-book"></i>
+                  <a href="/course/health.html">Health</a>
+                  <span class="subtxt">Course</span>
+                </div>
+              </div>
+
+              <div class="metrics">
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-eye"></i>Clarity</div>
+                  <div class="v">5</div>
+                </div>
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div>
+                  <div class="v">5</div>
+                </div>
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div>
+                  <div class="v">1</div>
+                </div>
+              </div>
+
+              <div class="comment">
+                <i class="fa-solid fa-comment"></i>
+                <p>hes so cute and majestic and saved me from death multiple times his daughters also lwk bad as shi so that bump up the rating</p>
+              </div>
+            </article>
+                      <article class="card">
+              <div class="meta-top">
+                <div class="author">
+                  <div class="name">Anonymous Student</div>
+                  <div class="when">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>25 min ago</span>
+                  </div>
+                </div>
+                <div class="score">4.7</div>
+              </div>
+
+              <div class="targets">
+                <div class="t-row">
+                  <i class="fa-solid fa-chalkboard-user"></i>
+                  <a href="/teacher/laura-douglas.html">Laura Douglas</a>
+                  <span class="subtxt">Teacher</span>
+                </div>
+                <div class="t-row">
+                  <i class="fa-solid fa-book"></i>
+                  <a href="/course/world-history.html">World History</a>
+                  <span class="subtxt">Course</span>
+                </div>
+              </div>
+
+              <div class="metrics">
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-eye"></i>Clarity</div>
+                  <div class="v">5</div>
+                </div>
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div>
+                  <div class="v">5</div>
+                </div>
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div>
+                  <div class="v">3</div>
+                </div>
+              </div>
+
+              <div class="comment">
+                <i class="fa-solid fa-comment"></i>
+                <p>Amazing teacher! I love her so much!</p>
+              </div>
+            </article>
+                      <article class="card">
+              <div class="meta-top">
+                <div class="author">
+                  <div class="name">Anonymous Student</div>
+                  <div class="when">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>28 min ago</span>
+                  </div>
+                </div>
+                <div class="score">3.6</div>
+              </div>
+
+              <div class="targets">
+                <div class="t-row">
+                  <i class="fa-solid fa-chalkboard-user"></i>
+                  <a href="/teacher/michael-cahill.html">Michael Cahill</a>
+                  <span class="subtxt">Teacher</span>
+                </div>
+                <div class="t-row">
+                  <i class="fa-solid fa-book"></i>
+                  <a href="/course/language-arts-ii.html">Language Arts II</a>
+                  <span class="subtxt">Course</span>
+                </div>
+              </div>
+
+              <div class="metrics">
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-eye"></i>Clarity</div>
+                  <div class="v">1</div>
+                </div>
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div>
+                  <div class="v">2</div>
+                </div>
+                <div class="metric">
+                  <div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div>
+                  <div class="v">3</div>
+                </div>
+              </div>
+
+              <div class="comment">
+                <i class="fa-solid fa-comment"></i>
+                <p>He has so many times writes and doesn’t grade any late work. He also gives little to no clarity in my experience with him. But he is very IEP friendly.</p>
+              </div>
+            </article>
+                  </div>
+
+      <footer>
+Rocklin Ratings is not affiliated with Rocklin High School and reflects student opinions, not official school evaluations.
+</footer>
+    </div>
+  </main>
+
+<script>
+  // Mode toggle
+  const btnTeacher = document.getElementById('btnTeacher');
+  const btnCourse  = document.getElementById('btnCourse');
+  const q          = document.getElementById('q');
+  const mode       = document.getElementById('mode');
+
+  // Suggestions
+  const suggest      = document.getElementById('suggest');
+  const suggestList  = document.getElementById('suggestList');
+  const suggestTitle = document.getElementById('suggestTitle');
+
+  let activeMode = 'teacher';
+  let items = [];
+  let activeIndex = -1;
+  let debounceTimer = null;
+  let aborter = null;
+
+  function setMode(next){
+    activeMode = (next === 'course') ? 'course' : 'teacher';
+    mode.value = activeMode;
+
+    btnTeacher.classList.toggle('active', activeMode === 'teacher');
+    btnCourse.classList.toggle('active', activeMode === 'course');
+
+    q.placeholder = activeMode === 'teacher' ? 'Teacher name' : 'Course name';
+    suggestTitle.textContent = activeMode === 'teacher' ? 'Top teachers' : 'Top courses';
+
+    closeSuggest();
+
+    const val = q.value.trim();
+    if (val.length) fetchSuggest(val);
+
+    q.focus();
+  }
+
+  btnTeacher.addEventListener('click', () => setMode('teacher'));
+  btnCourse.addEventListener('click', () => setMode('course'));
+
+  function openSuggest(){
+    suggest.classList.add('open');
+  }
+
+  function closeSuggest(){
+    suggest.classList.remove('open');
+    items = [];
+    activeIndex = -1;
+    suggestList.innerHTML = '';
+  }
+
+  function escapeHtml(s){
+    return String(s)
+      .replaceAll('&','&amp;')
+      .replaceAll('<','&lt;')
+      .replaceAll('>','&gt;')
+      .replaceAll('"','&quot;')
+      .replaceAll("'","&#039;");
+  }
+
+  function render(){
+    if (!items.length) { closeSuggest(); return; }
+
+    suggestList.innerHTML = items.map((it, idx) => {
+      const icon = it.type === 'teacher' ? 'fa-chalkboard-user' : 'fa-book';
+      const avatar = it.photo
+        ? `<img src="${escapeHtml(it.photo)}" alt="" />`
+        : `<i class="fa-solid ${icon}"></i>`;
+
+      return `
+        <div class="s-item ${idx === activeIndex ? 'active' : ''}" data-idx="${idx}">
+          <div class="s-avatar">${avatar}</div>
+          <div class="s-main">
+            <div class="s-label">${escapeHtml(it.label || '')}</div>
+            <div class="s-meta">${escapeHtml(it.meta || '')}</div>
+          </div>
+          <div class="s-go"><i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      `;
+    }).join('');
+
+    openSuggest();
+
+    // Mouse interactions
+    [...suggestList.querySelectorAll('.s-item')].forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        activeIndex = parseInt(el.getAttribute('data-idx'), 10);
+        updateActiveRow();
+      });
+
+      // mousedown so it triggers before input blur
+      el.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        const idx = parseInt(el.getAttribute('data-idx'), 10);
+        if (!Number.isNaN(idx) && items[idx]) goTo(items[idx]);
+      });
+    });
+  }
+
+  function updateActiveRow(){
+    const rows = suggestList.querySelectorAll('.s-item');
+    rows.forEach((row, i) => row.classList.toggle('active', i === activeIndex));
+  }
+
+  function goTo(it){
+    if (it && it.url) window.location.href = it.url;
+  }
+
+  async function fetchJsonSafe(res){
+    // Handles "HTML error page" and other non-json responses cleanly
+    const raw = await res.text();
+    try { return JSON.parse(raw); } catch (e) { return null; }
+  }
+
+  async function fetchSuggest(text){
+    const query = text.trim();
+    if (query.length < 1) { closeSuggest(); return; }
+
+    if (aborter) aborter.abort();
+    aborter = new AbortController();
+
+    const endpoint = (activeMode === 'course') ? '/api/course-suggest.php' : '/api/suggest.php';
+    const url = `${endpoint}?q=${encodeURIComponent(query)}`;
+
+    try{
+      const res = await fetch(url, {
+        signal: aborter.signal,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (!res.ok) { closeSuggest(); return; }
+
+      const data = await fetchJsonSafe(res);
+      if (!data || data.ok !== true) { closeSuggest(); return; }
+
+      const results = Array.isArray(data.results) ? data.results : [];
+      items = results;
+      activeIndex = items.length ? 0 : -1;
+      render();
+
+    } catch (e){
+      if (e && e.name === 'AbortError') return;
+      closeSuggest();
+    }
+  }
+
+  q.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    const val = q.value.trim();
+    if (!val.length) { closeSuggest(); return; }
+    debounceTimer = setTimeout(() => fetchSuggest(val), 90);
+  });
+
+  q.addEventListener('focus', () => {
+    const val = q.value.trim();
+    if (val.length) fetchSuggest(val);
+  });
+
+  // click outside closes
+  document.addEventListener('mousedown', (e) => {
+    const within = e.target.closest('.search-stack');
+    if (!within) closeSuggest();
+  });
+
+  q.addEventListener('keydown', (e) => {
+    if (!suggest.classList.contains('open')) return;
+
+    if (e.key === 'Escape'){
+      closeSuggest();
+      return;
+    }
+
+    if (e.key === 'ArrowDown'){
+      e.preventDefault();
+      if (!items.length) return;
+      activeIndex = Math.min(items.length - 1, activeIndex + 1);
+      updateActiveRow();
+      return;
+    }
+
+    if (e.key === 'ArrowUp'){
+      e.preventDefault();
+      if (!items.length) return;
+      activeIndex = Math.max(0, activeIndex - 1);
+      updateActiveRow();
+      return;
+    }
+
+    if (e.key === 'Enter'){
+      if (items.length && activeIndex >= 0){
+        e.preventDefault();
+        goTo(items[activeIndex]);
+      }
+    }
+  });
+
+  // Default
+  setMode('teacher');
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"31b5de29b2114489940d7725ac95fdfc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

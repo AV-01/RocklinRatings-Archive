@@ -1,0 +1,1869 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Integrated Math 3 • Rocklin Ratings</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="canonical" href="/course/integrated-math-3.html">
+  <meta name="description" content="Integrated Math 3 — Mathematics • Standard. Read student reviews and ratings for this course on Rocklin Ratings.">
+
+  <link rel="icon" href="/assets/images/logo.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --blue-950:#0e1f46;
+      --blue-900:#12306a;
+      --blue-800:#1a49a7;
+      --blue-700:#2f6bff;
+      --blue-600:#4d86ff;
+
+      --nav-bg: rgba(18,48,106,.72);
+      --nav-border: rgba(255,255,255,.14);
+
+      --text:#0b1220;
+      --muted:#5c667a;
+
+      --card:#ffffff;
+      --card-border:#e6eeff;
+
+      --shadow-soft: 0 14px 32px rgba(0,0,0,.10);
+
+      --radius: 18px;
+      --radius-lg: 24px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background: #f3f7ff;
+      overflow-x:hidden;
+    }
+
+    .hero{
+      position:relative;
+      min-height: 46vh;
+      display:flex;
+      flex-direction:column;
+      isolation:isolate;
+      overflow:hidden;
+      background:#071124;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:0;
+      background:
+        radial-gradient(1200px 650px at 22% 18%, rgba(103,163,255,.40), transparent 60%),
+        radial-gradient(900px 520px at 78% 22%, rgba(77,134,255,.28), transparent 58%),
+        radial-gradient(900px 520px at 60% 95%, rgba(47,107,255,.22), transparent 62%),
+        linear-gradient(135deg, #081028 0%, #0b1636 36%, #0d2250 100%);
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      z-index:1;
+      background: linear-gradient(180deg, rgba(7,12,24,.58), rgba(7,12,24,.28) 55%, rgba(7,12,24,.10));
+      pointer-events:none;
+    }
+
+    .nav{
+      position:relative;
+      z-index:3;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding: 14px 22px;
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--nav-border);
+      backdrop-filter: blur(12px);
+    }
+    .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; user-select:none; }
+    .brand-logo{ height:28px; width:auto; display:block; filter: drop-shadow(0 10px 28px rgba(0,0,0,.22)); }
+
+    .navlinks{ display:flex; align-items:center; justify-content:flex-end; gap:6px; flex-wrap:wrap; }
+    .navlinks a{
+      color: rgba(255,255,255,.94);
+      text-decoration:none;
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: .18s ease;
+      display:inline-flex; align-items:center; gap:8px;
+      user-select:none;
+    }
+    .navlinks a:hover{ background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.16); }
+    .navlinks a.cta{
+      background:#fff;
+      color: var(--blue-900);
+      border-color: rgba(255,255,255,.70);
+      font-weight: 950;
+      padding: 10px 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.12);
+    }
+    .navlinks a.cta:hover{ transform: translateY(-1px); }
+
+    @media (max-width: 680px){
+      .nav{ padding: 12px 14px; }
+      .brand-logo{ height:24px; }
+      .navlinks a span.txt{ display:none; }
+      .navlinks a{ gap:0; padding: 10px 10px; font-size: 12px; }
+      .navlinks a i{ font-size: 14px; }
+      .navlinks a.cta{ padding: 10px 12px; }
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:5;
+      max-width: 1150px;
+      margin: 0 auto;
+      width:100%;
+      padding: 34px 18px 22px;
+      display:flex;
+      align-items:flex-end;
+    }
+
+    .hero-top{
+      width:100%;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .crumbs{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+      color: rgba(255,255,255,.75);
+      font-size: 12px;
+      user-select:none;
+    }
+    .crumbs a{ color: rgba(255,255,255,.88); text-decoration:none; }
+    .crumbs a:hover{ text-decoration:underline; }
+
+    .title{
+      margin: 10px 0 0;
+      color:#fff;
+      font-size: clamp(34px, 4.8vw, 58px);
+      letter-spacing: -1px;
+      font-weight: 950;
+      text-shadow: 0 18px 60px rgba(0,0,0,.45);
+      line-height: 1.05;
+    }
+
+    .subtitle{
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.86);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 90ch;
+    }
+
+    .chips{
+      margin-top: 14px;
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.94);
+      font-size: 12px;
+      backdrop-filter: blur(12px);
+      user-select:none;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+      margin-top: 10px;
+    }
+
+    .hbtn{
+      border: 1px solid rgba(255,255,255,.20);
+      background: rgba(255,255,255,.14);
+      color:#fff;
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-weight: 950;
+      font-size: 13px;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      user-select:none;
+      text-decoration:none;
+      white-space:nowrap;
+      backdrop-filter: blur(10px);
+    }
+    .hbtn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.26); }
+    .hbtn.primary{
+      background:#fff;
+      color: var(--blue-900);
+      border-color: rgba(255,255,255,.70);
+      box-shadow: 0 16px 40px rgba(0,0,0,.14);
+      backdrop-filter: none;
+    }
+    .hbtn.primary:hover{ background:#fff; }
+
+    @media (max-width: 680px){
+      .hero-inner{ padding: 26px 14px 18px; }
+      .hero-top{ align-items:stretch; }
+      .hero-actions{ width:100%; justify-content:stretch; }
+      .hbtn{ flex:1; width:100%; justify-content:center; }
+      .chips{ gap:8px; }
+      .chip{ padding: 9px 12px; }
+    }
+    @media (max-width: 420px){
+      .title{ font-size: 34px; }
+    }
+
+    .wave{ position:relative; z-index:2; margin-top:auto; height: 95px; }
+    .wave svg{ position:absolute; bottom:-1px; left:0; width:100%; height:100%; display:block; }
+
+    main{
+      background: #f3f7ff;
+      padding: 22px 18px 64px;
+      min-height: 50vh;
+    }
+    .container{ max-width: 1150px; margin: 0 auto; }
+
+    .layout{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 14px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .layout{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: #fff;
+      border: 1px solid #e6eeff;
+      border-radius: 18px;
+      box-shadow: 0 14px 32px rgba(0,0,0,.10);
+      padding: 16px;
+      overflow:hidden;
+    }
+
+    .stack{ display:flex; flex-direction:column; gap:14px; }
+
+    .section-title{
+      margin:0 0 10px;
+      font-size: 14px;
+      font-weight: 950;
+      letter-spacing: .1px;
+      color:#0b1220;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .section-title .hint{
+      font-size: 12px;
+      color: #6a7486;
+      font-weight: 800;
+    }
+
+    .stat-grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 980px){
+      .stat-grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+    .stat{
+      border-radius: 14px;
+      padding: 12px 12px;
+      border: 1px solid #e2ebff;
+      background: #ffffff;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:6px;
+      min-width: 0;
+    }
+    .stat .k{
+      font-size: 11px;
+      color:#4e5a72;
+      font-weight: 900;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+    }
+    .stat .v{
+      font-size: 18px;
+      font-weight: 950;
+      color: #12306a;
+      letter-spacing: .1px;
+      line-height: 1;
+      min-height: 18px;
+    }
+
+    .btnrow{
+      margin-top:12px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      justify-content:center;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 950;
+      border: 1px solid rgba(18,48,106,.14);
+      background: #fff;
+      color: #12306a;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      user-select:none;
+      box-shadow: 0 12px 26px rgba(0,0,0,.06);
+      white-space:nowrap;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, #1a49a7, #4d86ff);
+      border-color: rgba(77,134,255,.30);
+      color:#fff;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+
+    .review{
+      padding: 14px 0;
+      border-top: 1px solid #eef3ff;
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+    }
+    .review:first-of-type{ border-top: 0; padding-top: 0; }
+
+    .avatar{
+      width: 42px; height: 42px;
+      border-radius: 16px;
+      background: rgba(77,134,255,.14);
+      border: 1px solid rgba(77,134,255,.22);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: #12306a;
+      overflow:hidden;
+      flex: 0 0 auto;
+    }
+    .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    .review-main{ min-width:0; flex:1; }
+    .review-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .review-head .who{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      min-width:0;
+    }
+    .review-head strong{
+      display:block;
+      font-size: 13px;
+      font-weight: 950;
+      color:#0b1220;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width: 55ch;
+    }
+
+    .review-subline{
+      color: #6a7486;
+      font-size: 12px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 1px;
+    }
+    .review-subline .dot{
+      opacity:.55;
+      margin: 0 2px;
+    }
+    .timechip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(18,48,106,.12);
+      background: rgba(243,247,255,.95);
+      line-height: 1;
+      white-space:nowrap;
+    }
+    .timechip i{ margin-right:1px; }
+
+    .pill{
+      min-width: 64px;
+      height: 34px;
+      padding: 0 12px;
+      border-radius: 14px;
+      background: rgba(103,163,255,.20);
+      border: 1px solid rgba(103,163,255,.30);
+      color: #12306a;
+      font-weight: 950;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 13px;
+      letter-spacing:.1px;
+      flex: 0 0 auto;
+    }
+
+    .small-metrics{
+      margin-top: 10px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    @media (max-width: 520px){
+      .small-metrics{ grid-template-columns: 1fr; }
+    }
+    .sm{
+      border-radius: 14px;
+      padding: 10px 10px;
+      border: 1px solid #e2ebff;
+      background: #f3f7ff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      min-width: 0;
+    }
+    .sm .k{
+      font-size: 11px;
+      color:#4e5a72;
+      font-weight: 900;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .sm .v{
+      font-size: 12px;
+      font-weight: 950;
+      color: #12306a;
+    }
+
+    .comment{
+      margin-top: 10px;
+      color:#4a556b;
+      font-size: 12.75px;
+      line-height: 1.65;
+      white-space:pre-wrap;
+      word-break:break-word;
+    }
+
+    .teacher-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 12px 0;
+      border-top: 1px solid #eef3ff;
+    }
+    .teacher-row:first-of-type{ border-top: 0; padding-top: 0; }
+    .teacher-left{ display:flex; align-items:center; gap:12px; min-width:0; }
+    .teacher-left strong{
+      font-size: 13px;
+      font-weight: 950;
+      color:#0b1220;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width: 48ch;
+    }
+    .teacher-left .sub{
+      font-size: 12px;
+      color:#6a7486;
+      margin-top: 3px;
+      display:flex;
+      gap:12px; /* more breathing room */
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .teacher-left .sub span{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+    }
+
+    .teacher-right{ display:flex; align-items:center; gap:10px; flex:0 0 auto; }
+
+    .hintlink{
+      color:#12306a;
+      text-decoration:none;
+      font-weight: 900;
+    }
+    .hintlink:hover{ text-decoration:underline; }
+
+    .empty{
+      border-radius: 24px;
+      border: 1px solid #e6eeff;
+      background: linear-gradient(180deg, #ffffff, #f6f9ff);
+      box-shadow: 0 14px 32px rgba(0,0,0,.10);
+      padding: 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .empty .left{ display:flex; align-items:flex-start; gap:14px; min-width:0; }
+    .empty .icon{
+      width:44px; height:44px; border-radius: 14px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(77,134,255,.16);
+      border: 1px solid rgba(77,134,255,.26);
+      color: #12306a;
+      flex:0 0 auto;
+    }
+    .empty h3{ margin:0; font-size: 15px; letter-spacing: -.2px; font-weight: 950; color: #0b1220; }
+    .empty p{ margin:6px 0 0; color:#5a667c; font-size: 12.75px; line-height: 1.6; max-width: 80ch; }
+
+    .footer{
+      margin-top: 22px;
+      border-top: 1px solid rgba(18,48,106,.10);
+      padding-top: 18px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      color:#6a7486;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+    .footer .brandline{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#334055;
+      font-weight: 900;
+    }
+    .footer .brandline i{ color: #2f6bff; }
+    .footer a{
+      color: #12306a;
+      text-decoration:none;
+      font-weight: 900;
+    }
+    .footer a:hover{ text-decoration:underline; }
+
+    .toast{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%) translateY(14px);
+      background: rgba(11,18,32,.92);
+      color: #fff;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 18px 50px rgba(0,0,0,.22);
+      font-size: 13px;
+      font-weight: 900;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      opacity: 0;
+      pointer-events:none;
+      transition: opacity .18s ease, transform .18s ease;
+      z-index: 9999;
+    }
+    .toast.show{
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+        
+<style>
+  /* ============================
+     Rocklin Ratings Navbar (hard-namespaced + high specificity)
+     Goal: NEVER lose to page CSS
+     Fix: CTA icon/text MUST stay blue (was inheriting white)
+  ============================ */
+
+  #rrx9n-nav{
+    position: relative !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    padding: 14px 22px !important;
+
+    background: rgba(18,48,106,.84) !important;
+    border-bottom: 1px solid rgba(255,255,255,.14) !important;
+    backdrop-filter: blur(12px) !important;
+
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial !important;
+    line-height: 1.2 !important;
+  }
+
+  #rrx9n-nav *{ box-sizing: border-box !important; }
+
+  #rrx9n-nav a{
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  #rrx9n-nav i{
+    color: inherit !important;
+    display: inline-block !important;
+  }
+
+  #rrx9n-nav img{
+    display: block !important;
+    max-width: 100% !important;
+  }
+
+  #rrx9n-nav .rrx9n-brand{
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    user-select: none !important;
+  }
+
+  #rrx9n-nav .rrx9n-logo{
+    height: 28px !important;
+    width: auto !important;
+    filter: drop-shadow(0 10px 28px rgba(0,0,0,.22)) !important;
+  }
+
+  #rrx9n-nav .rrx9n-links{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+    max-width: 100% !important;
+  }
+
+  #rrx9n-nav .rrx9n-link{
+    color: rgba(255,255,255,.94) !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255,255,255,0) !important;
+
+    background: rgba(255,255,255,0) !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+
+    transition: transform .18s ease, background .18s ease, border-color .18s ease !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    white-space: nowrap !important;
+  }
+
+  #rrx9n-nav .rrx9n-link:hover{
+    background: rgba(255,255,255,.10) !important;
+    border-color: rgba(255,255,255,.16) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  #rrx9n-nav .rrx9n-link.rrx9n-active{
+    background: rgba(255,255,255,.14) !important;
+    border-color: rgba(255,255,255,.22) !important;
+  }
+
+  /* CTA always white, always readable */
+  #rrx9n-nav .rrx9n-link.rrx9n-cta{
+    background: #ffffff !important;
+    color: #12306a !important;
+    border-color: rgba(255,255,255,.70) !important;
+    font-weight: 950 !important;
+    padding: 10px 14px !important;
+    box-shadow: 0 16px 40px rgba(0,0,0,.14) !important;
+  }
+
+  #rrx9n-nav .rrx9n-link.rrx9n-cta:hover{
+    background: #ffffff !important;
+    color: #12306a !important;
+  }
+
+  /* ✅ IMPORTANT FIX:
+     Force CTA children (icon + text) to be blue too.
+     Some page CSS is overriding span/i colors. */
+  #rrx9n-nav .rrx9n-link.rrx9n-cta i,
+  #rrx9n-nav .rrx9n-link.rrx9n-cta .rrx9n-txt{
+    color: #12306a !important;
+  }
+
+  #rrx9n-nav .rrx9n-account{ max-width: 260px !important; }
+
+  #rrx9n-nav .rrx9n-txt{ display: inline-block !important; }
+
+  #rrx9n-nav .rrx9n-account .rrx9n-txt{
+    max-width: 170px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  #rrx9n-nav .rrx9n-avatar{
+    width: 22px !important;
+    height: 22px !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    display: inline-block !important;
+    border: 1px solid rgba(255,255,255,.22) !important;
+    flex: 0 0 auto !important;
+  }
+
+  #rrx9n-nav .rrx9n-avatar img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  @media (max-width: 680px){
+    #rrx9n-nav{ padding: 12px 14px !important; }
+    #rrx9n-nav .rrx9n-logo{ height: 24px !important; }
+    #rrx9n-nav .rrx9n-txt{ display: none !important; }
+
+    #rrx9n-nav .rrx9n-link{
+      gap: 0 !important;
+      padding: 10px 10px !important;
+      font-size: 12px !important;
+    }
+
+    #rrx9n-nav .rrx9n-link i{ font-size: 14px !important; }
+    #rrx9n-nav .rrx9n-link.rrx9n-cta{ padding: 10px 12px !important; }
+  }
+
+  @media (max-width: 440px){
+    #rrx9n-nav{ padding: 10px 12px !important; }
+    #rrx9n-nav .rrx9n-link{ border-radius: 12px !important; }
+  }
+</style>
+
+<div id="rrx9n-nav">
+  <a class="rrx9n-brand" href="/index.html" aria-label="Rocklin Ratings home">
+    <img class="rrx9n-logo" src="/assets/images/logo.png" alt="Rocklin Ratings">
+  </a>
+
+  <div class="rrx9n-links">
+    <a class="rrx9n-link" href="/index.html">
+      <i class="fa-solid fa-house"></i><span class="rrx9n-txt">Home</span>
+    </a>
+
+    <a class="rrx9n-link" href="/trending.html">
+      <i class="fa-solid fa-fire"></i><span class="rrx9n-txt">Trending</span>
+    </a>
+
+          <a class="rrx9n-link" href="/signup.html">
+        <i class="fa-solid fa-user-plus"></i><span class="rrx9n-txt">Sign In</span>
+      </a>
+    
+    <a class="rrx9n-link rrx9n-cta" href="/review.html">
+      <i class="fa-solid fa-pen-to-square"></i><span class="rrx9n-txt">Create Review</span>
+    </a>
+  </div>
+</div>
+
+  <section class="hero">
+
+    <div class="hero-inner">
+      <div class="hero-top">
+        <div>
+          <div class="crumbs">
+            <a href="/index.html">Home</a>
+            <span>•</span>
+            <span>Course</span>
+          </div>
+
+          <h1 class="title">Integrated Math 3</h1>
+
+                      <p class="subtitle">Mathematics • Standard</p>
+          
+          <div class="chips">
+            <span class="chip"><i class="fa-solid fa-user-secret"></i>Anonymous by default</span>
+            <span class="chip"><i class="fa-solid fa-comment-dots"></i>Ratings + comments</span>
+                          <span class="chip"><i class="fa-solid fa-database"></i>ratings</span>
+                      </div>
+        </div>
+
+        <div class="hero-actions">
+          <button class="hbtn" type="button" id="shareBtn" data-url="/course/integrated-math-3">
+            <i class="fa-solid fa-arrow-up-from-bracket"></i>Share
+          </button>
+          <a class="hbtn primary" href="/review?mode=course&amp;course=83.html">
+            <i class="fa-solid fa-pen-to-square"></i>Write a review
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,70 C240,120 420,20 720,70 C1020,120 1200,20 1440,70 L1440,120 L0,120 Z" fill="#f3f7ff"></path>
+        <path d="M0,74 C240,124 420,24 720,74 C1020,124 1200,24 1440,74" fill="none" stroke="rgba(103,163,255,.34)" stroke-width="10"></path>
+      </svg>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <div class="layout">
+        <!-- LEFT: Reviews -->
+        <div class="card" id="reviews">
+          <div class="section-title">
+            <span><i class="fa-solid fa-star"></i> Reviews</span>
+            <span class="hint">28 total</span>
+          </div>
+
+                                                  <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • John Kirk</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>4 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">1.5</div></div>
+                  </div>
+
+                                      <div class="comment">🐐🐐🐐bahhhhhh</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • John Kirk</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>7 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">2.5</div></div>
+                  </div>
+
+                                      <div class="comment">we are johnnn kirrrk 🥲🥲</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • John Kirk</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>9 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">4.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">great</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • John Kirk</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>9 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">4.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">wonderful teacher</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • John Kirk</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>9 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">4.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">amazing</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • John Kirk</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>9 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">1.9</div></div>
+                  </div>
+
+                                      <div class="comment">great</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • John Kirk</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>9 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">1.7</div></div>
+                  </div>
+
+                                      <div class="comment">really helpful!</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • John Kirk</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>9 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">4.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">i like all kirks</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • John Kirk</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>9 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.7</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.8</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">good teacher</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • John Kirk</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>9 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">w teacher</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • John Kirk</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>9 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.6</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">2.2</div></div>
+                  </div>
+
+                                      <div class="comment">had him last year and had a blast in math</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • John Kirk</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>14 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">Da kirk.................................I&#039;m crine</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • Michael Trejo</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>18 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">2.5</div></div>
+                  </div>
+
+                                      <div class="comment">LOVE Mr Trejo I had him for integrated 1 and now I have him for intergrated 3. Truly a remarkable teacher and made me really like math ngl… class is super easy if you ask questions and do your homework. If you have any questions he is always on the move to answer them.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • Michael Trejo</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>19 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">4.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.5</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.5</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">2.0</div></div>
+                  </div>
+
+                                      <div class="comment">Great math teacher.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • John Kirk</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>21 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.8</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">1.5</div></div>
+                  </div>
+
+                                      <div class="comment">Definitely one of the best math teachers in the district and coming off having Mrs Stice last year I didn’t think it could get better. Although he like to yell at us, he does so in a funny way and connects it back to math. He teaches so it makes sense but also make you get the answers so you can do it on your own without his help. Only downside is he’s a Raiders fan. 5/5 tho honestly.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • John Kirk</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>22 hours ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">4.5</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.5</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">2.8</div></div>
+                  </div>
+
+                                      <div class="comment">From what I&#039;ve heard Kirk is one of the better Integrated 3 teachers. He&#039;s a little loud (looking at you Adams), but you get used to it and it&#039;s pretty funny by the end of the year. One of the more personal teachers along with Taghavi, and he definitely knows the material. The class itself it about as easy as IM2 but you will need to study a little more.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • Jamie Tippets</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">4.8</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">2.5</div></div>
+                  </div>
+
+                                      <div class="comment">Great teacher. keeps everything well organized and explains everything with context and helps the whole class even if one person doesn&#039;t understand, making sure everything is clear to everyone. Take this class very good and fun.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • Michael Trejo</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">4.0</div></div>
+                  </div>
+
+                                      <div class="comment">The guy is the GOAT. I never had an A in math and he was the first teacher to change that. A funny teacher who is patient and tries his best to help you. He has done a great job as a teacher and remains one of my favorites to this day.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • Emily Mitchell</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">4.5</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.5</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">2.0</div></div>
+                  </div>
+
+                                      <div class="comment">I had Mrs. Mitchell my sophomore year and I loved her teaching style. She forced you to interact with new people every week, using cards from a deck to decide what table you were at. I made so many friends in that class. A lot of the work is done collaboratively on white boards which gives opportunities for other students to help you understand concepts you’re struggling in and vice versa. You typically have time to start homework in class. She’s very helpful and quick to respond to emails. She very obviously cares about her students and wants them to succeed. She made math easy for me, being accessible to talk to or even just hang out with before school, during break, etc. Absolutely love Mrs. Mitchell!!</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • Michael Trejo</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">2.0</div></div>
+                  </div>
+
+                                      <div class="comment">Greatest teacher of all time. Makes lessons very easy to understand, properly prepares you for tests, and very fair with missing assignments. Explains things so clearly that you have time to finish the homework before class ends. Very friendly.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • John Kirk</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">1.0</div></div>
+                  </div>
+
+                                      <div class="comment">chalee keerk brah</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • Colin O&#039;Haire</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">1.0</div></div>
+                  </div>
+
+                                      <div class="comment">my glorious king Mr. Ohaire is the goat
+he&#039;s so awesome and chill
+free lollipops we love the dum dums</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • Colin O&#039;Haire</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">2.0</div></div>
+                  </div>
+
+                                      <div class="comment">O&#039;Haire is the kindest, most kindred soul you&#039;ll meet. He is there always to lift you up when you&#039;re feeling down and makes it a priority to forge not only a professional relationship but a friendly social relationship with his students. I looked forward to his class everyday and was the only teacher I hugged after knowing I would leave his class soon. His work load is light and manageable and gives incredibly helpful insight and lectures, he is lenient and wants to see you succeed always.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • Jamie Tippets</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.6</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.8</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">2.5</div></div>
+                  </div>
+
+                                      <div class="comment">Mrs. Tippets is by far one of the best math teachers I&#039;ve ever had. She is always super nice and respectful, but is willing to have a firm hand if necessary. She is very good at teaching and is always fair to her students.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • John Kirk</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>3 days ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">Somehow gets you to work the entire class period while making you laugh at the same time. Can seem a little intimidating at first, a tough guy who yells here and there, but he really cares about the students and wants you to succeed. Rewards the effort that people put in very generously.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • John Kirk</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>4 days ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.5</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">2.8</div></div>
+                  </div>
+
+                                      <div class="comment">On tests (LOTs = Learning Over Time assessment), aim to earn as many points on the Essential Skill category as those points are weighted the most in the gradebook - the non-essential content of the tests help you get a higher score overall but there will be some challenging questions (about 1 or 2) which you should always attempt but skip if necessary - he collects homework but you usually have until the test day to turn it in for full credit - we have review days + team quizzes the class before the test - pay attention in class and don&#039;t be afraid to ask Mr. Kirk questions, he is very enthusiastic about math!</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • John Kirk</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>5 days ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">Genuinely the only teacher that help me understand math. He seems scary but hes actually super nice even when he yells. Miss having his class tbh best part of my day</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div class="who">
+                      <strong>Anonymous student</strong>
+
+                      <div class="review-subline">
+                        <span><i class="fa-solid fa-pen-to-square"></i> Reviewing Integrated Math 3 • John Kirk</span>
+                                                  <span class="dot">•</span>
+                          <span class="timechip"><i class="fa-regular fa-clock"></i>5 days ago</span>
+                                              </div>
+                    </div>
+
+                    <div class="pill">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">the goat math teacher! might be a little scary but Ive never understood math so well</div>
+                                  </div>
+              </div>
+                              </div>
+
+        <!-- RIGHT: Stats + teachers -->
+        <div class="stack">
+          <div class="card">
+            <div class="section-title">
+              <span><i class="fa-solid fa-chart-simple"></i> Course stats</span>
+              <span class="hint">Based on reviews</span>
+            </div>
+
+            <div class="stat-grid">
+              <div class="stat">
+                <div class="k"><i class="fa-solid fa-star"></i>Overall</div>
+                <div class="v">4.8</div>
+              </div>
+              <div class="stat">
+                <div class="k"><i class="fa-solid fa-eye"></i>Clarity</div>
+                <div class="v">4.7</div>
+              </div>
+              <div class="stat">
+                <div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div>
+                <div class="v">4.7</div>
+              </div>
+              <div class="stat">
+                <div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div>
+                <div class="v">2.5</div>
+              </div>
+            </div>
+
+            <div class="btnrow">
+              <a class="btn primary" href="/review?mode=course&amp;course=83.html"><i class="fa-solid fa-pen-to-square"></i>Write a review</a>
+              <a class="btn" href="/search?mode=course&amp;course_id=83&amp;course_name=Integrated+Math+3&amp;subject=Mathematics&amp;level=Standard&amp;avg_overall=4.8&amp;avg_clarity=4.7&amp;avg_fairness=4.7&amp;avg_workload=2.5&amp;review_count=28"><i class="fa-solid fa-wand-magic-sparkles"></i>Find similar courses</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="section-title">
+              <span><i class="fa-solid fa-chalkboard-user"></i> Teachers for this course</span>
+              <span class="hint">
+                5 found                <span class="dot">•</span>
+                <a class="hintlink" href="/connect-teacher.html">Missing someone?</a>
+              </span>
+            </div>
+
+                                                          <div class="teacher-row">
+                  <div class="teacher-left">
+                    <div class="avatar">
+                                              <img src="/assets/images/teachers/Colin_O&#039;Haire.jpg" alt="">
+                                          </div>
+                    <div style="min-width:0;">
+                      <strong>Colin O&#039;Haire</strong>
+                      <div class="sub">
+                        <span><i class="fa-solid fa-comment-dots"></i>2 reviews</span>
+                                                  <span><i class="fa-solid fa-star"></i>5 avg</span>
+                                              </div>
+                    </div>
+                  </div>
+
+                  <div class="teacher-right">
+                    <div class="pill">5</div>
+                    <a class="btn" href="/teacher?id=91.html"><i class="fa-solid fa-arrow-right"></i>View</a>
+                  </div>
+                </div>
+                                              <div class="teacher-row">
+                  <div class="teacher-left">
+                    <div class="avatar">
+                                              <img src="/assets/images/teachers/Jamie_Tippets.jpg" alt="">
+                                          </div>
+                    <div style="min-width:0;">
+                      <strong>Jamie Tippets</strong>
+                      <div class="sub">
+                        <span><i class="fa-solid fa-comment-dots"></i>2 reviews</span>
+                                                  <span><i class="fa-solid fa-star"></i>4.9 avg</span>
+                                              </div>
+                    </div>
+                  </div>
+
+                  <div class="teacher-right">
+                    <div class="pill">4.9</div>
+                    <a class="btn" href="/teacher?id=120.html"><i class="fa-solid fa-arrow-right"></i>View</a>
+                  </div>
+                </div>
+                                              <div class="teacher-row">
+                  <div class="teacher-left">
+                    <div class="avatar">
+                                              <img src="/assets/images/teachers/John_Kirk.jpg" alt="">
+                                          </div>
+                    <div style="min-width:0;">
+                      <strong>John Kirk</strong>
+                      <div class="sub">
+                        <span><i class="fa-solid fa-comment-dots"></i>19 reviews</span>
+                                                  <span><i class="fa-solid fa-star"></i>4.8 avg</span>
+                                              </div>
+                    </div>
+                  </div>
+
+                  <div class="teacher-right">
+                    <div class="pill">4.8</div>
+                    <a class="btn" href="/teacher?id=69.html"><i class="fa-solid fa-arrow-right"></i>View</a>
+                  </div>
+                </div>
+                                              <div class="teacher-row">
+                  <div class="teacher-left">
+                    <div class="avatar">
+                                              <img src="/assets/images/teachers/Michael_Trejo.jpg" alt="">
+                                          </div>
+                    <div style="min-width:0;">
+                      <strong>Michael Trejo</strong>
+                      <div class="sub">
+                        <span><i class="fa-solid fa-comment-dots"></i>4 reviews</span>
+                                                  <span><i class="fa-solid fa-star"></i>4.8 avg</span>
+                                              </div>
+                    </div>
+                  </div>
+
+                  <div class="teacher-right">
+                    <div class="pill">4.8</div>
+                    <a class="btn" href="/teacher?id=121.html"><i class="fa-solid fa-arrow-right"></i>View</a>
+                  </div>
+                </div>
+                                              <div class="teacher-row">
+                  <div class="teacher-left">
+                    <div class="avatar">
+                                              <img src="/assets/images/teachers/Emily_Mitchell.jpg" alt="">
+                                          </div>
+                    <div style="min-width:0;">
+                      <strong>Emily Mitchell</strong>
+                      <div class="sub">
+                        <span><i class="fa-solid fa-comment-dots"></i>1 review</span>
+                                                  <span><i class="fa-solid fa-star"></i>4.5 avg</span>
+                                              </div>
+                    </div>
+                  </div>
+
+                  <div class="teacher-right">
+                    <div class="pill">4.5</div>
+                    <a class="btn" href="/teacher?id=84.html"><i class="fa-solid fa-arrow-right"></i>View</a>
+                  </div>
+                </div>
+                                    </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div>
+Rocklin Ratings is not affiliated with Rocklin High School and reflects student opinions, not official school evaluations.
+</div>
+        <div>
+          <a href="/review.html">Leave a review</a> • <a href="/search.html">Search</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('shareBtn');
+      const toast = document.getElementById('toast');
+      if (!btn || !toast) return;
+
+      const pageUrl = new URL(btn.getAttribute('data-url') || '/', window.location.origin).toString();
+      const title = document.title;
+
+      let toastTimer = null;
+      function showToast(html){
+        toast.innerHTML = html;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove('show'), 1600);
+      }
+
+      async function doShare(){
+        if (navigator.share) {
+          try {
+            await navigator.share({ title, url: pageUrl });
+            showToast('<i class="fa-solid fa-check"></i>Shared');
+            return;
+          } catch (e) {}
+        }
+
+        try {
+          await navigator.clipboard.writeText(pageUrl);
+          showToast('<i class="fa-solid fa-check"></i>Link copied');
+        } catch (e) {
+          window.prompt('Copy this link:', pageUrl);
+        }
+      }
+
+      btn.addEventListener('click', doShare);
+
+      if (window.location.hash === '#reviews') {
+        const el = document.getElementById('reviews');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    })();
+  </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"31b5de29b2114489940d7725ac95fdfc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

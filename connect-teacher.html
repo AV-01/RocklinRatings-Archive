@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Connect Teacher • Rocklin Ratings</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="/assets/images/logo.ico" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --bg:#071124;
+      --page:#f3f7ff;
+      --card:#ffffff;
+      --card-border:#e6eeff;
+
+      --text:#0b1220;
+      --muted:#5c667a;
+
+      --blue-950:#0e1f46;
+      --blue-900:#12306a;
+      --blue-800:#1a49a7;
+      --blue-700:#2f6bff;
+      --blue-600:#4d86ff;
+
+      --shadow-soft: 0 14px 32px rgba(0,0,0,.10);
+      --radius: 18px;
+      --focus: rgba(77,134,255,.35);
+
+      --danger: #d63c47;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x:hidden;
+    }
+
+    .hero{
+      position:relative;
+      min-height: 38vh;
+      display:flex;
+      flex-direction:column;
+      isolation:isolate;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:0;
+      background:
+        radial-gradient(1100px 620px at 18% 18%, rgba(103,163,255,.42), transparent 60%),
+        radial-gradient(900px 520px at 78% 22%, rgba(77,134,255,.30), transparent 58%),
+        radial-gradient(900px 520px at 60% 95%, rgba(47,107,255,.22), transparent 62%),
+        linear-gradient(135deg, #081028 0%, #0b1636 36%, #0d2250 100%);
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      z-index:1;
+      background: linear-gradient(180deg, rgba(7,12,24,.62), rgba(7,12,24,.30) 55%, rgba(7,12,24,.10));
+      pointer-events:none;
+    }
+
+    .nav{
+      position:relative;
+      z-index:3;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding: 14px 22px;
+      background: rgba(18,48,106,.72);
+      border-bottom: 1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(12px);
+    }
+    .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; user-select:none; }
+    .brand-logo{ height:28px; width:auto; display:block; filter: drop-shadow(0 10px 28px rgba(0,0,0,.22)); }
+
+    .navlinks{ display:flex; align-items:center; justify-content:flex-end; gap:8px; flex-wrap:wrap; }
+    .navlinks a, .navlinks button{
+      color: rgba(255,255,255,.94);
+      text-decoration:none;
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: .18s ease;
+      display:inline-flex; align-items:center; gap:8px;
+      user-select:none;
+      background: transparent;
+      cursor:pointer;
+    }
+    .navlinks a:hover, .navlinks button:hover{ background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.16); }
+    .navlinks a.cta{
+      background:#fff;
+      color: var(--blue-900);
+      border-color: rgba(255,255,255,.70);
+      font-weight: 950;
+      padding: 10px 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.12);
+    }
+    .navlinks a.cta:hover{ transform: translateY(-1px); }
+
+    @media (max-width: 680px){
+      .nav{ padding: 12px 14px; }
+      .brand-logo{ height:24px; }
+      .navlinks a span.txt, .navlinks button span.txt{ display:none; }
+      .navlinks a, .navlinks button{ gap:0; padding: 10px 10px; font-size: 12px; }
+      .navlinks a i, .navlinks button i{ font-size: 14px; }
+      .navlinks a.cta{ padding: 10px 12px; }
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:5;
+      max-width: 980px;
+      margin: 0 auto;
+      width:100%;
+      padding: 34px 18px 18px;
+      display:flex;
+      align-items:flex-end;
+    }
+
+    .crumbs{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+      color: rgba(255,255,255,.75);
+      font-size: 12px;
+      user-select:none;
+    }
+    .crumbs a{ color: rgba(255,255,255,.88); text-decoration:none; }
+    .crumbs a:hover{ text-decoration:underline; }
+
+    .title{
+      margin: 10px 0 0;
+      color:#fff;
+      font-size: clamp(30px, 4.3vw, 50px);
+      letter-spacing: -1px;
+      font-weight: 950;
+      text-shadow: 0 18px 60px rgba(0,0,0,.45);
+      line-height: 1.08;
+    }
+    .subtitle{
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.86);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 80ch;
+    }
+
+    .wave{ position:relative; z-index:2; margin-top:auto; height: 95px; }
+    .wave svg{ position:absolute; bottom:-1px; left:0; width:100%; height:100%; display:block; }
+
+    main{
+      background: var(--page);
+      padding: 22px 18px 64px;
+      min-height: 60vh;
+    }
+    .container{ max-width: 980px; margin: 0 auto; }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 16px;
+      overflow:hidden;
+    }
+
+    .section-title{
+      margin:0 0 10px;
+      font-size: 14px;
+      font-weight: 950;
+      letter-spacing: .1px;
+      color:#0b1220;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .hint{
+      font-size: 12px;
+      color: #6a7486;
+      font-weight: 800;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-items:start;
+    }
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .field{ margin-top: 10px; }
+    .label{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin:0 0 8px;
+      font-size: 12px;
+      font-weight: 950;
+      color:#23304a;
+    }
+    .label .sub{
+      font-weight: 800;
+      color:#6a7486;
+      font-size: 12px;
+    }
+
+    .input, .select{
+      width:100%;
+      border-radius: 14px;
+      border: 1px solid #dce7ff;
+      background: #fff;
+      padding: 12px 12px;
+      font-size: 14px;
+      outline:none;
+      transition: .15s ease;
+      box-shadow: 0 10px 18px rgba(0,0,0,.04);
+    }
+    .input:focus, .select:focus{
+      border-color: rgba(77,134,255,.85);
+      box-shadow: 0 0 0 4px var(--focus), 0 10px 18px rgba(0,0,0,.04);
+    }
+    .input[disabled], .select[disabled]{
+      background: #f6f8ff;
+      color: #6b768c;
+      cursor:not-allowed;
+    }
+
+    .suggest{ position:relative; }
+    .menu{
+      position:absolute;
+      top: calc(100% + 8px);
+      left:0;
+      right:0;
+      z-index:50;
+      background:#fff;
+      border: 1px solid #dce7ff;
+      border-radius: 16px;
+      box-shadow: 0 22px 55px rgba(0,0,0,.16);
+      overflow:hidden;
+      display:none;
+    }
+    .menu.show{ display:block; }
+    .item{
+      padding: 12px 12px;
+      border-top: 1px solid #eef3ff;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      cursor:pointer;
+    }
+    .item:first-child{ border-top: 0; }
+    .item:hover{ background:#f3f7ff; }
+    .item .main{ font-weight: 950; color:#0b1220; font-size: 13px; }
+    .item .meta{ margin-top: 4px; color:#6a7486; font-size: 12px; font-weight: 800; }
+
+    .btn{
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      justify-content:center;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 950;
+      border: 1px solid rgba(18,48,106,.14);
+      background: #fff;
+      color: var(--blue-900);
+      transition:.18s ease;
+      user-select:none;
+      box-shadow: 0 12px 26px rgba(0,0,0,.06);
+      white-space:nowrap;
+      cursor:pointer;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
+      border-color: rgba(77,134,255,.30);
+      color:#fff;
+    }
+    .btn:disabled{ opacity:.55; cursor:not-allowed; transform:none !important; }
+    .btn:hover{ transform: translateY(-1px); }
+
+    .actions{
+      margin-top: 14px;
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .error{
+      margin-top: 10px;
+      border-radius: 16px;
+      border: 1px solid rgba(214,60,71,.25);
+      background: rgba(214,60,71,.08);
+      color: #8f1f27;
+      padding: 12px;
+      font-size: 12.75px;
+      font-weight: 850;
+      display:none;
+    }
+    .error.show{ display:block; }
+
+    .mapper{
+      margin-top:10px;
+      border-radius: 16px;
+      border: 1px dashed rgba(18,48,106,.22);
+      background: linear-gradient(180deg, #ffffff, #f6f9ff);
+      padding: 12px;
+    }
+    .mapper h4{
+      margin:0;
+      font-size: 13px;
+      font-weight: 950;
+      color:#0b1220;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .mapper p{
+      margin:6px 0 0;
+      color:#5a667c;
+      font-size: 12.75px;
+      line-height:1.6;
+    }
+    .mapper .row{
+      margin-top:10px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .mapper .row .inputwrap{ flex:1; min-width: 240px; }
+
+    .miniList{
+      margin-top: 10px;
+      border-radius: 16px;
+      border: 1px solid #e2ebff;
+      background: #fff;
+      padding: 12px;
+    }
+    .miniList .top{
+      display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
+      margin-bottom: 8px;
+    }
+    .miniList .top strong{
+      font-size: 13px;
+      font-weight: 950;
+      color:#0b1220;
+    }
+    .miniList .top span{
+      font-size: 12px;
+      font-weight: 850;
+      color:#6a7486;
+    }
+
+    .footer{
+      margin-top: 18px;
+      border-top: 1px solid rgba(18,48,106,.10);
+      padding-top: 18px;
+      color:#6a7486;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="nav">
+      <a class="brand" href="/index.html" aria-label="Rocklin Ratings home">
+        <img class="brand-logo" src="/assets/images/logo.png" alt="Rocklin Ratings">
+      </a>
+
+      <div class="navlinks">
+        <button type="button" onclick="history.back()">
+          <i class="fa-solid fa-arrow-left"></i><span class="txt">Back</span>
+        </button>
+        <a class="cta" href="/review.html">
+          <i class="fa-solid fa-pen-to-square"></i><span class="txt">Make a review</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-inner">
+      <div style="width:100%;">
+        <div class="crumbs">
+          <a href="/index.html">Home</a>
+          <span>•</span>
+          <span>Connect Teacher</span>
+        </div>
+
+        <h1 class="title">Connect teacher to course</h1>
+        <p class="subtitle">Link any teacher to any course. Mapping tools stay available all the time.</p>
+      </div>
+    </div>
+
+    <div class="wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,70 C240,120 420,20 720,70 C1020,120 1200,20 1440,70 L1440,120 L0,120 Z" fill="#f3f7ff"></path>
+        <path d="M0,74 C240,124 420,24 720,74 C1020,124 1200,24 1440,74" fill="none" stroke="rgba(103,163,255,.34)" stroke-width="10"></path>
+      </svg>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <div class="card">
+        <div class="section-title">
+          <span><i class="fa-solid fa-diagram-project"></i> Mapping</span>
+          <span class="hint">course + teacher</span>
+        </div>
+
+        <div id="errorBox" class="error"></div>
+
+        <div class="grid">
+          <!-- Course -->
+          <div class="field">
+            <div class="label">
+              <span>Course</span>
+              <span class="sub">required</span>
+            </div>
+
+            <div class="suggest" id="courseSuggest">
+              <input id="courseInput" class="input" type="text" placeholder="Start typing a course name…" autocomplete="off">
+              <div id="courseMenu" class="menu" role="listbox" aria-label="Course results"></div>
+            </div>
+
+            <input type="hidden" id="courseSlug" value="">
+            <input type="hidden" id="courseLocked" value="0">
+          </div>
+
+          <!-- Teacher -->
+          <div class="field">
+            <div class="label">
+              <span>Teachers</span>
+              <span class="sub">mapped + link new</span>
+            </div>
+
+            <!-- ALWAYS VISIBLE -->
+            <div class="miniList" id="mappedBox">
+              <div class="top">
+                <strong>Already mapped teachers</strong>
+                <span id="mappedCount">Select a course</span>
+              </div>
+              <select id="mappedSelect" class="select" disabled>
+                <option value="">Select a course first…</option>
+              </select>
+            </div>
+
+            <!-- ALWAYS AVAILABLE UI -->
+            <div class="mapper" id="mapper">
+              <h4><i class="fa-solid fa-link"></i> Link a teacher</h4>
+              <p>Search any teacher and connect them to this course.</p>
+
+              <div class="row">
+                <div class="inputwrap suggest" id="teacherSuggestWrap">
+                  <input id="teacherSearch" class="input" type="text" placeholder="Search teacher name…" autocomplete="off">
+                  <div id="teacherMenu" class="menu" role="listbox" aria-label="Teacher results"></div>
+                </div>
+
+                <button class="btn primary" id="mapBtn" type="button" disabled>
+                  <i class="fa-solid fa-link"></i> Link teacher
+                </button>
+              </div>
+            </div>
+
+            <input type="hidden" id="teacherSlugPrefill" value="">
+            <input type="hidden" id="teacherLocked" value="0">
+          </div>
+        </div>
+
+        <div class="footer">
+          Rocklin Ratings is student-run and reflects student opinions, not official school evaluations.
+        </div>
+      </div>
+    </div>
+  </main>
+
+<script>
+(function(){
+  const prefillCourseSlug   = "";
+  const prefillCourseLabel  = "";
+  const prefillCourseLocked = false;
+
+  const prefillTeacherSlug   = "";
+  const prefillTeacherLabel  = "";
+  const prefillTeacherLocked = false;
+
+  const courseInput = document.getElementById('courseInput');
+  const courseMenu  = document.getElementById('courseMenu');
+  const courseSlug  = document.getElementById('courseSlug');
+
+  const mappedBox    = document.getElementById('mappedBox');
+  const mappedSelect = document.getElementById('mappedSelect');
+  const mappedCount  = document.getElementById('mappedCount');
+
+  const teacherSearch = document.getElementById('teacherSearch');
+  const teacherMenu   = document.getElementById('teacherMenu');
+  const mapBtn        = document.getElementById('mapBtn');
+
+  const errorBox = document.getElementById('errorBox');
+
+  function showError(msg){
+    errorBox.textContent = msg;
+    errorBox.classList.add('show');
+  }
+  function clearError(){
+    errorBox.textContent = '';
+    errorBox.classList.remove('show');
+  }
+
+  async function fetchJson(url, options){
+    const res = await fetch(url, Object.assign({ credentials: 'same-origin' }, (options || {})));
+    const txt = await res.text();
+    let json = null;
+    try { json = JSON.parse(txt); } catch(e) { json = null; }
+    return { res, txt, json };
+  }
+
+  function safePathFromUrl(urlLike){
+    try{
+      const u = new URL(String(urlLike), window.location.origin);
+      return u.pathname || '';
+    }catch(e){
+      return String(urlLike || '');
+    }
+  }
+
+  function extractCourseSlug(r){
+    if (r && typeof r.slug === 'string' && r.slug.trim()) return r.slug.trim();
+    if (r && typeof r.course_slug === 'string' && r.course_slug.trim()) return r.course_slug.trim();
+    const path = safePathFromUrl(r && (r.url || r.href || r.link));
+    const m = path.match(/\/course\/([^\/?#]+)/i) || path.match(/\/courses\/([^\/?#]+)/i) || path.match(/\/c\/([^\/?#]+)/i);
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+
+  function getTeacherName(r){
+    if (!r) return '';
+    if (typeof r.label === 'string' && r.label.trim()) return r.label.trim();
+    if (typeof r.name === 'string' && r.name.trim()) return r.name.trim();
+    const fn = (r.first_name || r.firstname || '').toString().trim();
+    const ln = (r.last_name  || r.lastname  || '').toString().trim();
+    return (fn + ' ' + ln).trim();
+  }
+
+  function slugifyName(name){
+    return String(name || '')
+      .trim()
+      .toLowerCase()
+      .replace(/['"]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '')
+      .replace(/-{2,}/g, '-');
+  }
+
+  function extractTeacherSlug(r){
+    if (r && typeof r.slug === 'string' && r.slug.trim()) return r.slug.trim();
+    if (r && typeof r.teacher_slug === 'string' && r.teacher_slug.trim()) return r.teacher_slug.trim();
+    if (r && typeof r.value === 'string' && r.value.trim()) return r.value.trim();
+    const path = safePathFromUrl(r && (r.url || r.href || r.link));
+    const m = path.match(/\/teacher\/([^\/?#]+)/i) || path.match(/\/teachers\/([^\/?#]+)/i) || path.match(/\/t\/([^\/?#]+)/i);
+    if (m) return decodeURIComponent(m[1]);
+    const display = getTeacherName(r);
+    return slugifyName(display);
+  }
+
+  let selectedTeacherSlugForMap = '';
+
+  function setMapBtnState(){
+    mapBtn.disabled = !(courseSlug.value.trim() && selectedTeacherSlugForMap.trim());
+  }
+
+  function hideCourseMenu(){ courseMenu.classList.remove('show'); courseMenu.innerHTML=''; }
+  function showCourseMenu(){ courseMenu.classList.add('show'); }
+
+  function hideTeacherMenu(){ teacherMenu.classList.remove('show'); teacherMenu.innerHTML=''; }
+  function showTeacherMenu(){ teacherMenu.classList.add('show'); }
+
+  // Course suggest
+  let cTimer = null;
+  async function fetchCourseSuggest(q){
+    const { json } = await fetchJson('/api/course-suggest.php?q=' + encodeURIComponent(q));
+    if (!json || json.ok !== true) return [];
+    return Array.isArray(json.results) ? json.results : [];
+  }
+
+  async function loadTeachersForCourse(cSlug){
+    mappedSelect.disabled = true;
+    mappedSelect.innerHTML = '<option value="">Loading teachers…</option>';
+    mappedCount.textContent = 'Loading…';
+
+    const { res, json } = await fetchJson('/api/teachers-for-course.php?course=' + encodeURIComponent(cSlug));
+    if (!res.ok || !json || json.ok !== true) {
+      mappedSelect.disabled = true;
+      mappedSelect.innerHTML = '<option value="">Could not load mapped teachers</option>';
+      mappedCount.textContent = 'Error';
+      showError((json && json.error) ? json.error : 'teachers-for-course.php did not return valid JSON.');
+      return;
+    }
+
+    const list = Array.isArray(json.teachers) ? json.teachers : [];
+    mappedCount.textContent = list.length ? (list.length + ' mapped') : 'None mapped';
+
+    if (!list.length) {
+      mappedSelect.disabled = true;
+      mappedSelect.innerHTML = '<option value="">No teachers mapped yet</option>';
+      return;
+    }
+
+    mappedSelect.innerHTML = '<option value="">Select a mapped teacher…</option>';
+    list.forEach(t => {
+      const opt = document.createElement('option');
+      opt.value = (t.slug || t.teacher_slug || '').toString().trim();
+      const name = (t.name || t.label || '').toString().trim() || opt.value || 'Teacher';
+      const dept = (t.department || '').toString().trim();
+      opt.textContent = dept ? (name + ' • ' + dept) : name;
+      mappedSelect.appendChild(opt);
+    });
+
+    mappedSelect.disabled = false;
+  }
+
+  async function selectCourse(r){
+    const slug = extractCourseSlug(r);
+    const label = (r && (r.label || r.name)) ? (r.label || r.name) : (slug || '');
+
+    courseInput.value = label;
+    courseSlug.value = slug;
+    hideCourseMenu();
+    clearError();
+
+    // reset mapping state
+    teacherSearch.value = '';
+    selectedTeacherSlugForMap = '';
+    setMapBtnState();
+
+    if (!slug) {
+      mappedCount.textContent = 'Select a course';
+      mappedSelect.disabled = true;
+      mappedSelect.innerHTML = '<option value="">Select a course first…</option>';
+      return;
+    }
+
+    await loadTeachersForCourse(slug);
+
+    if (prefillCourseLocked) courseInput.disabled = true;
+  }
+
+  courseInput.addEventListener('input', () => {
+    if (prefillCourseLocked) return;
+
+    clearError();
+    const q = courseInput.value.trim();
+
+    courseSlug.value = '';
+    mappedCount.textContent = 'Select a course';
+    mappedSelect.disabled = true;
+    mappedSelect.innerHTML = '<option value="">Select a course first…</option>';
+
+    if (cTimer) clearTimeout(cTimer);
+    if (q.length < 1) { hideCourseMenu(); return; }
+
+    cTimer = setTimeout(async () => {
+      const results = await fetchCourseSuggest(q).catch(() => []);
+      if (courseInput.value.trim() !== q) return;
+
+      courseMenu.innerHTML = '';
+      if (!results.length) {
+        courseMenu.innerHTML = '<div class="item"><div><div class="main">No matches</div><div class="meta">Try a different search</div></div></div>';
+        showCourseMenu();
+        return;
+      }
+
+      results.forEach(r => {
+        const div = document.createElement('div');
+        div.className = 'item';
+        div.innerHTML = `
+          <div style="min-width:0;">
+            <div class="main">${(r.label || r.name || 'Course').toString()}</div>
+            ${r.meta ? `<div class="meta">${String(r.meta)}</div>` : ''}
+          </div>
+          <div style="color:#6a7486;font-weight:900;font-size:12px;">Select</div>
+        `;
+        div.addEventListener('click', () => selectCourse(r));
+        courseMenu.appendChild(div);
+      });
+
+      showCourseMenu();
+    }, 140);
+  });
+
+  document.addEventListener('click', (e) => {
+    const wrap = document.getElementById('courseSuggest');
+    if (wrap && !wrap.contains(e.target)) hideCourseMenu();
+  });
+
+  // Teacher suggest
+  let tTimer = null;
+  async function fetchTeacherSuggest(q){
+    const { json } = await fetchJson('/api/suggest.php?q=' + encodeURIComponent(q));
+    if (!json || json.ok !== true) return [];
+    return Array.isArray(json.results) ? json.results : [];
+  }
+
+  teacherSearch.addEventListener('input', () => {
+    if (prefillTeacherLocked) return;
+
+    const q = teacherSearch.value.trim();
+    selectedTeacherSlugForMap = '';
+    setMapBtnState();
+
+    if (tTimer) clearTimeout(tTimer);
+    if (q.length < 1) { hideTeacherMenu(); return; }
+
+    tTimer = setTimeout(async () => {
+      const results = await fetchTeacherSuggest(q).catch(() => []);
+      if (teacherSearch.value.trim() !== q) return;
+
+      teacherMenu.innerHTML = '';
+      if (!results.length) {
+        teacherMenu.innerHTML = '<div class="item"><div><div class="main">No matches</div><div class="meta">Try a different search</div></div></div>';
+        showTeacherMenu();
+        return;
+      }
+
+      results.forEach(r => {
+        const display = getTeacherName(r) || (r.label || r.name || 'Teacher');
+        const slug = extractTeacherSlug(r);
+
+        const div = document.createElement('div');
+        div.className = 'item';
+        div.innerHTML = `
+          <div style="min-width:0;">
+            <div class="main">${String(display)}</div>
+            <div class="meta">${String(r.meta || ('Slug: ' + slug))}</div>
+          </div>
+          <div style="color:#6a7486;font-weight:900;font-size:12px;">Select</div>
+        `;
+        div.addEventListener('click', () => {
+          selectedTeacherSlugForMap = (slug || '').trim();
+          teacherSearch.value = display;
+          hideTeacherMenu();
+          setMapBtnState();
+          clearError();
+        });
+        teacherMenu.appendChild(div);
+      });
+
+      showTeacherMenu();
+    }, 120);
+  });
+
+  document.addEventListener('click', (e) => {
+    const wrap = document.getElementById('teacherSuggestWrap');
+    if (wrap && !wrap.contains(e.target)) hideTeacherMenu();
+  });
+
+  // Map teacher -> course
+  mapBtn.addEventListener('click', async () => {
+    clearError();
+
+    const cSlug = courseSlug.value.trim();
+    let tSlug = (selectedTeacherSlugForMap || '').trim();
+
+    if (!cSlug) { showError('Pick a course first.'); return; }
+
+    if (!tSlug && prefillTeacherLocked && prefillTeacherSlug) {
+      tSlug = String(prefillTeacherSlug).trim();
+    }
+
+    if (!tSlug) { showError('Pick a teacher to link.'); return; }
+
+    mapBtn.disabled = true;
+    const prev = mapBtn.innerHTML;
+    mapBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Linking…';
+
+    const { res, json } = await fetchJson('/api/map-teacher-to-course.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ course_slug: cSlug, teacher_slug: tSlug })
+    });
+
+    if (!res.ok || !json || json.ok !== true) {
+      mapBtn.innerHTML = prev;
+      mapBtn.disabled = false;
+      showError((json && json.error) ? json.error : 'map-teacher-to-course.php failed or returned invalid JSON.');
+      return;
+    }
+
+    await loadTeachersForCourse(cSlug);
+
+    selectedTeacherSlugForMap = '';
+    if (!prefillTeacherLocked) teacherSearch.value = '';
+    mapBtn.innerHTML = prev;
+    setMapBtnState();
+  });
+
+  // Init prefills
+  async function initPrefill(){
+    if (prefillCourseSlug) {
+      courseSlug.value = prefillCourseSlug;
+      courseInput.value = prefillCourseLabel || prefillCourseSlug;
+      if (prefillCourseLocked) courseInput.disabled = true;
+      await loadTeachersForCourse(prefillCourseSlug);
+    }
+
+    if (prefillTeacherSlug && prefillTeacherLocked) {
+      teacherSearch.value = prefillTeacherLabel || prefillTeacherSlug;
+      teacherSearch.disabled = true;
+    }
+
+    setMapBtnState();
+  }
+
+  initPrefill();
+})();
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"31b5de29b2114489940d7725ac95fdfc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

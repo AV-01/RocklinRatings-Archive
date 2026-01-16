@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact • Rocklin Ratings</title>
+
+  <link rel="icon" href="/assets/images/logo.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --blue-950:#0e1f46;
+      --blue-900:#12306a;
+      --blue-800:#1a49a7;
+      --blue-700:#2f6bff;
+      --blue-600:#4d86ff;
+      --blue-500:#67a3ff;
+
+      --nav-bg: rgba(18,48,106,.85);
+      --nav-border: rgba(255,255,255,.16);
+
+      --text:#0b1220;
+      --muted:#5c667a;
+
+      --card:#ffffff;
+      --card-border:#e6eeff;
+
+      --shadow: 0 18px 55px rgba(0,0,0,.20);
+      --shadow-soft: 0 14px 32px rgba(0,0,0,.10);
+
+      --radius: 18px;
+      --radius-lg: 24px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background:#071124;
+      overflow-x:hidden;
+    }
+
+    .hero{
+      position:relative;
+      min-height: 54vh;
+      display:flex;
+      flex-direction:column;
+      isolation:isolate;
+    }
+    .hero video{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      filter: saturate(1.05) contrast(1.03);
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0; z-index:1;
+      background:
+        linear-gradient(180deg, rgba(7,12,24,.78) 0%, rgba(7,12,24,.60) 55%, rgba(7,12,24,.26) 100%),
+        radial-gradient(1000px 600px at 42% 12%, rgba(103,163,255,.32), transparent 60%);
+    }
+
+    .hero-inner{
+      position:relative; z-index:6;
+      max-width: 1150px;
+      margin: 0 auto;
+      width:100%;
+      padding: 44px 18px 24px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:flex-start;
+      flex:1;
+    }
+
+    .hero h1{
+      margin:0;
+      color:#fff;
+      font-size: clamp(36px, 4.8vw, 62px);
+      letter-spacing: -1px;
+      font-weight: 950;
+      text-shadow: 0 18px 60px rgba(0,0,0,.45);
+    }
+    .hero .sub{
+      margin: 10px 0 0;
+      max-width: 92ch;
+      color: rgba(255,255,255,.88);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .pillbar{
+      margin-top: 14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.94);
+      font-size: 12px;
+      user-select:none;
+      backdrop-filter: blur(12px);
+      text-decoration:none;
+      line-height: 1;
+    }
+
+    .wave{
+      position:relative;
+      z-index:2;
+      margin-top:auto;
+      height: 110px;
+      pointer-events:none;
+    }
+    .wave svg{
+      position:absolute;
+      bottom:-1px;
+      left:0;
+      width:100%;
+      height:100%;
+      display:block;
+    }
+
+    main{
+      background: #f3f7ff;
+      padding: 28px 18px 70px;
+    }
+    .container{ max-width: 1150px; margin: 0 auto; }
+
+    .wrap{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap: 14px;
+      align-items:start;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      overflow:hidden;
+    }
+
+    .pad{ padding: 18px; }
+
+    .head{
+      padding: 16px 18px;
+      border-bottom: 1px solid #eef3ff;
+      background: linear-gradient(180deg, #ffffff, #f6f9ff);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .head h2{
+      margin:0;
+      font-size: 16px;
+      font-weight: 950;
+      letter-spacing: -.2px;
+      color:#0b1220;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .hint{
+      font-size: 12px;
+      color:#6a7486;
+      font-weight: 900;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      margin-bottom: 12px;
+    }
+    label{
+      font-size: 12px;
+      font-weight: 950;
+      color:#0b1220;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    input, textarea, select{
+      width:100%;
+      border-radius: 14px;
+      border: 1px solid #e2ebff;
+      background: #fff;
+      padding: 12px 12px;
+      font-size: 13px;
+      outline:none;
+      color:#0b1220;
+      transition: .15s ease;
+    }
+    textarea{ min-height: 140px; resize: vertical; line-height:1.6; }
+    input:focus, textarea:focus, select:focus{
+      border-color: rgba(77,134,255,.55);
+      box-shadow: 0 0 0 4px rgba(77,134,255,.14);
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .btnrow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+      align-items:center;
+      justify-content:flex-start;
+    }
+
+    .btn{
+      border:0;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      justify-content:center;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 950;
+      border: 1px solid rgba(18,48,106,.14);
+      background: #fff;
+      color: var(--blue-900);
+      transition:.18s ease;
+      user-select:none;
+      box-shadow: 0 12px 26px rgba(0,0,0,.06);
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
+      border-color: rgba(77,134,255,.30);
+      color:#fff;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn:disabled{ opacity:.65; cursor:not-allowed; transform:none; }
+
+    .note{
+      margin-top: 10px;
+      font-size: 12.75px;
+      color:#5a667c;
+      line-height:1.6;
+    }
+
+    .toast{
+      display:none;
+      margin: 0 0 12px;
+      border-radius: 18px;
+      padding: 12px 12px;
+      border: 1px solid #e2ebff;
+      background: linear-gradient(180deg, #ffffff, #f6f9ff);
+      box-shadow: 0 14px 32px rgba(0,0,0,.08);
+      gap: 12px;
+      align-items:flex-start;
+    }
+    .toast.show{ display:flex; }
+    .toast .ic{
+      width:42px; height:42px;
+      border-radius: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(77,134,255,.16);
+      border: 1px solid rgba(77,134,255,.26);
+      color: var(--blue-900);
+      flex:0 0 auto;
+    }
+    .toast.ok .ic{ background: rgba(34,197,94,.16); border-color: rgba(34,197,94,.26); color: #166534; }
+    .toast.bad .ic{ background: rgba(239,68,68,.14); border-color: rgba(239,68,68,.22); color: #7f1d1d; }
+    .toast .t{ font-weight: 950; font-size: 13px; color:#0b1220; margin:0; }
+    .toast .p{ margin: 6px 0 0; color:#5a667c; font-size: 12.75px; line-height: 1.6; }
+
+    .side .item{
+      border-top: 1px solid #eef3ff;
+      padding: 14px 18px;
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .side .item:first-child{ border-top: 0; }
+    .side .ic{
+      width:44px; height:44px;
+      border-radius: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(77,134,255,.16);
+      border: 1px solid rgba(77,134,255,.26);
+      color: var(--blue-900);
+      flex:0 0 auto;
+    }
+    .side h3{ margin:0; font-size: 13px; font-weight: 950; color:#0b1220; }
+    .side p{ margin: 6px 0 0; color:#5a667c; font-size: 12.75px; line-height: 1.6; }
+    .side a{ color: var(--blue-900); font-weight: 950; text-decoration:none; }
+    .side a:hover{ text-decoration: underline; }
+
+    footer{
+      margin-top: 22px;
+      text-align:center;
+      color: #6a7486;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+footer a:hover{
+  text-decoration: underline;
+}
+
+    @media (max-width: 980px){
+      .wrap{ grid-template-columns: 1fr; }
+      .row{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+    <video autoplay muted playsinline loop preload="metadata">
+      <source src="/assets/video/drone_broll_v2.webm" type="video/webm" />
+    </video>
+
+    
+<style>
+  /* ============================
+     Rocklin Ratings Navbar (hard-namespaced + high specificity)
+     Goal: NEVER lose to page CSS
+     Fix: CTA icon/text MUST stay blue (was inheriting white)
+  ============================ */
+
+  #rrx9n-nav{
+    position: relative !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    padding: 14px 22px !important;
+
+    background: rgba(18,48,106,.84) !important;
+    border-bottom: 1px solid rgba(255,255,255,.14) !important;
+    backdrop-filter: blur(12px) !important;
+
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial !important;
+    line-height: 1.2 !important;
+  }
+
+  #rrx9n-nav *{ box-sizing: border-box !important; }
+
+  #rrx9n-nav a{
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  #rrx9n-nav i{
+    color: inherit !important;
+    display: inline-block !important;
+  }
+
+  #rrx9n-nav img{
+    display: block !important;
+    max-width: 100% !important;
+  }
+
+  #rrx9n-nav .rrx9n-brand{
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    user-select: none !important;
+  }
+
+  #rrx9n-nav .rrx9n-logo{
+    height: 28px !important;
+    width: auto !important;
+    filter: drop-shadow(0 10px 28px rgba(0,0,0,.22)) !important;
+  }
+
+  #rrx9n-nav .rrx9n-links{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+    max-width: 100% !important;
+  }
+
+  #rrx9n-nav .rrx9n-link{
+    color: rgba(255,255,255,.94) !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255,255,255,0) !important;
+
+    background: rgba(255,255,255,0) !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+
+    transition: transform .18s ease, background .18s ease, border-color .18s ease !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    white-space: nowrap !important;
+  }
+
+  #rrx9n-nav .rrx9n-link:hover{
+    background: rgba(255,255,255,.10) !important;
+    border-color: rgba(255,255,255,.16) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  #rrx9n-nav .rrx9n-link.rrx9n-active{
+    background: rgba(255,255,255,.14) !important;
+    border-color: rgba(255,255,255,.22) !important;
+  }
+
+  /* CTA always white, always readable */
+  #rrx9n-nav .rrx9n-link.rrx9n-cta{
+    background: #ffffff !important;
+    color: #12306a !important;
+    border-color: rgba(255,255,255,.70) !important;
+    font-weight: 950 !important;
+    padding: 10px 14px !important;
+    box-shadow: 0 16px 40px rgba(0,0,0,.14) !important;
+  }
+
+  #rrx9n-nav .rrx9n-link.rrx9n-cta:hover{
+    background: #ffffff !important;
+    color: #12306a !important;
+  }
+
+  /* ✅ IMPORTANT FIX:
+     Force CTA children (icon + text) to be blue too.
+     Some page CSS is overriding span/i colors. */
+  #rrx9n-nav .rrx9n-link.rrx9n-cta i,
+  #rrx9n-nav .rrx9n-link.rrx9n-cta .rrx9n-txt{
+    color: #12306a !important;
+  }
+
+  #rrx9n-nav .rrx9n-account{ max-width: 260px !important; }
+
+  #rrx9n-nav .rrx9n-txt{ display: inline-block !important; }
+
+  #rrx9n-nav .rrx9n-account .rrx9n-txt{
+    max-width: 170px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  #rrx9n-nav .rrx9n-avatar{
+    width: 22px !important;
+    height: 22px !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    display: inline-block !important;
+    border: 1px solid rgba(255,255,255,.22) !important;
+    flex: 0 0 auto !important;
+  }
+
+  #rrx9n-nav .rrx9n-avatar img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  @media (max-width: 680px){
+    #rrx9n-nav{ padding: 12px 14px !important; }
+    #rrx9n-nav .rrx9n-logo{ height: 24px !important; }
+    #rrx9n-nav .rrx9n-txt{ display: none !important; }
+
+    #rrx9n-nav .rrx9n-link{
+      gap: 0 !important;
+      padding: 10px 10px !important;
+      font-size: 12px !important;
+    }
+
+    #rrx9n-nav .rrx9n-link i{ font-size: 14px !important; }
+    #rrx9n-nav .rrx9n-link.rrx9n-cta{ padding: 10px 12px !important; }
+  }
+
+  @media (max-width: 440px){
+    #rrx9n-nav{ padding: 10px 12px !important; }
+    #rrx9n-nav .rrx9n-link{ border-radius: 12px !important; }
+  }
+</style>
+
+<div id="rrx9n-nav">
+  <a class="rrx9n-brand" href="/index.html" aria-label="Rocklin Ratings home">
+    <img class="rrx9n-logo" src="/assets/images/logo.png" alt="Rocklin Ratings">
+  </a>
+
+  <div class="rrx9n-links">
+    <a class="rrx9n-link" href="/index.html">
+      <i class="fa-solid fa-house"></i><span class="rrx9n-txt">Home</span>
+    </a>
+
+    <a class="rrx9n-link" href="/trending.html">
+      <i class="fa-solid fa-fire"></i><span class="rrx9n-txt">Trending</span>
+    </a>
+
+          <a class="rrx9n-link" href="/signup.html">
+        <i class="fa-solid fa-user-plus"></i><span class="rrx9n-txt">Sign In</span>
+      </a>
+    
+    <a class="rrx9n-link rrx9n-cta" href="/review.html">
+      <i class="fa-solid fa-pen-to-square"></i><span class="rrx9n-txt">Create Review</span>
+    </a>
+  </div>
+</div>
+
+    <div class="hero-inner">
+      <div>
+        <h1>Contact</h1>
+        <p class="sub">Missing teacher/course, bug reports, or something that needs moderation attention.</p>
+
+        <div class="pillbar">
+          <span class="pill"><i class="fa-solid fa-plus"></i>Missing</span>
+          <span class="pill"><i class="fa-solid fa-bug"></i>Bug</span>
+          <span class="pill"><i class="fa-solid fa-shield"></i>Report</span>
+          <a class="pill" href="/terms.html"><i class="fa-solid fa-file-contract"></i>Terms</a>
+          <a class="pill" href="/privacy.html"><i class="fa-solid fa-lock"></i>Privacy</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,70 C240,120 420,20 720,70 C1020,120 1200,20 1440,70 L1440,120 L0,120 Z" fill="#f3f7ff"></path>
+        <path d="M0,74 C240,124 420,24 720,74 C1020,124 1200,24 1440,74" fill="none" stroke="rgba(103,163,255,.34)" stroke-width="10"></path>
+      </svg>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <div class="wrap">
+
+        <div class="card">
+          <div class="head">
+            <h2><i class="fa-solid fa-paper-plane"></i> Send a message</h2>
+            <div class="hint"><i class="fa-solid fa-lock"></i> Private</div>
+          </div>
+
+          <div class="pad">
+            <div class="toast" id="toast">
+              <div class="ic" id="toastIcon"><i class="fa-solid fa-circle-info"></i></div>
+              <div>
+                <p class="t" id="toastTitle">Message</p>
+                <p class="p" id="toastText">—</p>
+              </div>
+            </div>
+
+            <form id="contactForm" autocomplete="off">
+              <div class="row">
+                <div class="field">
+                  <label for="type"><i class="fa-solid fa-tag"></i> Category</label>
+                  <select id="type" name="type" required>
+                    <option value="missing">Missing teacher/course</option>
+                    <option value="bug">Bug report</option>
+                    <option value="abuse">Report abuse</option>
+                    <option value="suggestion">Suggestion</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="who"><i class="fa-solid fa-user-secret"></i> From</label>
+                  <select id="who" name="who" required>
+                    <option value="anon">Anonymous</option>
+                    <option value="account">Signed-in user</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="subject"><i class="fa-solid fa-heading"></i> Subject</label>
+                <input id="subject" name="subject" type="text" maxlength="120" placeholder="Short summary" required />
+              </div>
+
+              <div class="field">
+                <label for="message"><i class="fa-solid fa-message"></i> Message</label>
+                <textarea id="message" name="message" maxlength="2000" placeholder="Don’t include student personal info." required></textarea>
+              </div>
+
+              <div class="btnrow">
+                <button class="btn primary" type="submit" id="sendBtn">
+                  <i class="fa-solid fa-paper-plane"></i> Send
+                </button>
+                <a class="btn" href="javascript:history.back()">
+                  <i class="fa-solid fa-arrow-left"></i> Back
+                </a>
+              </div>
+
+              <p class="note">
+                Don’t include student names/IDs, phone numbers, or anything identifying. Keep it clear and useful.
+              </p>
+            </form>
+          </div>
+        </div>
+
+        <aside class="card side">
+          <div class="item">
+            <div class="ic"><i class="fa-solid fa-plus"></i></div>
+            <div>
+              <h3>Missing teacher/course</h3>
+              <p>Include the teacher’s full name + the exact course name.</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="ic"><i class="fa-solid fa-bug"></i></div>
+            <div>
+              <h3>Bug reports</h3>
+              <p>Tell us what page you were on, what you clicked, and what happened.</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="ic"><i class="fa-solid fa-shield"></i></div>
+            <div>
+              <h3>Report abuse</h3>
+              <p>Include the teacher/course + what was said (or a direct link).</p>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+
+<footer>
+  Rocklin Ratings is not affiliated with any school. Content reflects user opinions, not official evaluations.
+  <span style="margin:0 6px;">•</span>
+  <a href="/terms.html" style="color:#2f6bff; font-weight:900; text-decoration:none;">Terms</a>
+  <span style="margin:0 6px;">•</span>
+  <a href="/privacy.html" style="color:#2f6bff; font-weight:900; text-decoration:none;">Privacy</a>
+</footer>
+
+    </div>
+  </main>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const sendBtn = document.getElementById('sendBtn');
+
+  const toast = document.getElementById('toast');
+  const toastTitle = document.getElementById('toastTitle');
+  const toastText = document.getElementById('toastText');
+  const toastIcon = document.getElementById('toastIcon');
+
+  function showToast(kind, title, text){
+    toast.classList.remove('ok','bad');
+    toast.classList.add('show');
+    if (kind === 'ok') toast.classList.add('ok');
+    if (kind === 'bad') toast.classList.add('bad');
+
+    toastTitle.textContent = title;
+    toastText.textContent = text;
+
+    toastIcon.innerHTML = (kind === 'ok')
+      ? '<i class="fa-solid fa-circle-check"></i>'
+      : (kind === 'bad')
+        ? '<i class="fa-solid fa-triangle-exclamation"></i>'
+        : '<i class="fa-solid fa-circle-info"></i>';
+  }
+
+  async function fetchJsonSafe(res){
+    const raw = await res.text();
+    try { return JSON.parse(raw); } catch { return null; }
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const fd = new FormData(form);
+    const subject = String(fd.get('subject') || '').trim();
+    const message = String(fd.get('message') || '').trim();
+
+    if (subject.length < 3 || message.length < 8){
+      showToast('bad', 'Missing info', 'Add a clearer subject and a little more detail.');
+      return;
+    }
+
+    sendBtn.disabled = true;
+    sendBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...';
+
+    try{
+      const res = await fetch('/api/contact.php', {
+        method: 'POST',
+        body: fd,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      const data = await fetchJsonSafe(res);
+
+      if (!res.ok || !data || data.ok !== true){
+        const msg = (data && data.error) ? String(data.error) : 'Could not send right now. Try again.';
+        showToast('bad', 'Not sent', msg);
+      } else {
+        form.reset();
+        showToast('ok', 'Sent', 'Got it. Thanks — we’ll take a look.');
+      }
+    } catch (err){
+      showToast('bad', 'Not sent', 'Network error. Try again.');
+    } finally {
+      sendBtn.disabled = false;
+      sendBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send';
+    }
+  });
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"31b5de29b2114489940d7725ac95fdfc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

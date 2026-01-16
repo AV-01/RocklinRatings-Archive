@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Announcement • Rocklin Ratings</title>
+
+  <link rel="icon" href="/assets/images/logo.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --blue-950:#0e1f46;
+      --blue-900:#12306a;
+      --blue-800:#1a49a7;
+      --blue-700:#2f6bff;
+      --blue-600:#4d86ff;
+
+      --bg: #071124;
+      --page: #f3f7ff;
+      --card: #ffffff;
+      --card-border:#e6eeff;
+
+      --text:#0b1220;
+      --muted:#5c667a;
+
+      --shadow-soft: 0 14px 32px rgba(0,0,0,.10);
+      --shadow: 0 22px 55px rgba(0,0,0,.22);
+
+      --radius: 18px;
+      --radius-lg: 24px;
+
+      --danger: #d63c47;
+      --warn: #c07a12;
+      --ok: #137b3f;
+      --focus: rgba(77,134,255,.35);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x:hidden;
+    }
+
+    .hero{
+      position:relative;
+      min-height: 42vh;
+      display:flex;
+      flex-direction:column;
+      isolation:isolate;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:0;
+      background:
+        radial-gradient(1100px 620px at 18% 18%, rgba(103,163,255,.42), transparent 60%),
+        radial-gradient(900px 520px at 78% 22%, rgba(77,134,255,.30), transparent 58%),
+        radial-gradient(900px 520px at 60% 95%, rgba(47,107,255,.22), transparent 62%),
+        linear-gradient(135deg, #081028 0%, #0b1636 36%, #0d2250 100%);
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      z-index:1;
+      background: linear-gradient(180deg, rgba(7,12,24,.62), rgba(7,12,24,.30) 55%, rgba(7,12,24,.10));
+      pointer-events:none;
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:5;
+      max-width: 1050px;
+      margin: 0 auto;
+      width:100%;
+      padding: 34px 18px 18px;
+      display:flex;
+      align-items:flex-end;
+    }
+
+    .crumbs{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+      color: rgba(255,255,255,.75);
+      font-size: 12px;
+      user-select:none;
+    }
+    .crumbs a{ color: rgba(255,255,255,.88); text-decoration:none; }
+    .crumbs a:hover{ text-decoration:underline; }
+
+    .title{
+      margin: 10px 0 0;
+      color:#fff;
+      font-size: clamp(30px, 4.3vw, 52px);
+      letter-spacing: -1px;
+      font-weight: 950;
+      text-shadow: 0 18px 60px rgba(0,0,0,.45);
+      line-height: 1.06;
+    }
+    .subtitle{
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.86);
+      font-size: 14px;
+      line-height: 1.65;
+      max-width: 95ch;
+    }
+
+    .meta-row{
+      margin-top: 14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.94);
+      font-size: 12px;
+      user-select:none;
+      backdrop-filter: blur(12px);
+      text-decoration:none;
+      line-height: 1;
+      white-space:nowrap;
+    }
+    .pill i{ opacity:.95; }
+
+    .wave{ position:relative; z-index:2; margin-top:auto; height: 95px; }
+    .wave svg{ position:absolute; bottom:-1px; left:0; width:100%; height:100%; display:block; }
+
+    main{
+      background: var(--page);
+      padding: 22px 18px 70px;
+      min-height: 60vh;
+    }
+    .container{ max-width: 1050px; margin: 0 auto; }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      overflow:hidden;
+    }
+
+    .body{
+      padding: 18px;
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap: 14px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .body{ grid-template-columns: 1fr; }
+    }
+
+    .section{
+      padding: 14px 0;
+      border-top: 1px solid #eef3ff;
+    }
+    .section:first-of-type{ border-top: 0; padding-top: 0; }
+    .section h3{
+      margin:0;
+      font-size: 15px;
+      font-weight: 950;
+      letter-spacing: -.2px;
+      color:#0b1220;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .section h3 i{ color: rgba(47,107,255,.85); }
+    .section p{
+      margin: 10px 0 0;
+      color:#4a556b;
+      font-size: 13.25px;
+      line-height: 1.8;
+      max-width: 100ch;
+    }
+    .section ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color:#4a556b;
+      font-size: 13.25px;
+      line-height: 1.8;
+    }
+    .section li{ margin: 6px 0; }
+
+    .callouts{
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      position: sticky;
+      top: 14px;
+    }
+    @media (max-width: 980px){
+      .callouts{ position: static; }
+    }
+
+    .box{
+      border-radius: 20px;
+      border: 1px solid rgba(18,48,106,.12);
+      background: linear-gradient(180deg, #ffffff, #f6f9ff);
+      box-shadow: 0 12px 26px rgba(0,0,0,.06);
+      padding: 14px;
+    }
+    .box .top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .box h4{
+      margin:0;
+      font-size: 13.5px;
+      font-weight: 950;
+      color:#0b1220;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .box h4 i{
+      width: 34px; height: 34px;
+      border-radius: 14px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(77,134,255,.14);
+      border: 1px solid rgba(77,134,255,.22);
+      color: var(--blue-900);
+      flex: 0 0 auto;
+    }
+    .box p{
+      margin: 8px 0 0;
+      color:#5a667c;
+      font-size: 12.75px;
+      line-height: 1.7;
+      font-weight: 800;
+    }
+
+    .btnrow{
+      margin-top: 12px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      justify-content:center;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 950;
+      border: 1px solid rgba(18,48,106,.14);
+      background: #fff;
+      color: var(--blue-900);
+      transition:.18s ease;
+      user-select:none;
+      box-shadow: 0 12px 26px rgba(0,0,0,.06);
+      white-space:nowrap;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
+      border-color: rgba(77,134,255,.30);
+      color:#fff;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+
+    .fineprint{
+      margin-top: 14px;
+      border-top: 1px solid rgba(18,48,106,.10);
+      padding-top: 14px;
+      color:#6a7486;
+      font-size: 12.25px;
+      line-height: 1.7;
+      font-weight: 800;
+    }
+    .fineprint a{
+      color: var(--blue-900);
+      text-decoration:none;
+      font-weight: 950;
+    }
+    .fineprint a:hover{ text-decoration:underline; }
+
+    footer{
+      padding: 14px 18px 18px;
+      border-top: 1px solid rgba(18,48,106,.10);
+      color:#6a7486;
+      font-size: 12px;
+      line-height: 1.6;
+      text-align:center;
+    }
+  </style>
+</head>
+
+<body>
+  
+<style>
+  /* ============================
+     Rocklin Ratings Navbar (hard-namespaced + high specificity)
+     Goal: NEVER lose to page CSS
+     Fix: CTA icon/text MUST stay blue (was inheriting white)
+  ============================ */
+
+  #rrx9n-nav{
+    position: relative !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    padding: 14px 22px !important;
+
+    background: rgba(18,48,106,.84) !important;
+    border-bottom: 1px solid rgba(255,255,255,.14) !important;
+    backdrop-filter: blur(12px) !important;
+
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial !important;
+    line-height: 1.2 !important;
+  }
+
+  #rrx9n-nav *{ box-sizing: border-box !important; }
+
+  #rrx9n-nav a{
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  #rrx9n-nav i{
+    color: inherit !important;
+    display: inline-block !important;
+  }
+
+  #rrx9n-nav img{
+    display: block !important;
+    max-width: 100% !important;
+  }
+
+  #rrx9n-nav .rrx9n-brand{
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    user-select: none !important;
+  }
+
+  #rrx9n-nav .rrx9n-logo{
+    height: 28px !important;
+    width: auto !important;
+    filter: drop-shadow(0 10px 28px rgba(0,0,0,.22)) !important;
+  }
+
+  #rrx9n-nav .rrx9n-links{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+    max-width: 100% !important;
+  }
+
+  #rrx9n-nav .rrx9n-link{
+    color: rgba(255,255,255,.94) !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255,255,255,0) !important;
+
+    background: rgba(255,255,255,0) !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+
+    transition: transform .18s ease, background .18s ease, border-color .18s ease !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    white-space: nowrap !important;
+  }
+
+  #rrx9n-nav .rrx9n-link:hover{
+    background: rgba(255,255,255,.10) !important;
+    border-color: rgba(255,255,255,.16) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  #rrx9n-nav .rrx9n-link.rrx9n-active{
+    background: rgba(255,255,255,.14) !important;
+    border-color: rgba(255,255,255,.22) !important;
+  }
+
+  /* CTA always white, always readable */
+  #rrx9n-nav .rrx9n-link.rrx9n-cta{
+    background: #ffffff !important;
+    color: #12306a !important;
+    border-color: rgba(255,255,255,.70) !important;
+    font-weight: 950 !important;
+    padding: 10px 14px !important;
+    box-shadow: 0 16px 40px rgba(0,0,0,.14) !important;
+  }
+
+  #rrx9n-nav .rrx9n-link.rrx9n-cta:hover{
+    background: #ffffff !important;
+    color: #12306a !important;
+  }
+
+  /* ✅ IMPORTANT FIX:
+     Force CTA children (icon + text) to be blue too.
+     Some page CSS is overriding span/i colors. */
+  #rrx9n-nav .rrx9n-link.rrx9n-cta i,
+  #rrx9n-nav .rrx9n-link.rrx9n-cta .rrx9n-txt{
+    color: #12306a !important;
+  }
+
+  #rrx9n-nav .rrx9n-account{ max-width: 260px !important; }
+
+  #rrx9n-nav .rrx9n-txt{ display: inline-block !important; }
+
+  #rrx9n-nav .rrx9n-account .rrx9n-txt{
+    max-width: 170px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  #rrx9n-nav .rrx9n-avatar{
+    width: 22px !important;
+    height: 22px !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    display: inline-block !important;
+    border: 1px solid rgba(255,255,255,.22) !important;
+    flex: 0 0 auto !important;
+  }
+
+  #rrx9n-nav .rrx9n-avatar img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  @media (max-width: 680px){
+    #rrx9n-nav{ padding: 12px 14px !important; }
+    #rrx9n-nav .rrx9n-logo{ height: 24px !important; }
+    #rrx9n-nav .rrx9n-txt{ display: none !important; }
+
+    #rrx9n-nav .rrx9n-link{
+      gap: 0 !important;
+      padding: 10px 10px !important;
+      font-size: 12px !important;
+    }
+
+    #rrx9n-nav .rrx9n-link i{ font-size: 14px !important; }
+    #rrx9n-nav .rrx9n-link.rrx9n-cta{ padding: 10px 12px !important; }
+  }
+
+  @media (max-width: 440px){
+    #rrx9n-nav{ padding: 10px 12px !important; }
+    #rrx9n-nav .rrx9n-link{ border-radius: 12px !important; }
+  }
+</style>
+
+<div id="rrx9n-nav">
+  <a class="rrx9n-brand" href="/index.html" aria-label="Rocklin Ratings home">
+    <img class="rrx9n-logo" src="/assets/images/logo.png" alt="Rocklin Ratings">
+  </a>
+
+  <div class="rrx9n-links">
+    <a class="rrx9n-link" href="/index.html">
+      <i class="fa-solid fa-house"></i><span class="rrx9n-txt">Home</span>
+    </a>
+
+    <a class="rrx9n-link" href="/trending.html">
+      <i class="fa-solid fa-fire"></i><span class="rrx9n-txt">Trending</span>
+    </a>
+
+          <a class="rrx9n-link" href="/signup.html">
+        <i class="fa-solid fa-user-plus"></i><span class="rrx9n-txt">Sign In</span>
+      </a>
+    
+    <a class="rrx9n-link rrx9n-cta" href="/review.html">
+      <i class="fa-solid fa-pen-to-square"></i><span class="rrx9n-txt">Create Review</span>
+    </a>
+  </div>
+</div>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div style="width:100%;">
+        <div class="crumbs">
+          <a href="/index.html">Home</a>
+          <span>•</span>
+          <span>Announcement</span>
+        </div>
+
+        <h1 class="title">About the “legal threat” rumor</h1>
+        <p class="subtitle">
+          This page provides clarity on what we have and have not seen, what to look for in legitimate communications,
+          and how to keep the platform focused and credible.
+        </p>
+
+        <div class="meta-row">
+          <span class="pill"><i class="fa-solid fa-bullhorn"></i>Updated: January 14, 2026</span>
+          <span class="pill"><i class="fa-solid fa-user-secret"></i>Anonymous by default</span>
+          <a class="pill" href="/privacy.html"><i class="fa-solid fa-lock"></i>Privacy</a>
+          <a class="pill" href="/terms.html"><i class="fa-solid fa-file-contract"></i>Terms</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,70 C240,120 420,20 720,70 C1020,120 1200,20 1440,70 L1440,120 L0,120 Z" fill="#f3f7ff"></path>
+        <path d="M0,74 C240,124 420,24 720,74 C1020,124 1200,24 1440,74" fill="none" stroke="rgba(103,163,255,.34)" stroke-width="10"></path>
+      </svg>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <div class="card">
+        <div class="body">
+
+          <!-- Main text -->
+          <div>
+            <div class="section">
+              <h3><i class="fa-solid fa-circle-info"></i> What’s happening</h3>
+              <p>
+                A message has been circulating that claims there is a “legal threat” related to Rocklin Ratings.
+                As of now, we have not seen any communication that appears to be an official district notice or a formal legal notice.
+              </p>
+              <p>
+                If you encounter a screenshot, banner, or “notice” that is vague, emotionally written, or missing verifiable details,
+                treat it with skepticism. Legitimate communications are specific, verifiable, and clearly identify who is issuing them.
+              </p>
+            </div>
+
+            <div class="section">
+              <h3><i class="fa-solid fa-shield-heart"></i> Anonymity & privacy</h3>
+              <p>
+                Rocklin Ratings is built to be anonymous by default. We do not require users to post under their real names,
+                and the platform is designed to minimize the collection and exposure of personal identifiers.
+              </p>
+              <p>
+                Like any platform, anonymity is not an absolute guarantee in every conceivable scenario.
+                If valid legal process is ever presented, we will respond in accordance with our published policies and applicable law.
+              </p>
+            </div>
+
+            <div class="section">
+              <h3><i class="fa-solid fa-compass"></i> Keeping reviews focused</h3>
+              <p>
+                Rocklin Ratings exists to help students make informed decisions about classes and academic experiences.
+                To keep the platform available and credible, we are updating and enforcing our Terms of Service.
+              </p>
+              <ul>
+                <li><strong>No profanity or personal attacks.</strong> Reviews should describe experiences, not target individuals.</li>
+                <li><strong>No harassment or threats.</strong> Content intended to intimidate, insult, or provoke is not permitted.</li>
+                <li><strong>No private or identifying information.</strong> Do not include student names, schedules, IDs, contact details, or private communications.</li>
+                <li><strong>Be specific and constructive.</strong> Workload, grading, clarity, pacing, and expectations are appropriate topics.</li>
+              </ul>
+              <p>
+                Reviews that violate these standards may be removed, and repeated abuse of the platform may result in restrictions
+                under our Terms.
+              </p>
+            </div>
+
+            <div class="section">
+              <h3><i class="fa-solid fa-building-circle-xmark"></i> Affiliation</h3>
+              <p>
+                Rocklin Ratings is an independent project and is not an official school resource. It is not endorsed by any school, district,
+                or public agency. Reviews reflect user opinions and are not official evaluations.
+              </p>
+            </div>
+
+            <div class="section">
+              <h3><i class="fa-solid fa-flag"></i> If you see something concerning</h3>
+              <p>
+                If you see a “notice” that appears fabricated or designed to alarm people, do not spread it further.
+                If any content on this site violates our rules, report it through the contact page and we will review it.
+              </p>
+            </div>
+
+            <div class="fineprint">
+              Not legal advice. This page provides general information about how we operate and what we expect from users.
+              For rules and enforcement, see <a href="/terms.html">/terms</a> and <a href="/privacy.html">/privacy</a>.
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="callouts">
+            <div class="box">
+              <div class="top">
+                <h4><i class="fa-solid fa-lock"></i> Quick links</h4>
+              </div>
+              <p>Policies and contact information.</p>
+              <div class="btnrow">
+                <a class="btn" href="/terms.html"><i class="fa-solid fa-file-contract"></i>Terms</a>
+                <a class="btn" href="/privacy.html"><i class="fa-solid fa-lock"></i>Privacy</a>
+                <a class="btn" href="/contact.html"><i class="fa-solid fa-envelope"></i>Contact</a>
+              </div>
+            </div>
+
+            <div class="box">
+              <div class="top">
+                <h4><i class="fa-brands fa-instagram"></i> Updates</h4>
+              </div>
+              <p>Announcements and product updates.</p>
+              <div class="btnrow">
+                <a class="btn primary" href="https://instagram.com/rocklinratings_" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> @rocklinratings_
+                </a>
+              </div>
+            </div>
+
+            <div class="box">
+              <div class="top">
+                <h4><i class="fa-solid fa-pen-to-square"></i> Write better reviews</h4>
+              </div>
+              <p>Keep it accurate, class-focused, and respectful.</p>
+              <div class="btnrow">
+                <a class="btn" href="/review.html"><i class="fa-solid fa-star"></i>Write a review</a>
+                <a class="btn" href="/index.html"><i class="fa-solid fa-house"></i>Home</a>
+              </div>
+            </div>
+          </aside>
+
+        </div>
+
+        <footer>
+          Rocklin Ratings is not affiliated with any school. Content reflects user opinions and is not an official evaluation.
+        </footer>
+      </div>
+    </div>
+  </main>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"31b5de29b2114489940d7725ac95fdfc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

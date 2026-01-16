@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Terms • Rocklin Ratings</title>
+
+  <link rel="icon" href="/assets/images/logo.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --blue-950:#0e1f46;
+      --blue-900:#12306a;
+      --blue-800:#1a49a7;
+      --blue-700:#2f6bff;
+      --blue-600:#4d86ff;
+      --blue-500:#67a3ff;
+
+      --nav-bg: rgba(18,48,106,.85);
+      --nav-border: rgba(255,255,255,.16);
+
+      --white:#fff;
+      --text:#0b1220;
+      --muted:#5c667a;
+
+      --card:#ffffff;
+      --card-border:#e6eeff;
+
+      --shadow: 0 18px 55px rgba(0,0,0,.20);
+      --shadow-soft: 0 14px 32px rgba(0,0,0,.10);
+
+      --radius: 18px;
+      --radius-lg: 24px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background:#071124;
+      overflow-x:hidden;
+    }
+
+    .hero{
+      position:relative;
+      min-height: 46vh;
+      display:flex;
+      flex-direction:column;
+      isolation:isolate;
+    }
+
+    .hero video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transform: translateZ(0);
+      filter: saturate(1.05) contrast(1.03);
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:1;
+      background:
+        linear-gradient(180deg, rgba(7,12,24,.78) 0%, rgba(7,12,24,.60) 55%, rgba(7,12,24,.26) 100%),
+        radial-gradient(1000px 600px at 42% 12%, rgba(103,163,255,.32), transparent 60%);
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:6;
+      max-width: 1150px;
+      margin: 0 auto;
+      width:100%;
+      padding: 42px 18px 26px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:flex-start;
+      flex:1;
+    }
+
+    .hero h1{
+      margin:0;
+      color:#fff;
+      font-size: clamp(34px, 4.6vw, 58px);
+      letter-spacing: -1px;
+      font-weight: 950;
+      text-shadow: 0 18px 60px rgba(0,0,0,.45);
+    }
+
+    .hero .sub{
+      margin: 10px 0 0;
+      max-width: 85ch;
+      color: rgba(255,255,255,.88);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .pillbar{
+      margin-top: 14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.94);
+      font-size: 12px;
+      user-select:none;
+      backdrop-filter: blur(12px);
+      text-decoration:none;
+      line-height: 1;
+    }
+    .pill i{ opacity:.95; }
+
+    .wave{
+      position:relative;
+      z-index:2;
+      margin-top:auto;
+      height: 110px;
+      background: transparent;
+      pointer-events:none;
+    }
+    .wave svg{
+      position:absolute;
+      bottom:-1px;
+      left:0;
+      width:100%;
+      height:100%;
+      display:block;
+    }
+
+    main{
+      background: #f3f7ff;
+      padding: 28px 18px 70px;
+    }
+    .container{ max-width: 1150px; margin: 0 auto; }
+
+    .layout{
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap: 14px;
+      align-items:start;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      overflow:hidden;
+    }
+
+    .side{
+      position: sticky;
+      top: 14px;
+    }
+
+    .side .head{
+      padding: 16px 16px 12px;
+      border-bottom: 1px solid #eef3ff;
+      background: linear-gradient(180deg, #ffffff, #f6f9ff);
+    }
+    .side .head .t{
+      margin:0;
+      font-size: 14px;
+      font-weight: 950;
+      letter-spacing: -.2px;
+      color:#0b1220;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .side .head .d{
+      margin:8px 0 0;
+      font-size: 12.75px;
+      line-height:1.6;
+      color:#5a667c;
+    }
+
+    .side .nav{
+      padding: 10px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .side .nav a{
+      text-decoration:none;
+      color:#0b1220;
+      font-weight: 950;
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      transition:.15s ease;
+    }
+    .side .nav a span{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:0;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .side .nav a i{
+      color: rgba(47,107,255,.85);
+      flex:0 0 auto;
+      width: 18px;
+      text-align:center;
+    }
+    .side .nav a:hover{
+      background: #f3f7ff;
+      border-color: #e2ebff;
+    }
+
+    .content{ padding: 18px; }
+
+    .section{
+      padding: 14px 0;
+      border-top: 1px solid #eef3ff;
+    }
+    .section:first-of-type{ border-top: 0; padding-top: 0; }
+    .section h3{
+      margin:0;
+      font-size: 15px;
+      font-weight: 950;
+      letter-spacing: -.2px;
+      color:#0b1220;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .section h3 i{ color: rgba(47,107,255,.85); }
+    .section p{
+      margin: 10px 0 0;
+      color:#4a556b;
+      font-size: 13px;
+      line-height: 1.75;
+      max-width: 98ch;
+    }
+    .section ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color:#4a556b;
+      font-size: 13px;
+      line-height: 1.75;
+    }
+    .section li{ margin: 6px 0; }
+
+    .actions{
+      margin-top: 14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      justify-content:center;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 950;
+      border: 1px solid rgba(18,48,106,.14);
+      background: #fff;
+      color: var(--blue-900);
+      transition:.18s ease;
+      user-select:none;
+      box-shadow: 0 12px 26px rgba(0,0,0,.06);
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
+      border-color: rgba(77,134,255,.30);
+      color:#fff;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+
+    footer{
+      margin-top: 22px;
+      text-align:center;
+      color: #6a7486;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 980px){
+      .layout{ grid-template-columns: 1fr; }
+      .side{ position: static; }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+    <video autoplay muted playsinline loop preload="metadata">
+      <source src="/assets/video/drone_broll_v2.webm" type="video/webm" />
+    </video>
+
+    
+<style>
+  /* ============================
+     Rocklin Ratings Navbar (hard-namespaced + high specificity)
+     Goal: NEVER lose to page CSS
+     Fix: CTA icon/text MUST stay blue (was inheriting white)
+  ============================ */
+
+  #rrx9n-nav{
+    position: relative !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    padding: 14px 22px !important;
+
+    background: rgba(18,48,106,.84) !important;
+    border-bottom: 1px solid rgba(255,255,255,.14) !important;
+    backdrop-filter: blur(12px) !important;
+
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial !important;
+    line-height: 1.2 !important;
+  }
+
+  #rrx9n-nav *{ box-sizing: border-box !important; }
+
+  #rrx9n-nav a{
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  #rrx9n-nav i{
+    color: inherit !important;
+    display: inline-block !important;
+  }
+
+  #rrx9n-nav img{
+    display: block !important;
+    max-width: 100% !important;
+  }
+
+  #rrx9n-nav .rrx9n-brand{
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    user-select: none !important;
+  }
+
+  #rrx9n-nav .rrx9n-logo{
+    height: 28px !important;
+    width: auto !important;
+    filter: drop-shadow(0 10px 28px rgba(0,0,0,.22)) !important;
+  }
+
+  #rrx9n-nav .rrx9n-links{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+    max-width: 100% !important;
+  }
+
+  #rrx9n-nav .rrx9n-link{
+    color: rgba(255,255,255,.94) !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255,255,255,0) !important;
+
+    background: rgba(255,255,255,0) !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+
+    transition: transform .18s ease, background .18s ease, border-color .18s ease !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    white-space: nowrap !important;
+  }
+
+  #rrx9n-nav .rrx9n-link:hover{
+    background: rgba(255,255,255,.10) !important;
+    border-color: rgba(255,255,255,.16) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  #rrx9n-nav .rrx9n-link.rrx9n-active{
+    background: rgba(255,255,255,.14) !important;
+    border-color: rgba(255,255,255,.22) !important;
+  }
+
+  /* CTA always white, always readable */
+  #rrx9n-nav .rrx9n-link.rrx9n-cta{
+    background: #ffffff !important;
+    color: #12306a !important;
+    border-color: rgba(255,255,255,.70) !important;
+    font-weight: 950 !important;
+    padding: 10px 14px !important;
+    box-shadow: 0 16px 40px rgba(0,0,0,.14) !important;
+  }
+
+  #rrx9n-nav .rrx9n-link.rrx9n-cta:hover{
+    background: #ffffff !important;
+    color: #12306a !important;
+  }
+
+  /* ✅ IMPORTANT FIX:
+     Force CTA children (icon + text) to be blue too.
+     Some page CSS is overriding span/i colors. */
+  #rrx9n-nav .rrx9n-link.rrx9n-cta i,
+  #rrx9n-nav .rrx9n-link.rrx9n-cta .rrx9n-txt{
+    color: #12306a !important;
+  }
+
+  #rrx9n-nav .rrx9n-account{ max-width: 260px !important; }
+
+  #rrx9n-nav .rrx9n-txt{ display: inline-block !important; }
+
+  #rrx9n-nav .rrx9n-account .rrx9n-txt{
+    max-width: 170px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  #rrx9n-nav .rrx9n-avatar{
+    width: 22px !important;
+    height: 22px !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    display: inline-block !important;
+    border: 1px solid rgba(255,255,255,.22) !important;
+    flex: 0 0 auto !important;
+  }
+
+  #rrx9n-nav .rrx9n-avatar img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  @media (max-width: 680px){
+    #rrx9n-nav{ padding: 12px 14px !important; }
+    #rrx9n-nav .rrx9n-logo{ height: 24px !important; }
+    #rrx9n-nav .rrx9n-txt{ display: none !important; }
+
+    #rrx9n-nav .rrx9n-link{
+      gap: 0 !important;
+      padding: 10px 10px !important;
+      font-size: 12px !important;
+    }
+
+    #rrx9n-nav .rrx9n-link i{ font-size: 14px !important; }
+    #rrx9n-nav .rrx9n-link.rrx9n-cta{ padding: 10px 12px !important; }
+  }
+
+  @media (max-width: 440px){
+    #rrx9n-nav{ padding: 10px 12px !important; }
+    #rrx9n-nav .rrx9n-link{ border-radius: 12px !important; }
+  }
+</style>
+
+<div id="rrx9n-nav">
+  <a class="rrx9n-brand" href="/index.html" aria-label="Rocklin Ratings home">
+    <img class="rrx9n-logo" src="/assets/images/logo.png" alt="Rocklin Ratings">
+  </a>
+
+  <div class="rrx9n-links">
+    <a class="rrx9n-link" href="/index.html">
+      <i class="fa-solid fa-house"></i><span class="rrx9n-txt">Home</span>
+    </a>
+
+    <a class="rrx9n-link" href="/trending.html">
+      <i class="fa-solid fa-fire"></i><span class="rrx9n-txt">Trending</span>
+    </a>
+
+          <a class="rrx9n-link" href="/signup.html">
+        <i class="fa-solid fa-user-plus"></i><span class="rrx9n-txt">Sign In</span>
+      </a>
+    
+    <a class="rrx9n-link rrx9n-cta" href="/review.html">
+      <i class="fa-solid fa-pen-to-square"></i><span class="rrx9n-txt">Create Review</span>
+    </a>
+  </div>
+</div>
+
+    <div class="hero-inner">
+      <div>
+        <h1>Terms of Service</h1>
+        <p class="sub">
+          These Terms govern access to and use of Rocklin Ratings (the “Service”). The Service is not affiliated with, endorsed by,
+          or sponsored by any school, district, or public agency. Content is user-submitted and reflects individual opinions.
+        </p>
+
+        <div class="pillbar">
+          <span class="pill"><i class="fa-solid fa-comment"></i>Open opinions</span>
+          <span class="pill"><i class="fa-solid fa-user-secret"></i>Anonymous by default</span>
+          <span class="pill"><i class="fa-solid fa-scale-balanced"></i>Not official</span>
+          <a class="pill" href="/privacy.html"><i class="fa-solid fa-lock"></i>Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,70 C240,120 420,20 720,70 C1020,120 1200,20 1440,70 L1440,120 L0,120 Z" fill="#f3f7ff"></path>
+        <path d="M0,74 C240,124 420,24 720,74 C1020,124 1200,24 1440,74" fill="none" stroke="rgba(103,163,255,.34)" stroke-width="10"></path>
+      </svg>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <div class="layout">
+
+        <!-- Sidebar -->
+        <aside class="card side">
+          <div class="head">
+            <p class="t"><i class="fa-solid fa-file-contract"></i> Quick nav</p>
+            <p class="d">The basics: usage, responsibility, moderation, and disclaimers.</p>
+          </div>
+          <nav class="nav">
+            <a href="#accept"><span><i class="fa-solid fa-check"></i>Acceptance</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#about"><span><i class="fa-solid fa-circle-info"></i>About</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#eligibility"><span><i class="fa-solid fa-id-card"></i>Eligibility</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#accounts"><span><i class="fa-solid fa-user"></i>Accounts</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#ugc"><span><i class="fa-solid fa-pen-to-square"></i>User content</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#guidelines"><span><i class="fa-solid fa-compass"></i>Guidelines</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#moderation"><span><i class="fa-solid fa-gavel"></i>Moderation</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#disclaimers"><span><i class="fa-solid fa-triangle-exclamation"></i>Disclaimers</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#liability"><span><i class="fa-solid fa-hand"></i>Liability</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#changes"><span><i class="fa-solid fa-rotate"></i>Changes</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#law"><span><i class="fa-solid fa-scale-balanced"></i>Law</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#contact"><span><i class="fa-solid fa-envelope"></i>Contact</span><i class="fa-solid fa-arrow-right"></i></a>
+          </nav>
+        </aside>
+
+        <!-- Content -->
+        <article class="card content">
+
+          <div class="section" id="accept">
+            <h3><i class="fa-solid fa-check"></i> 1) Acceptance</h3>
+            <p>
+              By accessing or using the Service, you agree to these Terms and the Privacy Policy. If you do not agree, do not use the Service.
+            </p>
+          </div>
+
+          <div class="section" id="about">
+            <h3><i class="fa-solid fa-circle-info"></i> 2) About the Service</h3>
+            <p>
+              The Service provides a platform for users to share opinions and experiences about classes and educators. The Service is not an official school resource
+              and is not affiliated with any school, district, or governmental entity.
+            </p>
+          </div>
+
+          <div class="section" id="eligibility">
+            <h3><i class="fa-solid fa-id-card"></i> 3) Eligibility</h3>
+            <p>
+            You may use the Service only if you can legally agree to these Terms.
+            </p>
+          </div>
+
+          <div class="section" id="accounts">
+            <h3><i class="fa-solid fa-user"></i> 4) Accounts</h3>
+            <p>
+              Accounts are optional. If you create an account, you are responsible for activity under your account and for maintaining the confidentiality of your credentials.
+              We may suspend or restrict accounts to protect the Service or address misuse.
+            </p>
+          </div>
+
+          <div class="section" id="ugc">
+            <h3><i class="fa-solid fa-pen-to-square"></i> 5) User content and responsibility</h3>
+            <p>
+              You are responsible for content you submit (“User Content”). User Content reflects the views of the person who posted it, not the Service.
+              You represent that you have the right to post your User Content and that it does not violate applicable law.
+            </p>
+            <p>
+              Please keep reviews focused on classes and teaching. Avoid posting private information about students or private individuals.
+            </p>
+          </div>
+
+          <div class="section" id="guidelines">
+            <h3><i class="fa-solid fa-compass"></i> 6) Guidelines</h3>
+            <p>
+              The Service supports open discussion and a wide range of viewpoints. That said, certain uses create safety and legal risk for everyone.
+              Use common sense: don’t post content that is unlawful, that meaningfully invades someone’s privacy, or that is intended to harass or threaten.
+            </p>
+            <ul>
+              <li><strong>Privacy:</strong> Don’t post student-identifying information (e.g., full names of students, IDs, phone numbers, addresses, schedules, private messages).</li>
+              <li><strong>Safety:</strong> Don’t post credible threats or instructions for wrongdoing.</li>
+              <li><strong>Platform integrity:</strong> Don’t spam, flood, scrape, or intentionally break the site.</li>
+              <li><strong>Honesty:</strong> Don’t impersonate others or falsely claim official affiliation.</li>
+            </ul>
+            <p>
+              Everything else is generally allowed — including criticism, strong opinions, and disagreement — as long as it stays within these boundaries and applicable law.
+            </p>
+            <p>
+  <strong>Respectful language:</strong> Reviews must remain constructive and respectful.
+  Profanity, slurs, or abusive language directed at teachers or any individual are prohibited and may be automatically blocked or removed.
+</p>
+
+          </div>
+
+          <div class="section" id="moderation">
+            <h3><i class="fa-solid fa-gavel"></i> 7) Moderation and enforcement</h3>
+            <p>
+              We reserve the right (but do not assume an obligation) to remove, limit visibility of, or restrict access to content or accounts at any time,
+              with or without notice, for any reason—including to address reports, reduce risk, comply with law, or protect the Service and users.
+            </p>
+            <p>
+              We may choose not to act on a particular report, and we do not guarantee that any content will be reviewed, removed, or retained.
+              Enforcement actions can include content visibility limits, rate limits, feature restrictions, or account restrictions.
+            </p>
+          </div>
+
+          <div class="section" id="disclaimers">
+            <h3><i class="fa-solid fa-triangle-exclamation"></i> 8) Disclaimers</h3>
+            <p>
+              <strong>User-generated opinions.</strong> Content on the Service is submitted by users and reflects their personal opinions and experiences.
+              We do not verify every submission and do not guarantee accuracy or completeness.
+            </p>
+            <p>
+              <strong>As-is.</strong> The Service is provided “as is” and “as available.” To the fullest extent permitted by law, we disclaim all warranties,
+              express or implied, including merchantability, fitness for a particular purpose, and non-infringement.
+            </p>
+          </div>
+
+          <div class="section" id="liability">
+            <h3><i class="fa-solid fa-hand"></i> 9) Limitation of liability</h3>
+            <p>
+              To the fullest extent permitted by law, the Service and its operators are not liable for indirect, incidental, consequential, special, or punitive damages,
+              or for loss of data, profits, goodwill, or reputation, arising out of or related to your use of the Service.
+            </p>
+            <p>
+              To the fullest extent permitted by law, the total liability for any claim related to the Service will not exceed one hundred U.S. dollars (US $100)
+              or the amount you paid to use the Service (if any) in the twelve months preceding the claim, whichever is greater.
+            </p>
+          </div>
+
+          <div class="section" id="changes">
+            <h3><i class="fa-solid fa-rotate"></i> 10) Changes to these Terms</h3>
+            <p>
+              We may update these Terms from time to time. The updated version will be effective when posted. Continued use after the effective date means you accept the updated Terms,
+              to the extent permitted by law.
+            </p>
+          </div>
+
+          <div class="section" id="law">
+            <h3><i class="fa-solid fa-scale-balanced"></i> 11) Governing law; venue</h3>
+            <p>
+              These Terms are governed by the laws of the State of California, without regard to conflict-of-law principles.
+              Any dispute arising out of or relating to the Service will be brought in the state or federal courts located in California, and you consent to jurisdiction in those courts.
+            </p>
+            <p>
+              Nothing in these Terms limits any rights you may have that cannot be waived under applicable law.
+            </p>
+          </div>
+
+          <div class="section" id="contact">
+            <h3><i class="fa-solid fa-envelope"></i> 12) Contact</h3>
+<p>
+  Questions, reports, or legal requests should be submitted through our
+  <a href="/contact.html">contact page</a>.
+  Please include enough detail for us to evaluate and respond appropriately.
+</p>
+
+
+            <div class="actions">
+              <a class="btn" href="/privacy.html"><i class="fa-solid fa-lock"></i>Read Privacy Policy</a>
+              <a class="btn primary" href="/index.html"><i class="fa-solid fa-house"></i>Back to home</a>
+            </div>
+          </div>
+
+          <footer>
+            Rocklin Ratings is not affiliated with any school. Content reflects user opinions and is not an official evaluation.
+          </footer>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Smooth scroll for sidebar anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (!id || id === '#') return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', id);
+      });
+    });
+  </script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"31b5de29b2114489940d7725ac95fdfc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

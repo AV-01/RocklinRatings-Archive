@@ -1,0 +1,3051 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Maria DeMeyer • Rocklin Ratings</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="canonical" href="/teacher/maria-demeyer.html">
+  <meta name="description" content="Maria DeMeyer — Foreign Language. Read student reviews and ratings for this teacher on Rocklin Ratings.">
+
+  <link rel="icon" href="/assets/images/logo.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --blue-950:#0e1f46;
+      --blue-900:#12306a;
+      --blue-800:#1a49a7;
+      --blue-700:#2f6bff;
+      --blue-600:#4d86ff;
+
+      --nav-bg: rgba(18,48,106,.72);
+      --nav-border: rgba(255,255,255,.14);
+
+      --text:#0b1220;
+      --muted:#5c667a;
+
+      --shadow-soft: 0 14px 32px rgba(0,0,0,.10);
+      --radius: 18px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background: #f3f7ff;
+      overflow-x:hidden;
+    }
+
+    .hero{
+      position:relative;
+      min-height: 46vh;
+      display:flex;
+      flex-direction:column;
+      isolation:isolate;
+      overflow:hidden;
+      background:#071124;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:0;
+      background:
+        radial-gradient(1200px 650px at 22% 18%, rgba(103,163,255,.40), transparent 60%),
+        radial-gradient(900px 520px at 78% 22%, rgba(77,134,255,.28), transparent 58%),
+        radial-gradient(900px 520px at 60% 95%, rgba(47,107,255,.22), transparent 62%),
+        linear-gradient(135deg, #081028 0%, #0b1636 36%, #0d2250 100%);
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      z-index:1;
+      background: linear-gradient(180deg, rgba(7,12,24,.58), rgba(7,12,24,.28) 55%, rgba(7,12,24,.10));
+      pointer-events:none;
+    }
+
+    .nav{
+      position:relative;
+      z-index:3;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding: 14px 22px;
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--nav-border);
+      backdrop-filter: blur(12px);
+    }
+    .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; user-select:none; }
+    .brand-logo{ height:28px; width:auto; display:block; filter: drop-shadow(0 10px 28px rgba(0,0,0,.22)); }
+
+    .navlinks{ display:flex; align-items:center; justify-content:flex-end; gap:6px; flex-wrap:wrap; }
+    .navlinks a{
+      color: rgba(255,255,255,.94);
+      text-decoration:none;
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: .18s ease;
+      display:inline-flex; align-items:center; gap:8px;
+      user-select:none;
+    }
+    .navlinks a:hover{ background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.16); }
+    .navlinks a.cta{
+      background:#fff;
+      color: var(--blue-900);
+      border-color: rgba(255,255,255,.70);
+      font-weight: 950;
+      padding: 10px 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.12);
+    }
+
+    @media (max-width: 680px){
+      .nav{ padding: 12px 14px; }
+      .brand-logo{ height:24px; }
+      .navlinks a span.txt{ display:none; }
+      .navlinks a{ gap:0; padding: 10px 10px; font-size: 12px; }
+      .navlinks a i{ font-size: 14px; }
+      .navlinks a.cta{ padding: 10px 12px; }
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:5;
+      max-width: 1150px;
+      margin: 0 auto;
+      width:100%;
+      padding: 34px 18px 22px;
+      display:flex;
+      align-items:flex-end;
+    }
+
+    .hero-top{
+      width:100%;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .crumbs{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+      color: rgba(255,255,255,.75);
+      font-size: 12px;
+      user-select:none;
+    }
+    .crumbs a{ color: rgba(255,255,255,.88); text-decoration:none; }
+    .crumbs a:hover{ text-decoration:underline; }
+
+    .title{
+      margin: 10px 0 0;
+      color:#fff;
+      font-size: clamp(34px, 4.8vw, 58px);
+      letter-spacing: -1px;
+      font-weight: 950;
+      text-shadow: 0 18px 60px rgba(0,0,0,.45);
+      line-height: 1.05;
+      display:flex;
+      align-items:flex-end;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .title .pill{
+      height: 34px;
+      padding: 0 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.94);
+      font-weight: 950;
+      font-size: 13px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      backdrop-filter: blur(10px);
+    }
+
+    .subtitle{
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.86);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 90ch;
+    }
+
+    .chips{
+      margin-top: 14px;
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.94);
+      font-size: 12px;
+      backdrop-filter: blur(12px);
+      user-select:none;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+      margin-top: 10px;
+    }
+
+    .hbtn{
+      border: 1px solid rgba(255,255,255,.20);
+      background: rgba(255,255,255,.14);
+      color:#fff;
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-weight: 950;
+      font-size: 13px;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      user-select:none;
+      text-decoration:none;
+      white-space:nowrap;
+      backdrop-filter: blur(10px);
+    }
+    .hbtn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.26); }
+    .hbtn.primary{
+      background:#fff;
+      color: var(--blue-900);
+      border-color: rgba(255,255,255,.70);
+      box-shadow: 0 16px 40px rgba(0,0,0,.14);
+      backdrop-filter: none;
+    }
+
+    @media (max-width: 680px){
+      .hero-inner{ padding: 26px 14px 18px; }
+      .hero-top{ align-items:stretch; }
+      .hero-actions{ width:100%; justify-content:stretch; }
+      .hbtn{ flex:1; width:100%; justify-content:center; }
+    }
+
+    .wave{ position:relative; z-index:2; margin-top:auto; height: 95px; }
+    .wave svg{ position:absolute; bottom:-1px; left:0; width:100%; height:100%; display:block; }
+
+    main{
+      background: #f3f7ff;
+      padding: 22px 18px 64px;
+      min-height: 50vh;
+    }
+    .container{ max-width: 1150px; margin: 0 auto; }
+
+    .layout{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 14px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .layout{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: #fff;
+      border: 1px solid #e6eeff;
+      border-radius: 18px;
+      box-shadow: 0 14px 32px rgba(0,0,0,.10);
+      padding: 16px;
+      overflow:hidden;
+    }
+
+    .stack{ display:flex; flex-direction:column; gap:14px; }
+
+    .section-title{
+      margin:0 0 10px;
+      font-size: 14px;
+      font-weight: 950;
+      letter-spacing: .1px;
+      color:#0b1220;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .section-title .hint{
+      font-size: 12px;
+      color: #6a7486;
+      font-weight: 800;
+    }
+
+    .review{
+      padding: 14px 0;
+      border-top: 1px solid #eef3ff;
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+    }
+    .review:first-of-type{ border-top: 0; padding-top: 0; }
+
+    .avatar{
+      width: 42px; height: 42px;
+      border-radius: 16px;
+      background: rgba(77,134,255,.14);
+      border: 1px solid rgba(77,134,255,.22);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: #12306a;
+      overflow:hidden;
+      flex: 0 0 auto;
+    }
+    .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    .review-main{ min-width:0; flex:1; }
+    .review-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+    .review-head strong{
+      display:block;
+      font-size: 13px;
+      font-weight: 950;
+      color:#0b1220;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width: 55ch;
+    }
+    .review-head .meta{
+      color: #6a7486;
+      font-size: 12px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top: 3px;
+    }
+
+    .pillScore{
+      min-width: 64px;
+      height: 34px;
+      padding: 0 12px;
+      border-radius: 14px;
+      background: rgba(103,163,255,.20);
+      border: 1px solid rgba(103,163,255,.30);
+      color: #12306a;
+      font-weight: 950;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 13px;
+      letter-spacing:.1px;
+      flex: 0 0 auto;
+    }
+
+    .small-metrics{
+      margin-top: 10px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    @media (max-width: 520px){
+      .small-metrics{ grid-template-columns: 1fr; }
+    }
+    .sm{
+      border-radius: 14px;
+      padding: 10px 10px;
+      border: 1px solid #e2ebff;
+      background: #f3f7ff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      min-width: 0;
+    }
+    .sm .k{
+      font-size: 11px;
+      color:#4e5a72;
+      font-weight: 900;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .sm .v{
+      font-size: 12px;
+      font-weight: 950;
+      color: #12306a;
+    }
+
+    .comment{
+      margin-top: 10px;
+      color:#4a556b;
+      font-size: 12.75px;
+      line-height: 1.65;
+      white-space:pre-wrap;
+      word-break:break-word;
+    }
+
+    .stat-grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 520px){
+      .stat-grid{ grid-template-columns: 1fr; }
+    }
+    .stat{
+      border-radius: 14px;
+      padding: 12px 12px;
+      border: 1px solid #e2ebff;
+      background: #ffffff;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:6px;
+      min-width: 0;
+    }
+    .stat .k{
+      font-size: 11px;
+      color:#4e5a72;
+      font-weight: 900;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+    }
+    .stat .v{
+      font-size: 18px;
+      font-weight: 950;
+      color: #12306a;
+      letter-spacing: .1px;
+      line-height: 1;
+      min-height: 18px;
+    }
+
+    .btnrow{
+      margin-top:12px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      justify-content:center;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 950;
+      border: 1px solid rgba(18,48,106,.14);
+      background: #fff;
+      color: #12306a;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      user-select:none;
+      box-shadow: 0 12px 26px rgba(0,0,0,.06);
+      white-space:nowrap;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, #1a49a7, #4d86ff);
+      border-color: rgba(77,134,255,.30);
+      color:#fff;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+
+    .course-pills{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+    .cpill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(18,48,106,.12);
+      background: #ffffff;
+      color: #12306a;
+      font-size: 12px;
+      font-weight: 950;
+      text-decoration:none;
+      box-shadow: 0 12px 26px rgba(0,0,0,.05);
+    }
+    .cpill:hover{ transform: translateY(-1px); }
+
+    .empty{
+      border-radius: 24px;
+      border: 1px solid #e6eeff;
+      background: linear-gradient(180deg, #ffffff, #f6f9ff);
+      box-shadow: 0 14px 32px rgba(0,0,0,.10);
+      padding: 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .empty .left{ display:flex; align-items:flex-start; gap:14px; min-width:0; }
+    .empty .icon{
+      width:44px; height:44px; border-radius: 14px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(77,134,255,.16);
+      border: 1px solid rgba(77,134,255,.26);
+      color: #12306a;
+      flex:0 0 auto;
+    }
+    .empty h3{ margin:0; font-size: 15px; letter-spacing: -.2px; font-weight: 950; color: #0b1220; }
+    .empty p{ margin:6px 0 0; color:#5a667c; font-size: 12.75px; line-height: 1.6; max-width: 80ch; }
+
+    .footer{
+      margin-top: 22px;
+      border-top: 1px solid rgba(18,48,106,.10);
+      padding-top: 18px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      color:#6a7486;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+    .footer .brandline{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#334055;
+      font-weight: 900;
+    }
+    .footer .brandline i{ color: #2f6bff; }
+    .footer a{
+      color: #12306a;
+      text-decoration:none;
+      font-weight: 900;
+    }
+    .footer a:hover{ text-decoration:underline; }
+  </style>
+</head>
+
+<body>
+    
+<style>
+  /* ============================
+     Rocklin Ratings Navbar (hard-namespaced + high specificity)
+     Goal: NEVER lose to page CSS
+     Fix: CTA icon/text MUST stay blue (was inheriting white)
+  ============================ */
+
+  #rrx9n-nav{
+    position: relative !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    padding: 14px 22px !important;
+
+    background: rgba(18,48,106,.84) !important;
+    border-bottom: 1px solid rgba(255,255,255,.14) !important;
+    backdrop-filter: blur(12px) !important;
+
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial !important;
+    line-height: 1.2 !important;
+  }
+
+  #rrx9n-nav *{ box-sizing: border-box !important; }
+
+  #rrx9n-nav a{
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  #rrx9n-nav i{
+    color: inherit !important;
+    display: inline-block !important;
+  }
+
+  #rrx9n-nav img{
+    display: block !important;
+    max-width: 100% !important;
+  }
+
+  #rrx9n-nav .rrx9n-brand{
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    user-select: none !important;
+  }
+
+  #rrx9n-nav .rrx9n-logo{
+    height: 28px !important;
+    width: auto !important;
+    filter: drop-shadow(0 10px 28px rgba(0,0,0,.22)) !important;
+  }
+
+  #rrx9n-nav .rrx9n-links{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+    max-width: 100% !important;
+  }
+
+  #rrx9n-nav .rrx9n-link{
+    color: rgba(255,255,255,.94) !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255,255,255,0) !important;
+
+    background: rgba(255,255,255,0) !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+
+    transition: transform .18s ease, background .18s ease, border-color .18s ease !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    white-space: nowrap !important;
+  }
+
+  #rrx9n-nav .rrx9n-link:hover{
+    background: rgba(255,255,255,.10) !important;
+    border-color: rgba(255,255,255,.16) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  #rrx9n-nav .rrx9n-link.rrx9n-active{
+    background: rgba(255,255,255,.14) !important;
+    border-color: rgba(255,255,255,.22) !important;
+  }
+
+  /* CTA always white, always readable */
+  #rrx9n-nav .rrx9n-link.rrx9n-cta{
+    background: #ffffff !important;
+    color: #12306a !important;
+    border-color: rgba(255,255,255,.70) !important;
+    font-weight: 950 !important;
+    padding: 10px 14px !important;
+    box-shadow: 0 16px 40px rgba(0,0,0,.14) !important;
+  }
+
+  #rrx9n-nav .rrx9n-link.rrx9n-cta:hover{
+    background: #ffffff !important;
+    color: #12306a !important;
+  }
+
+  /* ✅ IMPORTANT FIX:
+     Force CTA children (icon + text) to be blue too.
+     Some page CSS is overriding span/i colors. */
+  #rrx9n-nav .rrx9n-link.rrx9n-cta i,
+  #rrx9n-nav .rrx9n-link.rrx9n-cta .rrx9n-txt{
+    color: #12306a !important;
+  }
+
+  #rrx9n-nav .rrx9n-account{ max-width: 260px !important; }
+
+  #rrx9n-nav .rrx9n-txt{ display: inline-block !important; }
+
+  #rrx9n-nav .rrx9n-account .rrx9n-txt{
+    max-width: 170px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  #rrx9n-nav .rrx9n-avatar{
+    width: 22px !important;
+    height: 22px !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    display: inline-block !important;
+    border: 1px solid rgba(255,255,255,.22) !important;
+    flex: 0 0 auto !important;
+  }
+
+  #rrx9n-nav .rrx9n-avatar img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  @media (max-width: 680px){
+    #rrx9n-nav{ padding: 12px 14px !important; }
+    #rrx9n-nav .rrx9n-logo{ height: 24px !important; }
+    #rrx9n-nav .rrx9n-txt{ display: none !important; }
+
+    #rrx9n-nav .rrx9n-link{
+      gap: 0 !important;
+      padding: 10px 10px !important;
+      font-size: 12px !important;
+    }
+
+    #rrx9n-nav .rrx9n-link i{ font-size: 14px !important; }
+    #rrx9n-nav .rrx9n-link.rrx9n-cta{ padding: 10px 12px !important; }
+  }
+
+  @media (max-width: 440px){
+    #rrx9n-nav{ padding: 10px 12px !important; }
+    #rrx9n-nav .rrx9n-link{ border-radius: 12px !important; }
+  }
+</style>
+
+<div id="rrx9n-nav">
+  <a class="rrx9n-brand" href="/index.html" aria-label="Rocklin Ratings home">
+    <img class="rrx9n-logo" src="/assets/images/logo.png" alt="Rocklin Ratings">
+  </a>
+
+  <div class="rrx9n-links">
+    <a class="rrx9n-link" href="/index.html">
+      <i class="fa-solid fa-house"></i><span class="rrx9n-txt">Home</span>
+    </a>
+
+    <a class="rrx9n-link" href="/trending.html">
+      <i class="fa-solid fa-fire"></i><span class="rrx9n-txt">Trending</span>
+    </a>
+
+          <a class="rrx9n-link" href="/signup.html">
+        <i class="fa-solid fa-user-plus"></i><span class="rrx9n-txt">Sign In</span>
+      </a>
+    
+    <a class="rrx9n-link rrx9n-cta" href="/review.html">
+      <i class="fa-solid fa-pen-to-square"></i><span class="rrx9n-txt">Create Review</span>
+    </a>
+  </div>
+</div>
+  <section class="hero">
+
+    <div class="hero-inner">
+      <div class="hero-top">
+        <div>
+          <div class="crumbs">
+            <a href="/index.html">Home</a>
+            <span>•</span>
+            <a href="/teacher.html">Teachers</a>
+            <span>•</span>
+            <span>Maria DeMeyer</span>
+          </div>
+
+          <h1 class="title">
+            Maria DeMeyer                          <span class="pill"><i class="fa-solid fa-star"></i>1.6 avg</span>
+                      </h1>
+
+                      <p class="subtitle">Foreign Language</p>
+          
+          <div class="chips">
+            <span class="chip"><i class="fa-solid fa-comment-dots"></i>73 reviews</span>
+            <span class="chip"><i class="fa-solid fa-layer-group"></i>2 courses</span>
+                          <span class="chip"><i class="fa-solid fa-database"></i>ratings</span>
+                      </div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="hbtn" href="/teacher.html"><i class="fa-solid fa-arrow-left"></i>Back</a>
+
+          <button class="hbtn" id="shareBtn" type="button">
+            <i class="fa-solid fa-arrow-up-from-bracket"></i>Share
+          </button>
+
+          <a class="hbtn primary" href="/review?mode=teacher&amp;teacher=26.html">
+            <i class="fa-solid fa-pen-to-square"></i>Write a review
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,70 C240,120 420,20 720,70 C1020,120 1200,20 1440,70 L1440,120 L0,120 Z" fill="#f3f7ff"></path>
+        <path d="M0,74 C240,124 420,24 720,74 C1020,124 1200,24 1440,74" fill="none" stroke="rgba(103,163,255,.34)" stroke-width="10"></path>
+      </svg>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <div class="layout">
+        <!-- LEFT: Reviews -->
+        <div class="card" id="reviews">
+          <div class="section-title">
+            <span><i class="fa-solid fa-star"></i> Reviews</span>
+            <span class="hint">73 total</span>
+          </div>
+
+                                                  <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>18 min ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">4.8</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.4</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.7</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.2</div></div>
+                  </div>
+
+                                      <div class="comment">she’s honestly such a nice and understanding teacher. i think she has very realistic grading, and her assignments aren’t very hard. voces is a bit confusing but that’s not on her at all.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>23 min ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">She’s definitely trans</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 hour ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">1.0</div></div>
+                  </div>
+
+                                      <div class="comment">She’s a b1tch</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>2 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">She literally made my Spanish 1 a hell hole I would put my head down for a second to write and she would get mad she is so passive aggressive she constantly gave attitude to freshman kids even though she is a adult. But you guys with all the twin and peace sign are not tuff either your just #those people</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>4 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Yall just jealous you werent on the island with the meyer and the big donny😎😎🏝️🏝️🏝️🇮🇱🔥</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>4 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">“Yall just stupid” syau we know its u mrs demeyer 🫩✌️</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>4 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">Y&#039;all just stupid fr get yo grade up twin. stop hating and start studying. on kirk her class was not that hard just stop being lazy and put in that work. y&#039;all trying harder to write these reviews then you did in the class. y&#039;all only talking big cus it says &quot;anonymous&quot; this is not encrypted onb y&#039;all cooked. Last thing, get a job y&#039;all prolly broke asl.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>5 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">She deadah tried to scare us w a fake legal threat 🫩✌️</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>6 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Did not teach us anything at all.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>9 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">4.5</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.2</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">W teacher</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>9 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">4.5</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.2</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">Ms DeMeyers makes Spanish so fun!</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>10 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">4.5</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.2</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">wonderful teacher!</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>16 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">This teacher is the worst teacher I have ever had. She is a creature straight out of the devils a**hole. I would rather be brutally mutilated while conscious than ever take this class again. Always super passive aggressive especially when asking her a question.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>17 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.1</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.3</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">4.0</div></div>
+                  </div>
+
+                                      <div class="comment">lowkirkenuinely the worst spanish class i&#039;ve ever taken. I was thinking abt doing spanish III honors last year but then i found out she teaches it and i immediately took it off my options. She stick pulls and calls on people and it&#039;s so stressing, it felt like going to war every time i stepped into her class. Voces deadline wasn&#039;t that bad but idk how it is now, but the voces workload was insane. She goes off into random unimportant stories in the middle of teaching her unhelpful slides and by the end of the period you literally learned nothing. She was also practically RUNNING to kirky&#039;s turning point club that other day, and she LOVESSS riding on donald&#039;s dihh. Horrible person in general, morally and as a teacher, pls save urselves from the hell that is her class 💔</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>17 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">I mean this &quot;legal message&quot; malarkey lowk feels like a pretty big violation of U.S. Federal statutes; 18 U.S.C. § 1343, 18 U.S.C. § 875(c), California Penal Code § 529, California Penal Code § 422, perhaps California Penal Code § 518 or California Penal Code § 653.2, I mean if you&#039;re really into this there&#039;s also Business &amp; Professions Code § 6126 &amp; Penal Code § 148.9, which are all pretty nasty. Whoever posted this can be looking at multiple misdemeanor and felony charges, possible years in state prison on felony counts (extortion, felony threats, false personation as a felony), plus fines (often up to ~$10,000 per felony count), and up to 1 year in county jail for several misdemeanors (PC 653.2, B&amp;P 6126, etc.), plus probation, restitution, and civil exposure. Pretty crazy, who&#039;s joining the lawsuit?? 🙏🙏🥀</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>18 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Her class is worse than the seventh layer of hell. She lowkirkenueinly makes me wanna tell pop that I have a el wiro so he can take me to the back room and blow my brains out. I would be better off as a rotting corpse in a lake than her class.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>18 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">La señora Demeyer es, sin duda, la peor profesora de esta escuela. Sus opiniones políticas e ideológicas son respetables, pero las impone a sus alumnos en cada oportunidad que tiene. No enseña nada y espera que sepamos lo que entra en los exámenes. Preferiría que me arrancaran el prepucio con unas pinzas antes que volver a tener clase con ella.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>19 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Probably the worst course I&#039;ve ever taken, all she does is give you a 20-page packet or put on a song, and the tests are pretty difficult. I&#039;d rather be forcibly neutered without anesthetic then go back to her course.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>19 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">id rather be injected with adrenaline and have my skin torn  off by the cartel then have to take another day of her class ever again</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>19 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">PLEASE do not believe the “legal” threat everyone. California schools by law cannot punish students for anonymous and off-campus reviews on teachers on a private website. High schools don’t control private transcripts, cannot threaten expulsion, cannot threaten legal prosecution, and can’t track users without a court order. A real legal notice would include a law firm, case number, and district policy. A legal or district notice must also include who is issuing it, like a RUSD letterhead or a mailing address. It would also not be sent through the website, but rather as a email sent out to Rocklin parents or as an assembly. Plus what kind of lawyer would include words like “American excellence”? This is very clearly a student-led prank or an ‘scare’ effort by either the school or Mrs. Demeyer to get us to stop. The dramatic writing style of the notice is how angry people write, not lawyers or school districts.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>19 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">1.0</div></div>
+                  </div>
+
+                                      <div class="comment">What happened to the first amendment? Note - Tinker v. Des Moines and Mahanoy Area School District v. B.L. &amp; 42 U.S.C. § 1983.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>21 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">&quot;
+Legal counsel is currently identifying every participant to ensure maximum penalties, including immediate expulsion and permanent notations on collegiate transcripts. Your academic futures are now in jeopardy. We are currently in the process of dismantling this platform; continued usage constitutes explicit evidence of non-compliance and will be met with swift corrective action.
+
+This website is not school-run nor affiliated with RHS, and we are in the process of filing a report to take it down. In the meantime, anyone seen using this platform may face disciplinary action.&quot; shut your b**** a** up (sybau) demeyer i know that you wrote this but truth is your class is a** and you take it everyday from your daddy trump. charlie kirk ain see nothing yet.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>22 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">1.0</div></div>
+                  </div>
+
+                                      <div class="comment">that fat a** orange a** charlie kirk looking a** facially challenged a** crusty a** f****** b****. She looks like her daddy trumps orange crusting a** tight a******. Genuinely looks like her parents drank with her or dropped her on her head as a baby. She can continue to slurp on trumps and the whole republican party’s balls</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>22 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">FINAL NOTICE OF DISCIPLINARY &amp; LEGAL INTENT
+The targeted harassment of Mrs. Demeyer has reached the threshold of criminal defamation. Be advised: all digital footprints and platform activity are now under active legal review. While certain students mischaracterize her curriculum as &quot;propaganda,&quot; her instruction is a protected and necessary restoration of American excellence.
+Legal counsel is currently identifying every participant to ensure maximum penalties, including immediate expulsion and permanent notations on collegiate transcripts. Your academic futures are now in jeopardy. We are currently in the process of dismantling this platform; continued usage constitutes explicit evidence of non-compliance and will be met with swift corrective action.
+
+This website is not school-run nor affiliated with RHS, and we are in the process of filing a report to take it down. In the meantime, anyone seen using this platform may face disciplinary action.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>22 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Yo whoever said that she’s “such a nice teacher” ur a bum. She is literally the devil reincarnated. Her breath smells like her favorite person in the whole wide world daddy trump’s bootyhole. Her classroom smells like straight dogshit. She needs to crawl back into whatever hole she came out of.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>22 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">5.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">1.0</div></div>
+                  </div>
+
+                                      <div class="comment">Best teach on campus 🥹🥹 so calm n reasonable n chill (glazes me) ion know why y’all hate she’s so nice 😁✌️</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>22 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">La señora Demeyer es la persona más gorda que jamás haya existido y ni siquiera habla una pizca de español. Una vez vi cómo mi amigo, que es de piel morena, fue humillado por completo solo por mirarme. Fue una experiencia horrible. Pero supongo que hay que ser amable con las personas autistas.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>22 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Isreals stronest soldier😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭im crine</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>23 hours ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">They do be saying its nasty so gotta help the cause 🙏</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Genly worships donald trump and the big CK over jesus ✌️✌️✌️✌️✌️😭😭😭😭😭 wud rather fail her class than giving people a chance to do work 🫩🫩🫩🫩🫩 she also built like triple T 😭😭😭😭😭 wud rather experience the holocaust than be in her class 😭🫱🫱🫱🫱🫱 son im crine 😭🙏🙏🙏</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Genuinely the most insufferable f****** weasel that’s somehow still living on our earth’s sacred crust. This stupidly obsessive right wind tub of lard always manages to make my sanity levels drop by 1000% every time I look at her nasty-a** dodecahedron side profile. Undoubtedly THE most Wicked witch of the Rocklin neighborhood, don’t take this bih’s classes otherwise you’re most likely to contract aids just from hearing the shrieks of the damned be released at 500km p/h from the sheer  opening of her endless vile vocals when she goes rampant about loving that plump orange. I’d rather smell Princess Fiona’s nasty green box and contract seven different types of syphillis than take this f****** class. B****.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Being in her class was the worst thing Ive ever experienced, I wanted to die &amp; sleep the whole class period. She&#039;s crazy catholic, racist, &amp; bullies students if they aren&#039;t her favorite. She is worst then the devil from the god d*** bible, I hope she rots in hell for everything she put me &amp; my friends through.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">1.0</div></div>
+                  </div>
+
+                                      <div class="comment">Horrible</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">She wants Donald trumps pumpkin dih up her a** and dosent know a lick of Spanish. I would rather have allegations and files made against me ruining my life then ever taking her class again. She definitely came from hell and fs gave the devil lap dances. YOU WILL commit suicide after taking this class</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Spanish students sit around campfires telling scary stories about her. worst Spanish teacher in the world can&#039;t even speak it fr. i would take miles of dih in my ahh then go to her class. this class doesn&#039;t even make me want to die, it makes me want to burn in hell.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.4</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.1</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.3</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Genuinely what even is this class she is so bad at teaching and if you try to ask a question she will get mad and look at you like you&#039;re dumb. Not only that but this whole class feels like MAGA and Charlie Kirk propaganda. I&#039;ve had her for two years. I don&#039;t know why she hasn&#039;t retired she talks bad about students all the time but yet still hasn&#039;t quit. Don&#039;t take this class if you are in any Spanish class and Mrs. Demeyer is the teacher quit and drop it immediately. ESTA CLASE ES MUY MAL Y LA PROFESORA ES UNA LOCA.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">ms demeyers is deplorable and fat</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">vain, hates her job, hates her students, hates basically everyone besides herself and a certain orange man. useless, failing students brings her ultimate joy, proud N***. she doesn&#039;t even try to hide it atp. for your own sake, do not take her classes unless you are like her and have a crush on donny. the only explanation I can fathom for her unmatched stupidity is an extreme case of autism. she sucks donny&#039;s d***. stupid people love other stupid people. she finds him relatable.
+
+but I implore you to have some compassion for her. autistic people have hard lives. I hope she gets the professional help that she needs.
+
+but until then, avoid this n***&#039;s class at all costs. unless, of course, you too dickride Donny.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">5.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">twin, don&#039;t take this class. L class and tbh Mrs. Demeyer isn&#039;t that good of a teacher. gl soldier in this class.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Bro✌️✌️😭😭😭😭 demeyer🥹🥹🥹🥹she reminds me of Mr garrison from South Park, except hella conservative😔💔💔, also she can’t speak Spanish, literally asks students to use Ai then talks about some story about how trump didn’t take it up the ah from Epstein 🏝️🏝️🏝️🏝️ NEVER TAKE THIS CLASS, I WOULD RATHER EAT SQUIDWARDS A** 🗿🗿🦑🦑 LMAOOOO</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">2.0</div></div>
+                  </div>
+
+                                      <div class="comment">She is a horrible teacher who comes from the depths of hell. She&#039;s so discombobulated and doesn&#039;t know what she&#039;s saying half of the f****** time. She&#039;s always stuttering and confused. I swear to the heavens that I lose intelligence listening to this old hag speak. She shouldn&#039;t teach Spanish at all, she&#039;s an outspoken right winger and hard core Trump supporter. SHE&#039;S LOSING HER MIND EVERY SINGLE DAY. LITERALLY NEVER CHOOSE THIS CLASS!!! YOU WILL COMMIT SUICIDE BY THE END OF IT!!!!</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Absolutely the worst teacher at this school. She may be a slight bit special. She expects us to already know everything that she is teaching without giving any instructions. Please fire her for the good of the school and its students.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">search up “family guy ok not okay picture” and thats her grading formula</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">2.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.5</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">This woman is genuinely suicide inducing. The way and methods she teaches I honestly have no idea how she got a degree. I do not believe she knows Spanish and is just indoctrinating her students to believe what she does. A white woman should NOT in a circumstances be teaching spanish. She is so passive aggressive and genuinely rude I do not know how she still has a job. While I am personally good at Spanish she often uses words I don’t believe are real spanish words. She favors white and loud boys and needs to get fired. I HATE MS. DEMEYER</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">if you want an a in the class you would need to go to Dagestan for 2-3 years and become conservative or at least she knows that you are conservative then it is an easy a in orals and tests as she will grade much more lightly. if you wear anything or talk anything pro-democractic you are f***** for the rest of the year and you will fail every oral and test. this is from raw experience.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">😭😭😭😭😭😭😭😭😭😭😭😭😭 I&#039;m crine 😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭why everyone hating on demeyer 😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭 i dont even remember her class 😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">She is the most confusing teacher ever, like she just expects anyone to know almost every word in Spanish without teaching it. We have orals every month and the most recent one was 25 questions that she never went over with the class like how are we supposed to know what all those words mean without her teaching us or at least giving us a vocab list. She openly admitted that students should use AI and google translate for assignments, revealing that even she knows that she can&#039;t teach. Also it&#039;s true that she gossips about the students a lot and she glazes the students who speak spanish already so much. She always starts to teach and then goes off on a 30 minute rant which would be nice if she didn&#039;t assign us lots of work to get done in class. She&#039;s a pretty wacky teacher lowkey think she needs to be taken off the job. You definitely will not survive in this class without google translate.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">She talks very fast in Spanish when she is teaching which makes it harder to understand. She consistently talks bad about other students in front of them and to her TA. She chooses if she likes you or not based on your grade and if she doesn&#039;t like you she grades harsher. During orals she guarantees that you won&#039;t pass unless you are a fluent Spanish speaker or she likes you. She gives lots of work and gets stressed out when you ask for help. Ms. DeMeyer is not that good at teaching certain chapters and just expects that you &quot;learned It in Spanish 1&quot;. Overall she is not a helpful teacher and very unapproachable.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">I would rather take it up the A** everyday than have this class again. Lowkenuinely her class was a nightmare. Signing up for ts is suicide. Good luck</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.1</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">1.6</div></div>
+                  </div>
+
+                                      <div class="comment">The workload is very little. We get little to no homework which I appreciate. Other than that, Ms. DeMeyer is a horrific teacher. She engages in politics too much, and is honestly kind of weird about it. She barely teaches Spanish, and then when she does she goes so fast, its impossible to understand. Then she lays out a test for you that is almost IMPOSSIBLE to understand. She also is racist. She puts down students of color, and I have seen it with my own eyes. She tells students who do not speak English as their first language, that it is impossible for them to get 100% on their orals. Its weird behavior.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">Raging conservative... 😭😭 took the day off when charlie kirk got shot, gun sticker on her waterbottle, candace owens merch saying &quot;lifes tough&quot; and telling people to &quot;get a helmet&quot;, in the turning point club, has SAID shes a trump supporter, and overall just ACTS like one lol. Dont take the class, shes evil</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">2.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">3.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">2.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">4.0</div></div>
+                  </div>
+
+                                      <div class="comment">I&#039;ll start by saying I wasn&#039;t a good student throughout her class. Still, I found her generally unpleasant as a person. She was very passive aggressive and makes you feel dumb. (Side note: she commonly gossips about other students and it becomes annoying to hear). Her teaching is fine, though a bit messy. I&#039;d still recommend trudging through the class for the honors credit and your time will be fine if you&#039;re a good student but even then, I still think her habits will annoy you.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">What a conservative teacher. If you got to her class before or after school, Fox news is constantly on and she always mummers to herself about the news, always criticizing the democratic beliefs. When trump won in our year, she straight out hit the maga dance for a few minutes, showing her disregard for Spanish. She expects you to understand the topics in the one class she teachers (for 5 minutes), and you rely on slideshows and worksheets that she copied from other Spanish classrooms. In the orals, she will ask you follow ups that are confusing not because they are hard but they are hard to hear, and she tangles them up to mess with you. During the orals, she just stares dead straight into your eyes like a devils advocate and absorbs your soul and all its knowledge. She made me want to skip school just to skip her class, and I was scared to do Spanish for another year because of her. Do not take it for the gpa boost.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.5</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">2.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">4.2</div></div>
+                  </div>
+
+                                      <div class="comment">I have never met a more discriminatory teacher before ever in my years as a student. She would actively play favorites, listen to far right programs and spread dangerous agendas, pick on black people and darker skinned Asians and constantly play victim. Her lectures were never clear so most of your learning is done through work at home and self studying. All in all, she was a terrible teacher in my experience.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Zero respect for students at all. Always very rude and disrespectful to me AND others, and when she happens to give you a compliment, (rarely), it is always backhanded. Questions are always answered with disrespect and content being taught (which shes not good at) is expected to be perfected immediately. Unrealistic expectations of students and their ability. Her teaching is very unclear. Shes overall just very rude and disrespectful towards her students. She should not expect respect when it is not given to us.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>1 day ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">If you don’t know the answer she’ll hate you</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>2 days ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Mrs d***yer is genuinely the devil reincarnate. (Her name is a slur) shes HORRIBLE with communication, HORRIBLE, with teaching, HORRIBLE with grading. Classroom is ALWAYS an unnacepting, hostile, and stress-inducing environment. Is also just a genuinely mean person and is NEVER kind, and BOMBARDS you with constant criticism. Should not be a teacher at rocklin at all. She&#039;s also a known conservative and was spotted at the turning point club so...</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>2 days ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Its so bad I want to give her a zero, but that&#039;s not possible. So I give her a 1. Such a stressful environment. Dreaded going to school every single day. Not helpful whatsoever and will just get mad when you were born with the knowledge of life. She insists on such awkward conversations like discussing her son being a redneck. Never has anything to do with what we are talking about. Definitely not a class that is bearable. ended up dropping Spanish just because of her, I wouldn&#039;t have survived if I hadn&#039;t. I hate Spanish now and Its all her fault, it all comes down to her personality and the repulsive and repelling environment that she creates.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>2 days ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Don&#039;t take it save your gpa.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>2 days ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Spanish 3 Honors was one of the worst classes I’ve taken and felt unnecessarily miserable the entire time. The class was disorganized and confusing, with a heavy workload full of busywork that didn’t actually help anyone learn Spanish. Concepts were barely explained, yet students were expected to understand advanced material on their own, and asking questions often led to unclear or dismissive answers. Grading felt inconsistent and unfair, making it hard to know what was expected or how to improve. The overall attitude in the class discouraged students instead of supporting them, and it felt like effort didn’t matter. By the end, most students were just trying to survive rather than learn, which completely ruined what should have been an interesting subject.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>2 days ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Mrs Demeyer is the worst human possible. she never teaches anything or explains what or how to do things. gets mad when u don’t understand. absolute worst teacher on campus. non stop talk about charlie Kirk. fire this bum of a teacher.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>2 days ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">2.9</div></div>
+                  </div>
+
+                                      <div class="comment">Mrs. DeMeyer&#039;s class was truly horrible. Although there wasn&#039;t much work and it was a free A, she made the class a nightmare. It really seems like she doesn&#039;t care about her students or their mental wellbeing.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>3 days ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">4.5</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">3.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">3.9</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">2.9</div></div>
+                  </div>
+
+                                      <div class="comment">You have to try in these classes yall. DeMeyer really cares about students doing well and tries to make the class fun but over all Spanish is hard and this is a class you will HAVE to study for. I know the other Spanish teachers tend to graded rlly light so every one hates on her for giving you the score you actually deserve. Over all very time consuming class but if you study you will be fine.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>3 days ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">2.5</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">2.4</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">3.4</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Even though she is a b****, she can be funny, you gotta get to know her fr</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>3 days ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">This class created an emotionally damaging environment that went far beyond normal academic stress. The constant criticism, dismissive tone, and lack of basic respect made each class feel humiliating rather than educational, to the point where it genuinely affected mental well-being. Instead of support or guidance, students were met with condescension and pressure that felt relentless and overwhelming, creating fear rather than motivation. Confusion was treated as a personal failure, mistakes were magnified instead of corrected, and the overall atmosphere felt hostile and draining. What should have been a place to learn and grow instead became a source of anxiety, self-doubt, and emotional exhaustion that no student should have to endure in an academic setting.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>3 days ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">4.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">Spanish 3 Honors is an absolutely unbearable class, and almost every problem traces back to Maria. Maria makes Spanish 3 Honors feel less like a class and more like a daily endurance test, because Maria is constantly loud, chaotic, and disorganized. Maria jumps from grammar to vocabulary to random stories without explaining anything, then Maria gets mad when students don’t understand what Maria never taught clearly. Maria assigns an overwhelming amount of work, and somehow Maria always expects it to be perfect, even though Maria’s instructions barely make sense. Maria’s “crazy” teaching style isn’t fun or engaging—it’s stressful, confusing, and exhausting, and Maria seems to thrive on that chaos. Instead of helping students learn Spanish, Maria makes students dread Spanish, dread class, and honestly dread Maria. Overall, Spanish 3 Honors is a miserable experience because of Maria, Maria, and once again, Maria.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>3 days ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">When I took spanish 3 honors a couple years ago, it was like living in world war 2. Bullets left and right, explotions, death, destruction, and doom. One bad answer, Mrs. Demeyer sends you to the back corner. One good answer and Maria found nothing good of it. If you are thinking of taking this class, turn around immidetely. Mrs. Demeyer is the equivilent to a facist leader. She had said many times she was a trump supporter and even took the day off when Charlie Kirk got pa pa pa popped. Thank you for your time!</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>4 days ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">4.2</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">3.9</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">As long as you do your work and ask questions, you should succeed in this class. Make sure to actually try to learn the material as this honors class assesses if you actually know what you are doing and not relying solely on memorization. Try your best on tests, if you have a higher test score than your overall, she will give you your test score average as the final grade. Pay attention and make sure to get your work in on time (no late work accepted). Grading can seem harsh but usually there are some easy points if you study enough leading up to the quiz/tests. Make vocab quizzes (I made some on Google forms) and Quizlets to prep for the quiz and oral exams.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>4 days ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">1.0</div></div>
+                  </div>
+
+                                      <div class="comment">Long before time had a name, they say DeMeyer used to teach AP Spanish... 
+
+
+...if only they removed her instead of AP Spanish.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>4 days ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">1.0</div></div>
+                  </div>
+
+                                      <div class="comment">It was clear that she does not care about her students. Her class was uninteresting and horribly taught.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>4 days ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.0</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Worst class I have ever taken</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-iii-honors.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish III Honors                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>4 days ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.2</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">1.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">4.0</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">5.0</div></div>
+                  </div>
+
+                                      <div class="comment">Have to do a lot of work everyday, dosent teach the class at ALL. Just gives slideshows for you to rely on, pages of homework, and very republican in nature. she loves trump and will leave school forever if anything happens to him.</div>
+                                  </div>
+              </div>
+                                        <div class="review">
+                <div class="avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="review-main">
+                  <div class="review-head">
+                    <div style="min-width:0;">
+                      <strong>
+                        Anonymous student                                                  <span style="font-weight:850; color:#6a7486;">•</span>
+                          <a href="/course/spanish-i.html" style="text-decoration:none; font-weight:950; color:#12306a;">
+                            Spanish I                          </a>
+                                              </strong>
+                      <div class="meta">
+                                                  <span><i class="fa-regular fa-clock"></i>4 days ago</span>
+                                              </div>
+                    </div>
+                    <div class="pillScore">1.5</div>
+                  </div>
+
+                  <div class="small-metrics">
+                    <div class="sm"><div class="k"><i class="fa-solid fa-eye"></i>Clarity</div><div class="v">2.3</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div><div class="v">2.5</div></div>
+                    <div class="sm"><div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div><div class="v">3.0</div></div>
+                  </div>
+
+                                      <div class="comment">Don&#039;t take her class, she makes it verry obvious she didn&#039;t like teaching. Most the time she sat behind her desk and did nothing. She also had sticks with students names on them to get people to awncer. Her class was stressful and the worst part of my day.</div>
+                                  </div>
+              </div>
+                              </div>
+
+        <!-- RIGHT: Stats -->
+        <div class="stack">
+          <div class="card">
+            <div class="section-title">
+              <span><i class="fa-solid fa-chart-simple"></i> Teacher stats</span>
+              <span class="hint">based on reviews</span>
+            </div>
+
+            <div style="display:flex; gap:12px; align-items:center; margin-bottom: 12px;">
+              <div style="width:62px; height:62px; border-radius: 22px; overflow:hidden; border:1px solid #e6eeff; background: rgba(77,134,255,.12); display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+                                  <img src="/assets/images/teachers/Maria_DeMeyer.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block;">
+                              </div>
+              <div style="min-width:0;">
+                <div style="font-weight:950; color:#0b1220; font-size: 14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Maria DeMeyer</div>
+                <div style="margin-top:4px; color:#6a7486; font-size: 12px; font-weight: 850;">
+                  Foreign Language                </div>
+              </div>
+            </div>
+
+            <div class="stat-grid">
+              <div class="stat">
+                <div class="k"><i class="fa-solid fa-star"></i>Overall</div>
+                <div class="v">1.6</div>
+              </div>
+              <div class="stat">
+                <div class="k"><i class="fa-solid fa-eye"></i>Clarity</div>
+                <div class="v">1.7</div>
+              </div>
+              <div class="stat">
+                <div class="k"><i class="fa-solid fa-scale-balanced"></i>Fairness</div>
+                <div class="v">1.6</div>
+              </div>
+              <div class="stat">
+                <div class="k"><i class="fa-solid fa-briefcase"></i>Workload</div>
+                <div class="v">4.1</div>
+              </div>
+            </div>
+
+            <div class="btnrow">
+              <a class="btn primary" href="/review?mode=teacher&amp;teacher=26.html"><i class="fa-solid fa-pen-to-square"></i>Write a review</a>
+              <a class="btn" href="/teacher.html"><i class="fa-solid fa-chalkboard-user"></i>Directory</a>
+            </div>
+
+                          <div style="margin-top:14px; font-size:12px; font-weight:950; color:#0b1220; display:flex; align-items:center; justify-content:space-between;">
+                <span><i class="fa-solid fa-layer-group"></i> Courses reviewed</span>
+                <span style="color:#6a7486; font-weight:850;">2 total</span>
+              </div>
+
+              <div class="course-pills">
+                                                    <a class="cpill" href="/course/spanish-iii-honors.html">
+                    <i class="fa-solid fa-book"></i>Spanish III Honors                    <span style="opacity:.7;">•</span>
+                    <span>42</span>
+                  </a>
+                                                    <a class="cpill" href="/course/spanish-i.html">
+                    <i class="fa-solid fa-book"></i>Spanish I                    <span style="opacity:.7;">•</span>
+                    <span>31</span>
+                  </a>
+                              </div>
+                      </div>
+
+          <div class="card">
+            <div class="section-title">
+              <span><i class="fa-solid fa-shield-heart"></i> About</span>
+              <span class="hint">privacy</span>
+            </div>
+
+            <div style="color:#5a667c; font-size: 12.75px; line-height: 1.65;">
+              Reviews are student-run opinions — not official school evaluations. Keep it respectful, specific, and useful.
+            </div>
+          </div>
+        </div>
+      </div>
+
+ <div class="footer">
+        <div>
+Rocklin Ratings is not affiliated with Rocklin High School and reflects student opinions, not official school evaluations.
+</div>
+        <div>
+          <a href="/review.html">Leave a review</a> • <a href="/search.html">Search</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('shareBtn');
+      if (!btn) return;
+
+      btn.addEventListener('click', async () => {
+        const url = window.location.href;
+        const title = document.title || 'Rocklin Ratings';
+
+        try {
+          if (navigator.share) {
+            await navigator.share({ title, url });
+            return;
+          }
+        } catch (e) {
+          // fall through to copy
+        }
+
+        try {
+          await navigator.clipboard.writeText(url);
+          alert('Link copied.');
+        } catch (e) {
+          // fallback copy (older browsers)
+          const ta = document.createElement('textarea');
+          ta.value = url;
+          ta.setAttribute('readonly','');
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          alert('Link copied.');
+        }
+      });
+    })();
+  </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"31b5de29b2114489940d7725ac95fdfc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

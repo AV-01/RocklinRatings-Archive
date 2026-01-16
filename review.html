@@ -1,0 +1,2068 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Write a Review • Rocklin Ratings</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="/assets/images/logo.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --blue-950:#0e1f46;
+      --blue-900:#12306a;
+      --blue-800:#1a49a7;
+      --blue-700:#2f6bff;
+      --blue-600:#4d86ff;
+
+      --bg: #071124;
+      --page: #f3f7ff;
+      --card: #ffffff;
+      --card-border: #e6eeff;
+
+      --text: #0b1220;
+      --muted: #5c667a;
+
+      --shadow-soft: 0 14px 32px rgba(0,0,0,.10);
+
+      --radius: 18px;
+      --radius-lg: 24px;
+
+      --focus: rgba(77,134,255,.35);
+      --danger: #d63c47;
+      --success: #137b3f;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x:hidden;
+    }
+
+    .hero{
+      position:relative;
+      min-height: 40vh;
+      display:flex;
+      flex-direction:column;
+      isolation:isolate;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:0;
+      background:
+        radial-gradient(1100px 620px at 18% 18%, rgba(103,163,255,.42), transparent 60%),
+        radial-gradient(900px 520px at 78% 22%, rgba(77,134,255,.30), transparent 58%),
+        radial-gradient(900px 520px at 60% 95%, rgba(47,107,255,.22), transparent 62%),
+        linear-gradient(135deg, #081028 0%, #0b1636 36%, #0d2250 100%);
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      z-index:1;
+      background: linear-gradient(180deg, rgba(7,12,24,.62), rgba(7,12,24,.30) 55%, rgba(7,12,24,.10));
+      pointer-events:none;
+    }
+
+    .nav{
+      position:relative;
+      z-index:3;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding: 14px 22px;
+      background: rgba(18,48,106,.72);
+      border-bottom: 1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(12px);
+    }
+    .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; user-select:none; }
+    .brand-logo{ height:28px; width:auto; display:block; filter: drop-shadow(0 10px 28px rgba(0,0,0,.22)); }
+
+    .navlinks{ display:flex; align-items:center; justify-content:flex-end; gap:6px; flex-wrap:wrap; }
+    .navlinks a{
+      color: rgba(255,255,255,.94);
+      text-decoration:none;
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: .18s ease;
+      display:inline-flex; align-items:center; gap:8px;
+      user-select:none;
+    }
+    .navlinks a:hover{ background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.16); }
+    .navlinks a.cta{
+      background:#fff;
+      color: var(--blue-900);
+      border-color: rgba(255,255,255,.70);
+      font-weight: 950;
+      padding: 10px 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.12);
+    }
+    .navlinks a.cta:hover{ transform: translateY(-1px); }
+
+    @media (max-width: 680px){
+      .nav{ padding: 12px 14px; }
+      .brand-logo{ height:24px; }
+      .navlinks a span.txt{ display:none; }
+      .navlinks a{ gap:0; padding: 10px 10px; font-size: 12px; }
+      .navlinks a i{ font-size: 14px; }
+      .navlinks a.cta{ padding: 10px 12px; }
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:5;
+      max-width: 980px;
+      margin: 0 auto;
+      width:100%;
+      padding: 34px 18px 18px;
+      display:flex;
+      align-items:flex-end;
+    }
+
+    .crumbs{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+      color: rgba(255,255,255,.75);
+      font-size: 12px;
+      user-select:none;
+    }
+    .crumbs a{ color: rgba(255,255,255,.88); text-decoration:none; }
+    .crumbs a:hover{ text-decoration:underline; }
+
+    .title{
+      margin: 10px 0 0;
+      color:#fff;
+      font-size: clamp(30px, 4.3vw, 50px);
+      letter-spacing: -1px;
+      font-weight: 950;
+      text-shadow: 0 18px 60px rgba(0,0,0,.45);
+      line-height: 1.08;
+    }
+    .subtitle{
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.86);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 80ch;
+    }
+
+    .chips{
+      margin-top: 14px;
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.94);
+      font-size: 12px;
+      backdrop-filter: blur(12px);
+      user-select:none;
+    }
+
+    .wave{ position:relative; z-index:2; margin-top:auto; height: 95px; }
+    .wave svg{ position:absolute; bottom:-1px; left:0; width:100%; height:100%; display:block; }
+
+    main{
+      background: var(--page);
+      padding: 22px 18px 64px;
+      min-height: 60vh;
+    }
+    .container{ max-width: 980px; margin: 0 auto; }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 16px;
+      overflow:hidden;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-items:start;
+    }
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .section-title{
+      margin:0 0 10px;
+      font-size: 14px;
+      font-weight: 950;
+      letter-spacing: .1px;
+      color:#0b1220;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .hint{
+      font-size: 12px;
+      color: #6a7486;
+      font-weight: 800;
+    }
+
+    .field{ margin-top: 10px; }
+    .label{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin:0 0 8px;
+      font-size: 12px;
+      font-weight: 950;
+      color:#23304a;
+    }
+    .label .sub{
+      font-weight: 800;
+      color:#6a7486;
+      font-size: 12px;
+    }
+
+    .input, .textarea, .select{
+      width:100%;
+      border-radius: 14px;
+      border: 1px solid #dce7ff;
+      background: #fff;
+      padding: 12px 12px;
+      font-size: 14px;
+      outline:none;
+      transition: .15s ease;
+      box-shadow: 0 10px 18px rgba(0,0,0,.04);
+    }
+
+    /* Better comment box (less “code”) */
+    .textarea{
+      min-height: 170px;
+      resize: vertical;
+      line-height: 1.65;
+      padding: 14px 14px;
+      background: linear-gradient(180deg, #ffffff, #f7faff);
+      border-color: #d3e2ff;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+    .textarea::placeholder{
+      color:#7b879d;
+    }
+
+    .input:focus, .textarea:focus, .select:focus{
+      border-color: rgba(77,134,255,.85);
+      box-shadow: 0 0 0 4px var(--focus), 0 10px 18px rgba(0,0,0,.04);
+    }
+    .input[disabled], .select[disabled], .textarea[disabled]{
+      background: #f6f8ff;
+      color: #6b768c;
+      cursor:not-allowed;
+    }
+
+    .suggest{ position:relative; }
+    .menu{
+      position:absolute;
+      top: calc(100% + 8px);
+      left:0;
+      right:0;
+      z-index:50;
+      background:#fff;
+      border: 1px solid #dce7ff;
+      border-radius: 16px;
+      box-shadow: 0 22px 55px rgba(0,0,0,.16);
+      overflow:hidden;
+      display:none;
+    }
+    .menu.show{ display:block; }
+    .item{
+      padding: 12px 12px;
+      border-top: 1px solid #eef3ff;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      cursor:pointer;
+    }
+    .item:first-child{ border-top: 0; }
+    .item:hover{ background:#f3f7ff; }
+    .item .main{ font-weight: 950; color:#0b1220; font-size: 13px; }
+    .item .meta{ margin-top: 4px; color:#6a7486; font-size: 12px; font-weight: 800; }
+
+    .teacher-row{
+      display:flex; align-items:center; gap:12px;
+      padding: 10px 12px;
+      border: 1px solid #dce7ff;
+      border-radius: 16px;
+      background:#fff;
+      box-shadow: 0 10px 18px rgba(0,0,0,.04);
+    }
+    .teacher-row .avatar{
+      width:42px; height:42px; border-radius: 16px;
+      background: rgba(77,134,255,.14);
+      border: 1px solid rgba(77,134,255,.22);
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden;
+      flex: 0 0 auto;
+      color: var(--blue-900);
+    }
+    .teacher-row .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .teacher-row .tmain{ min-width:0; }
+    .teacher-row .tmain strong{
+      display:block;
+      font-weight: 950;
+      font-size: 13px;
+      color:#0b1220;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .teacher-row .tmain span{
+      display:block;
+      margin-top: 3px;
+      font-size: 12px;
+      font-weight: 800;
+      color:#6a7486;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+
+    .ratings{
+      margin-top: 12px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .rline{
+      border: 1px solid #e2ebff;
+      border-radius: 16px;
+      background: #f6f9ff;
+      padding: 12px;
+    }
+    .rline .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .rline .name{
+      display:flex; align-items:center; gap:10px;
+      font-weight: 950;
+      font-size: 13px;
+      color:#0b1220;
+    }
+    .rline .val{
+      font-weight: 950;
+      font-size: 13px;
+      color: var(--blue-900);
+      background: rgba(103,163,255,.18);
+      border: 1px solid rgba(103,163,255,.28);
+      border-radius: 999px;
+      padding: 6px 10px;
+      min-width: 58px;
+      text-align:center;
+    }
+
+/* Smooth, less-clicky sliders */
+.rline input[type="range"]{
+  width:100%;
+  margin: 2px 0 0;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  height: 32px;              /* bigger hitbox = less clicky */
+  cursor: pointer;
+  touch-action: pan-y;       /* helps mobile dragging */
+}
+
+/* Track */
+.rline input[type="range"]::-webkit-slider-runnable-track{
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(47,107,255,.75), rgba(77,134,255,.35));
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.08);
+}
+.rline input[type="range"]::-moz-range-track{
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(47,107,255,.75), rgba(77,134,255,.35));
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.08);
+}
+
+/* Thumb */
+.rline input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(18,48,106,.18);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12);
+  margin-top: -6px; /* centers thumb on 8px track */
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.rline input[type="range"]::-moz-range-thumb{
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(18,48,106,.18);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+/* Hover / active feels smoother */
+.rline input[type="range"]:hover::-webkit-slider-thumb{
+  transform: scale(1.06);
+}
+.rline input[type="range"]:active::-webkit-slider-thumb{
+  transform: scale(1.12);
+  box-shadow: 0 14px 28px rgba(0,0,0,.16);
+}
+.rline input[type="range"]:hover::-moz-range-thumb{
+  transform: scale(1.06);
+}
+.rline input[type="range"]:active::-moz-range-thumb{
+  transform: scale(1.12);
+  box-shadow: 0 14px 28px rgba(0,0,0,.16);
+}
+
+/* Remove ugly focus outline, keep your soft ring */
+.rline input[type="range"]:focus{
+  outline: none;
+}
+.rline input[type="range"]:focus::-webkit-slider-runnable-track{
+  box-shadow: 0 0 0 4px var(--focus), inset 0 1px 2px rgba(0,0,0,.08);
+}
+.rline input[type="range"]:focus::-moz-range-track{
+  box-shadow: 0 0 0 4px var(--focus), inset 0 1px 2px rgba(0,0,0,.08);
+}
+
+
+    .rules{
+      margin-top: 12px;
+      border-radius: var(--radius-lg);
+      border: 1px solid #e2ebff;
+      background: linear-gradient(180deg, #ffffff, #f6f9ff);
+      padding: 14px;
+    }
+    .rules h3{
+      margin:0;
+      font-size: 13px;
+      font-weight: 950;
+      color:#0b1220;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .rules ul{
+      margin: 8px 0 0;
+      padding-left: 18px;
+      color:#5a667c;
+      font-size: 12.75px;
+      line-height: 1.65;
+    }
+
+    .actions{
+      margin-top: 14px;
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+    .btn{
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      justify-content:center;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 950;
+      border: 1px solid rgba(18,48,106,.14);
+      background: #fff;
+      color: var(--blue-900);
+      transition:.18s ease;
+      user-select:none;
+      box-shadow: 0 12px 26px rgba(0,0,0,.06);
+      white-space:nowrap;
+      cursor:pointer;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
+      border-color: rgba(77,134,255,.30);
+      color:#fff;
+    }
+    .btn:disabled{
+      opacity:.55;
+      transform:none !important;
+      cursor:not-allowed;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+
+    .footer{
+      margin-top: 18px;
+      border-top: 1px solid rgba(18,48,106,.10);
+      padding-top: 18px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      color:#6a7486;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+    .footer .brandline{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#334055;
+      font-weight: 900;
+    }
+    .footer .brandline i{ color: var(--blue-700); }
+    .footer a{
+      color: var(--blue-900);
+      text-decoration:none;
+      font-weight: 900;
+    }
+    .footer a:hover{ text-decoration:underline; }
+
+    .toast{
+      position:fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 9999;
+      background:#0b1220;
+      color:#fff;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 16px;
+      padding: 12px 12px;
+      box-shadow: 0 22px 55px rgba(0,0,0,.28);
+      display:none;
+      max-width: min(420px, calc(100vw - 32px));
+    }
+    .toast.show{ display:block; }
+    .toast .row{ display:flex; align-items:flex-start; gap:10px; }
+    .toast .icon{
+      width:34px; height:34px; border-radius: 14px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(77,134,255,.18);
+      border: 1px solid rgba(77,134,255,.22);
+      color:#fff;
+      flex: 0 0 auto;
+    }
+    .toast strong{ display:block; font-weight: 950; margin:0; font-size: 13px; }
+    .toast p{ margin:3px 0 0; color: rgba(255,255,255,.82); font-size: 12.5px; line-height: 1.55; }
+    .toast .mini{
+      margin-left:auto;
+      border: 0;
+      background: transparent;
+      color: rgba(255,255,255,.75);
+      cursor:pointer;
+      padding: 6px 8px;
+      border-radius: 10px;
+    }
+    .toast .mini:hover{ background: rgba(255,255,255,.08); }
+
+    .error{
+      margin-top: 10px;
+      border-radius: 16px;
+      border: 1px solid rgba(214,60,71,.25);
+      background: rgba(214,60,71,.08);
+      color: #8f1f27;
+      padding: 12px;
+      font-size: 12.75px;
+      font-weight: 850;
+      display:none;
+    }
+    .error.show{ display:block; }
+
+.locked-pill{
+  display:inline-flex; align-items:center; gap:8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.26);
+  background: rgba(103,163,255,.18);
+  color: rgba(255,255,255,.95);            /* text = white */
+  font-weight: 950;
+  font-size: 12px;
+  user-select:none;
+  margin-top: 10px;
+}
+.rline .valwrap{
+  display:flex;
+  align-items:center;
+}
+
+.valinput{
+  width: 78px;
+  border-radius: 999px;
+  padding: 6px 10px;
+  text-align: center;
+  font-weight: 950;
+  font-size: 13px;
+  color: var(--blue-900);
+  background: rgba(103,163,255,.18);
+  border: 1px solid rgba(103,163,255,.28);
+  outline: none;
+}
+
+.valinput:focus{
+  border-color: rgba(77,134,255,.85);
+  box-shadow: 0 0 0 4px var(--focus);
+}
+
+/* hide spinner arrows */
+.valinput::-webkit-outer-spin-button,
+.valinput::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+.valinput{
+  -moz-appearance: textfield;
+}
+
+    /* First-mapper UI */
+    .mapper{
+      margin-top:10px;
+      border-radius: 16px;
+      border: 1px dashed rgba(18,48,106,.22);
+      background: linear-gradient(180deg, #ffffff, #f6f9ff);
+      padding: 12px;
+      display:none;
+    }
+    .mapper.show{ display:block; }
+    .mapper .top{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    }
+    .mapper h4{
+      margin:0;
+      font-size: 13px;
+      font-weight: 950;
+      color:#0b1220;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .mapper p{
+      margin:6px 0 0;
+      color:#5a667c;
+      font-size: 12.75px;
+      line-height:1.6;
+    }
+    .mapper .row{
+      margin-top:10px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .mapper .row .inputwrap{ flex:1; min-width: 220px; }
+    .mapper .row .btn{ box-shadow:none; }
+    
+    /* --- "Missing someone?" row above teacher dropdown --- */
+.missing-row{
+  margin: 10px 0 10px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(18,48,106,.12);
+  background: linear-gradient(180deg, #ffffff, #f7faff);
+  box-shadow: 0 10px 18px rgba(0,0,0,.04);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  flex-wrap:wrap;
+}
+
+.missing-left{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  min-width: 220px;
+}
+
+.missing-icon{
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(77,134,255,.14);
+  border: 1px solid rgba(77,134,255,.22);
+  color: var(--blue-900);
+  flex: 0 0 auto;
+}
+
+.missing-text{ min-width:0; }
+.missing-text strong{
+  display:block;
+  font-weight: 950;
+  font-size: 12.75px;
+  color: #0b1220;
+  line-height: 1.2;
+}
+.missing-text span{
+  display:block;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 800;
+  color:#6a7486;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width: 52ch;
+}
+
+.missing-cta{
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-size: 12.5px;
+  font-weight: 950;
+  background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
+  color:#fff;
+  border: 1px solid rgba(77,134,255,.30);
+  box-shadow: 0 12px 26px rgba(0,0,0,.06);
+  transition: .18s ease;
+  white-space:nowrap;
+}
+.missing-cta:hover{ transform: translateY(-1px); }
+
+.missing-tip{
+  position: relative;
+  border: 0;
+  background: transparent;
+  color: #6a7486;
+  font-weight: 950;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 10px 10px;
+  border-radius: 14px;
+  cursor: pointer;
+  user-select:none;
+  white-space:nowrap;
+}
+.missing-tip:hover{
+  background: rgba(77,134,255,.10);
+  color: var(--blue-900);
+}
+
+.tip-bubble{
+  position:absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  width: min(320px, 80vw);
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: #0b1220;
+  color: rgba(255,255,255,.92);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 22px 55px rgba(0,0,0,.28);
+  font-size: 12.25px;
+  line-height: 1.5;
+  display:none;
+  z-index: 2000;
+}
+.tip-bubble::before{
+  content:"";
+  position:absolute;
+  right: 14px;
+  top: -6px;
+  width: 10px;
+  height: 10px;
+  background: #0b1220;
+  transform: rotate(45deg);
+  border-left: 1px solid rgba(255,255,255,.14);
+  border-top: 1px solid rgba(255,255,255,.14);
+}
+.tip-bubble.show{ display:block; }
+
+@media (max-width: 520px){
+  .missing-text span{ max-width: 36ch; }
+}
+/* Workload tip row (matches your "Missing someone?" style) */
+.workload-tip{
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(18,48,106,.12);
+  background: linear-gradient(180deg, #ffffff, #f7faff);
+  box-shadow: 0 10px 18px rgba(0,0,0,.04);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  flex-wrap:wrap;
+}
+
+.workload-tip-left{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  min-width: 240px;
+}
+
+.workload-tip-icon{
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(77,134,255,.14);
+  border: 1px solid rgba(77,134,255,.22);
+  color: var(--blue-900);
+  flex: 0 0 auto;
+}
+
+.workload-tip-text{ min-width:0; }
+.workload-tip-text strong{
+  display:block;
+  font-weight: 950;
+  font-size: 12.75px;
+  color: #0b1220;
+  line-height: 1.2;
+}
+.workload-tip-text span{
+  display:block;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 800;
+  color:#6a7486;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width: 60ch;
+}
+
+/* Optional small right pill */
+.workload-tip-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-size: 12.5px;
+  font-weight: 950;
+  background: rgba(77,134,255,.10);
+  color: var(--blue-900);
+  border: 1px solid rgba(77,134,255,.20);
+  white-space:nowrap;
+}
+
+@media (max-width: 520px){
+  .workload-tip-text span{ max-width: 42ch; }
+}
+
+  </style>
+</head>
+
+<body>
+        
+<style>
+  /* ============================
+     Rocklin Ratings Navbar (hard-namespaced + high specificity)
+     Goal: NEVER lose to page CSS
+     Fix: CTA icon/text MUST stay blue (was inheriting white)
+  ============================ */
+
+  #rrx9n-nav{
+    position: relative !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    padding: 14px 22px !important;
+
+    background: rgba(18,48,106,.84) !important;
+    border-bottom: 1px solid rgba(255,255,255,.14) !important;
+    backdrop-filter: blur(12px) !important;
+
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial !important;
+    line-height: 1.2 !important;
+  }
+
+  #rrx9n-nav *{ box-sizing: border-box !important; }
+
+  #rrx9n-nav a{
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  #rrx9n-nav i{
+    color: inherit !important;
+    display: inline-block !important;
+  }
+
+  #rrx9n-nav img{
+    display: block !important;
+    max-width: 100% !important;
+  }
+
+  #rrx9n-nav .rrx9n-brand{
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    user-select: none !important;
+  }
+
+  #rrx9n-nav .rrx9n-logo{
+    height: 28px !important;
+    width: auto !important;
+    filter: drop-shadow(0 10px 28px rgba(0,0,0,.22)) !important;
+  }
+
+  #rrx9n-nav .rrx9n-links{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+    max-width: 100% !important;
+  }
+
+  #rrx9n-nav .rrx9n-link{
+    color: rgba(255,255,255,.94) !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255,255,255,0) !important;
+
+    background: rgba(255,255,255,0) !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+
+    transition: transform .18s ease, background .18s ease, border-color .18s ease !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    white-space: nowrap !important;
+  }
+
+  #rrx9n-nav .rrx9n-link:hover{
+    background: rgba(255,255,255,.10) !important;
+    border-color: rgba(255,255,255,.16) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  #rrx9n-nav .rrx9n-link.rrx9n-active{
+    background: rgba(255,255,255,.14) !important;
+    border-color: rgba(255,255,255,.22) !important;
+  }
+
+  /* CTA always white, always readable */
+  #rrx9n-nav .rrx9n-link.rrx9n-cta{
+    background: #ffffff !important;
+    color: #12306a !important;
+    border-color: rgba(255,255,255,.70) !important;
+    font-weight: 950 !important;
+    padding: 10px 14px !important;
+    box-shadow: 0 16px 40px rgba(0,0,0,.14) !important;
+  }
+
+  #rrx9n-nav .rrx9n-link.rrx9n-cta:hover{
+    background: #ffffff !important;
+    color: #12306a !important;
+  }
+
+  /* ✅ IMPORTANT FIX:
+     Force CTA children (icon + text) to be blue too.
+     Some page CSS is overriding span/i colors. */
+  #rrx9n-nav .rrx9n-link.rrx9n-cta i,
+  #rrx9n-nav .rrx9n-link.rrx9n-cta .rrx9n-txt{
+    color: #12306a !important;
+  }
+
+  #rrx9n-nav .rrx9n-account{ max-width: 260px !important; }
+
+  #rrx9n-nav .rrx9n-txt{ display: inline-block !important; }
+
+  #rrx9n-nav .rrx9n-account .rrx9n-txt{
+    max-width: 170px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  #rrx9n-nav .rrx9n-avatar{
+    width: 22px !important;
+    height: 22px !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    display: inline-block !important;
+    border: 1px solid rgba(255,255,255,.22) !important;
+    flex: 0 0 auto !important;
+  }
+
+  #rrx9n-nav .rrx9n-avatar img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  @media (max-width: 680px){
+    #rrx9n-nav{ padding: 12px 14px !important; }
+    #rrx9n-nav .rrx9n-logo{ height: 24px !important; }
+    #rrx9n-nav .rrx9n-txt{ display: none !important; }
+
+    #rrx9n-nav .rrx9n-link{
+      gap: 0 !important;
+      padding: 10px 10px !important;
+      font-size: 12px !important;
+    }
+
+    #rrx9n-nav .rrx9n-link i{ font-size: 14px !important; }
+    #rrx9n-nav .rrx9n-link.rrx9n-cta{ padding: 10px 12px !important; }
+  }
+
+  @media (max-width: 440px){
+    #rrx9n-nav{ padding: 10px 12px !important; }
+    #rrx9n-nav .rrx9n-link{ border-radius: 12px !important; }
+  }
+</style>
+
+<div id="rrx9n-nav">
+  <a class="rrx9n-brand" href="/index.html" aria-label="Rocklin Ratings home">
+    <img class="rrx9n-logo" src="/assets/images/logo.png" alt="Rocklin Ratings">
+  </a>
+
+  <div class="rrx9n-links">
+    <a class="rrx9n-link" href="/index.html">
+      <i class="fa-solid fa-house"></i><span class="rrx9n-txt">Home</span>
+    </a>
+
+    <a class="rrx9n-link" href="/trending.html">
+      <i class="fa-solid fa-fire"></i><span class="rrx9n-txt">Trending</span>
+    </a>
+
+          <a class="rrx9n-link" href="/signup.html">
+        <i class="fa-solid fa-user-plus"></i><span class="rrx9n-txt">Sign In</span>
+      </a>
+    
+    <a class="rrx9n-link rrx9n-cta" href="/review.html">
+      <i class="fa-solid fa-pen-to-square"></i><span class="rrx9n-txt">Create Review</span>
+    </a>
+  </div>
+</div>
+
+  <section class="hero">
+
+    <div class="hero-inner">
+      <div style="width:100%;">
+        <div class="crumbs">
+          <a href="/index.html">Home</a>
+          <span>•</span>
+          <span>Write a review</span>
+        </div>
+
+        <h1 class="title">Write a review</h1>
+        <p class="subtitle">Pick a course and teacher, add ratings, and write a real comment. Anonymous by default.</p>
+
+        <div class="chips">
+          <span class="chip"><i class="fa-solid fa-user-secret"></i>Anonymous by default</span>
+          <span class="chip"><i class="fa-solid fa-shield-heart"></i>Moderated for safety</span>
+          <span class="chip"><i class="fa-solid fa-star"></i>Decimals allowed</span>
+        </div>
+
+                  <div class="locked-pill" id="prefillPill">
+            <i class="fa-solid fa-lock"></i>
+            Course preselected from link
+          </div>
+              </div>
+    </div>
+
+    <div class="wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,70 C240,120 420,20 720,70 C1020,120 1200,20 1440,70 L1440,120 L0,120 Z" fill="#f3f7ff"></path>
+        <path d="M0,74 C240,124 420,24 720,74 C1020,124 1200,24 1440,74" fill="none" stroke="rgba(103,163,255,.34)" stroke-width="10"></path>
+      </svg>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <div class="card">
+        <div class="section-title">
+          <span><i class="fa-solid fa-pen-to-square"></i> Review details</span>
+          <span class="hint">course + teacher</span>
+        </div>
+
+        <div id="errorBox" class="error"></div>
+
+        <div class="grid">
+          <!-- Course -->
+          <div class="field">
+            <div class="label">
+              <span>Course</span>
+              <span class="sub">required</span>
+            </div>
+
+            <div class="suggest" id="courseSuggest">
+              <input id="courseInput" class="input" type="text" placeholder="Start typing a course name…" autocomplete="off">
+              <div id="courseMenu" class="menu" role="listbox" aria-label="Course results"></div>
+            </div>
+
+            <input type="hidden" id="courseSlug" value="language-arts-ii-advanced">
+            <input type="hidden" id="courseUrl" value="">
+            <input type="hidden" id="courseLabel" value="Language Arts II Advanced">
+            <input type="hidden" id="courseLocked" value="1">
+          </div>
+
+          <!-- Teacher -->
+          <div class="field">
+            <div class="label">
+              <span>Teacher</span>
+              <span class="sub">required</span>
+            </div>
+<!-- Missing teacher? quick link -->
+<div class="missing-row">
+  <div class="missing-left">
+    <div class="missing-icon"><i class="fa-solid fa-user-plus"></i></div>
+    <div class="missing-text">
+      <strong>Missing someone?</strong>
+      <span>Add more teachers to this course.</span>
+    </div>
+  </div>
+
+  <a class="missing-cta" href="https://rocklinratings.org/connect-teacher/">
+    <i class="fa-solid fa-link"></i>
+    Map teachers
+  </a>
+
+  <button class="missing-tip" type="button" id="missingTipBtn" aria-label="Info">
+    <i class="fa-solid fa-circle-question"></i>
+    <span class="tip-bubble" id="missingTipBubble" role="tooltip">
+      If your teacher isn’t listed, you can link here.
+    </span>
+  </button>
+</div>
+
+            <select id="teacherSelect" class="select" disabled>
+              <option value="">Select a course first…</option>
+            </select>
+
+            <input type="hidden" id="teacherSlug" value="">
+            <div id="teacherPreview" style="margin-top:10px; display:none;"></div>
+
+            <!-- “Be the first” mapping UI (shown when no teachers for this course) -->
+            <div class="mapper" id="mapper">
+              <div class="top">
+                <div>
+                  <h4><i class="fa-solid fa-map-pin"></i> Be the first to link a teacher</h4>
+                  <p>No teachers are mapped to this course yet. Pick the correct teacher and you’ll create the first mapping.</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="inputwrap suggest" id="teacherSuggestWrap">
+                  <input id="teacherSearch" class="input" type="text" placeholder="Search teacher name…" autocomplete="off">
+                  <div id="teacherMenu" class="menu" role="listbox" aria-label="Teacher results"></div>
+                </div>
+
+                <button class="btn primary" id="mapBtn" type="button" disabled>
+                  <i class="fa-solid fa-link"></i> Link teacher
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ratings -->
+        <div class="ratings" style="margin-top:14px;">
+                                <div class="rline" data-key="overall">
+              <div class="top">
+                <div class="name"><i class="fa-solid fa-star"></i> Overall</div>
+<div class="valwrap">
+  <input
+    class="valinput"
+    id="val-overall"
+    type="number"
+    min="1"
+    max="5"
+    step="0.1"
+    inputmode="decimal"
+    value="4.0"
+    aria-label="Overall rating out of 5"
+  >
+</div>
+              </div>
+              <input
+                type="range"
+                min="1"
+                max="5"
+                step="0.1"
+                value="4.0"
+                id="rng-overall"
+                aria-label="Overall"
+              >
+            </div>
+                      <div class="rline" data-key="clarity">
+              <div class="top">
+                <div class="name"><i class="fa-solid fa-eye"></i> Clarity</div>
+<div class="valwrap">
+  <input
+    class="valinput"
+    id="val-clarity"
+    type="number"
+    min="1"
+    max="5"
+    step="0.1"
+    inputmode="decimal"
+    value="4.0"
+    aria-label="Clarity rating out of 5"
+  >
+</div>
+              </div>
+              <input
+                type="range"
+                min="1"
+                max="5"
+                step="0.1"
+                value="4.0"
+                id="rng-clarity"
+                aria-label="Clarity"
+              >
+            </div>
+                      <div class="rline" data-key="fairness">
+              <div class="top">
+                <div class="name"><i class="fa-solid fa-scale-balanced"></i> Fairness</div>
+<div class="valwrap">
+  <input
+    class="valinput"
+    id="val-fairness"
+    type="number"
+    min="1"
+    max="5"
+    step="0.1"
+    inputmode="decimal"
+    value="4.0"
+    aria-label="Fairness rating out of 5"
+  >
+</div>
+              </div>
+              <input
+                type="range"
+                min="1"
+                max="5"
+                step="0.1"
+                value="4.0"
+                id="rng-fairness"
+                aria-label="Fairness"
+              >
+            </div>
+                      <div class="rline" data-key="workload">
+              <div class="top">
+                <div class="name"><i class="fa-solid fa-briefcase"></i> Workload</div>
+<div class="valwrap">
+  <input
+    class="valinput"
+    id="val-workload"
+    type="number"
+    min="1"
+    max="5"
+    step="0.1"
+    inputmode="decimal"
+    value="3.0"
+    aria-label="Workload rating out of 5"
+  >
+</div>
+              </div>
+              <input
+                type="range"
+                min="1"
+                max="5"
+                step="0.1"
+                value="3.0"
+                id="rng-workload"
+                aria-label="Workload"
+              >
+            </div>
+                  </div>
+  <div style="margin-top:10px; padding:10px 12px; border-radius:16px; border:1px solid rgba(18,48,106,.12); background:linear-gradient(180deg,#ffffff,#f7faff); box-shadow:0 10px 18px rgba(0,0,0,.04); display:flex; align-items:center; gap:10px;">
+    <div style="width:38px; height:38px; border-radius:14px; display:flex; align-items:center; justify-content:center; background:rgba(77,134,255,.14); border:1px solid rgba(77,134,255,.22); color:var(--blue-900); flex:0 0 auto;">
+      <i class="fa-solid fa-circle-info"></i>
+    </div>
+    <div style="min-width:0;">
+      <strong style="display:block; font-weight:950; font-size:12.75px; color:#0b1220; line-height:1.2;">Workload direction</strong>
+      <span style="display:block; margin-top:2px; font-size:12px; font-weight:800; color:#6a7486; line-height:1.45;">
+        Lower = less work (usually preferred). Higher = more work and a harder overall class.
+      </span>
+    </div>
+  </div>
+
+        <!-- Comment (REQUIRED) -->
+        <div class="field">
+          <div class="label">
+            <span>Comment</span>
+            <span class="sub">required</span>
+          </div>
+          <textarea id="comment" class="textarea" placeholder="Write like you’re helping the next student. What made this class easier or harder? What should someone know before taking it?"></textarea>
+        </div>
+
+        <div class="rules">
+          <h3><i class="fa-solid fa-shield-heart"></i> Keep it helpful</h3>
+          <ul>
+            <li>No student names or identifying details.</li>
+            <li>No doxxing, threats, slurs, or harassment.</li>
+            <li>Focus on what helped or didn’t help (pace, grading, workload, clarity).</li>
+          </ul>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="/index.html" id="cancelBtn"><i class="fa-solid fa-xmark"></i>Cancel</a>
+          <button class="btn primary" id="submitBtn" type="button" disabled>
+            <i class="fa-solid fa-paper-plane"></i>Post review
+          </button>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="brandline">
+          <i class="fa-solid fa-shield-heart"></i>
+          <span>Rocklin Ratings</span>
+        </div>
+        <div>
+          Anonymous by default. Reviews may be moderated. <a href="/index.html">Home</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="toast" id="toast">
+    <div class="row">
+      <div class="icon"><i class="fa-solid fa-circle-info"></i></div>
+      <div style="min-width:0;">
+        <strong id="toastTitle">Notice</strong>
+        <p id="toastMsg">…</p>
+      </div>
+      <button class="mini" type="button" id="toastClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+  </div>
+
+<script>
+(function () {
+  const prefillSlug  = "language-arts-ii-advanced";
+  const prefillLabel = "Language Arts II Advanced";
+  const isLocked     = true;
+
+  const courseInput = document.getElementById('courseInput');
+  const courseMenu  = document.getElementById('courseMenu');
+  const courseSlug  = document.getElementById('courseSlug');
+  const courseUrl   = document.getElementById('courseUrl');
+
+  const teacherSelect  = document.getElementById('teacherSelect');
+  const teacherSlug    = document.getElementById('teacherSlug');
+  const teacherPreview = document.getElementById('teacherPreview');
+
+  const mapper        = document.getElementById('mapper');
+  const teacherSearch = document.getElementById('teacherSearch');
+  const teacherMenu   = document.getElementById('teacherMenu');
+  const mapBtn        = document.getElementById('mapBtn');
+
+  const submitBtn = document.getElementById('submitBtn');
+  const errorBox  = document.getElementById('errorBox');
+
+  const toast = document.getElementById('toast');
+  const toastTitle = document.getElementById('toastTitle');
+  const toastMsg   = document.getElementById('toastMsg');
+  const toastClose = document.getElementById('toastClose');
+
+  const commentEl = document.getElementById('comment');
+
+  // -------------------- UI helpers --------------------
+  function showToast(title, msg){
+    toastTitle.textContent = title;
+    toastMsg.textContent = msg;
+    toast.classList.add('show');
+    window.clearTimeout(showToast._t);
+    showToast._t = window.setTimeout(() => toast.classList.remove('show'), 3200);
+  }
+  toastClose.addEventListener('click', () => toast.classList.remove('show'));
+
+function showError(msg){
+  // Linkify /terms safely
+  const html = String(msg).replace(
+    /\/terms\b/g,
+    '<a href="/terms.html" target="_blank" rel="noopener">/terms</a>'
+  );
+
+  errorBox.innerHTML = html;
+  errorBox.classList.add('show');
+
+  // Smooth eased scroll to top (manual animation)
+  const startY = window.scrollY || window.pageYOffset;
+  const duration = 420; // ms
+  const startTime = performance.now();
+
+  function easeOutCubic(t){
+    return 1 - Math.pow(1 - t, 3);
+  }
+
+  function animate(now){
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = easeOutCubic(progress);
+
+    window.scrollTo(0, Math.round(startY * (1 - eased)));
+
+    if (progress < 1){
+      requestAnimationFrame(animate);
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+
+
+  function clearError(){
+    errorBox.textContent = '';
+    errorBox.classList.remove('show');
+  }
+// "Missing someone?" tooltip toggle
+const missingTipBtn = document.getElementById('missingTipBtn');
+const missingTipBubble = document.getElementById('missingTipBubble');
+
+if (missingTipBtn && missingTipBubble) {
+  missingTipBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    missingTipBubble.classList.toggle('show');
+  });
+
+  document.addEventListener('click', () => missingTipBubble.classList.remove('show'));
+}
+
+  function setSubmitEnabled(){
+    const ok =
+      courseSlug.value.trim() !== '' &&
+      teacherSlug.value.trim() !== '' &&
+      (commentEl.value || '').trim().length > 0;
+    submitBtn.disabled = !ok;
+  }
+  commentEl.addEventListener('input', setSubmitEnabled);
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, c => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
+    }[c]));
+  }
+
+  function getAnonDeviceId(){
+    try{
+      const key = 'rr_anon_device_id';
+      let id = localStorage.getItem(key);
+      if (!id) {
+        id = (crypto.randomUUID ? crypto.randomUUID() : ('id-' + Math.random().toString(16).slice(2) + Date.now()));
+        localStorage.setItem(key, id);
+      }
+      return id;
+    }catch(e){ return ''; }
+  }
+
+  // -------------------- Ratings sync (slider <-> input) --------------------
+  const ratingKeys = ['overall','clarity','fairness','workload'];
+
+  function clamp(n, min, max){
+    n = Number(n);
+    if (!Number.isFinite(n)) return min;
+    return Math.min(max, Math.max(min, n));
+  }
+
+  ratingKeys.forEach(k => {
+    const rng = document.getElementById('rng-' + k);
+    const inp = document.getElementById('val-' + k);
+    if (!rng || !inp) return;
+
+    const setBoth = (v) => {
+      const val = clamp(v, 1, 5);
+      const fixed = val.toFixed(1);
+      rng.value = fixed;
+      inp.value = fixed;
+    };
+
+    rng.addEventListener('input', () => setBoth(rng.value));
+
+    inp.addEventListener('input', () => {
+      if (inp.value === '') return;
+      setBoth(inp.value);
+    });
+
+    inp.addEventListener('blur', () => {
+      setBoth(inp.value === '' ? rng.value : inp.value);
+    });
+
+    inp.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        inp.blur();
+      }
+    });
+
+    setBoth(rng.value);
+  });
+
+  // -------------------- Robust slug extractors --------------------
+  function safePathFromUrl(urlLike){
+    try{
+      const u = new URL(String(urlLike), window.location.origin);
+      return u.pathname || '';
+    }catch(e){
+      return String(urlLike || '');
+    }
+  }
+
+  function extractCourseSlug(result){
+    // Prefer explicit fields if your endpoint provides them
+    if (result && typeof result.slug === 'string' && result.slug.trim()) return result.slug.trim();
+    if (result && typeof result.course_slug === 'string' && result.course_slug.trim()) return result.course_slug.trim();
+
+    const path = safePathFromUrl(result && (result.url || result.href || result.link));
+    // Accept multiple common patterns
+    const m =
+      path.match(/\/course\/([^\/?#]+)/i) ||
+      path.match(/\/courses\/([^\/?#]+)/i) ||
+      path.match(/\/c\/([^\/?#]+)/i);
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+
+  function extractTeacherSlug(result){
+    // Prefer explicit fields if your endpoint provides them
+    if (result && typeof result.slug === 'string' && result.slug.trim()) return result.slug.trim();
+    if (result && typeof result.teacher_slug === 'string' && result.teacher_slug.trim()) return result.teacher_slug.trim();
+    if (result && typeof result.value === 'string' && result.value.trim()) return result.value.trim();
+
+    const path = safePathFromUrl(result && (result.url || result.href || result.link));
+    // Accept multiple patterns your site might use
+    const m =
+      path.match(/\/teacher\/([^\/?#]+)/i) ||
+      path.match(/\/teachers\/([^\/?#]+)/i) ||
+      path.match(/\/t\/([^\/?#]+)/i) ||
+      path.match(/\/staff\/([^\/?#]+)/i);
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+
+  // -------------------- Course suggest --------------------
+  let courseTimer = null;
+
+  function hideCourseMenu(){ courseMenu.classList.remove('show'); courseMenu.innerHTML = ''; }
+  function showCourseMenu(){ courseMenu.classList.add('show'); }
+
+  function hardResetTeacherState(){
+    teacherSlug.value = '';
+    teacherSelect.disabled = true;
+    teacherSelect.innerHTML = '<option value="">Select a course first…</option>';
+    teacherPreview.style.display = 'none';
+    teacherPreview.innerHTML = '';
+
+    mapper.classList.remove('show');
+    teacherSearch.value = '';
+    teacherMenu.classList.remove('show');
+    teacherMenu.innerHTML = '';
+    mapBtn.disabled = true;
+
+    setSubmitEnabled();
+  }
+
+  async function fetchCourseSuggest(q){
+    const res = await fetch('/api/course-suggest.php?q=' + encodeURIComponent(q), { credentials: 'same-origin' });
+    const json = await res.json();
+    if (!json || !json.ok) return [];
+    return Array.isArray(json.results) ? json.results : [];
+  }
+
+  function selectCourse(item){
+    const slug = extractCourseSlug(item);
+
+    courseInput.value = item.label || item.name || '';
+    courseSlug.value = slug;
+    courseUrl.value = item.url || item.href || '';
+
+    hideCourseMenu();
+    clearError();
+
+    if (isLocked) courseInput.disabled = true;
+
+    hardResetTeacherState();
+    if (slug) loadTeachersForCourse(slug);
+  }
+
+  courseInput.addEventListener('input', () => {
+    if (isLocked) return;
+
+    clearError();
+    const q = courseInput.value.trim();
+
+    courseSlug.value = '';
+    courseUrl.value = '';
+    hardResetTeacherState();
+
+    if (courseTimer) window.clearTimeout(courseTimer);
+    if (q.length < 1) { hideCourseMenu(); return; }
+
+    courseTimer = window.setTimeout(async () => {
+      try{
+        const results = await fetchCourseSuggest(q);
+        if (courseInput.value.trim() !== q) return;
+
+        courseMenu.innerHTML = '';
+        if (!results.length) {
+          courseMenu.innerHTML = '<div class="item"><div><div class="main">No matches</div><div class="meta">Try a different search</div></div></div>';
+          showCourseMenu();
+          return;
+        }
+
+        results.forEach(r => {
+          const div = document.createElement('div');
+          div.className = 'item';
+          div.tabIndex = 0;
+
+          const left = document.createElement('div');
+          left.style.minWidth = '0';
+
+          const main = document.createElement('div');
+          main.className = 'main';
+          main.textContent = r.label || r.name || 'Course';
+
+          const meta = document.createElement('div');
+          meta.className = 'meta';
+          meta.textContent = r.meta || '';
+
+          left.appendChild(main);
+          if (r.meta) left.appendChild(meta);
+
+          const right = document.createElement('div');
+          right.style.color = '#6a7486';
+          right.style.fontWeight = '900';
+          right.style.fontSize = '12px';
+          right.textContent = 'Select';
+
+          div.appendChild(left);
+          div.appendChild(right);
+
+          div.addEventListener('click', () => selectCourse(r));
+          div.addEventListener('keydown', (e) => { if (e.key === 'Enter') selectCourse(r); });
+
+          courseMenu.appendChild(div);
+        });
+
+        showCourseMenu();
+      }catch(e){
+        hideCourseMenu();
+      }
+    }, 140);
+  });
+
+  document.addEventListener('click', (e) => {
+    const wrap = document.getElementById('courseSuggest');
+    if (wrap && !wrap.contains(e.target)) hideCourseMenu();
+  });
+
+  courseInput.addEventListener('focus', () => {
+    if (courseMenu.children.length) showCourseMenu();
+  });
+
+  // -------------------- Teachers for course --------------------
+  async function loadTeachersForCourse(courseSlugValue){
+    if (!courseSlugValue) return;
+
+    teacherSelect.disabled = true;
+    teacherSelect.innerHTML = '<option value="">Loading teachers…</option>';
+    teacherSlug.value = '';
+    setSubmitEnabled();
+
+    try{
+      const res = await fetch('/api/teachers-for-course.php?course=' + encodeURIComponent(courseSlugValue), { credentials: 'same-origin' });
+      const json = await res.json();
+
+      if (!json || !json.ok) {
+        teacherSelect.disabled = true;
+        teacherSelect.innerHTML = '<option value="">No teachers found</option>';
+        showError(json && json.error ? json.error : 'Could not load teachers.');
+        return;
+      }
+
+      const list = Array.isArray(json.teachers) ? json.teachers : [];
+
+      if (!list.length) {
+        teacherSelect.disabled = true;
+        teacherSelect.innerHTML = '<option value="">No teachers mapped yet</option>';
+        mapper.classList.add('show');
+        showToast('No teacher mapping', 'Add the first teacher for this course.');
+        return;
+      }
+
+      mapper.classList.remove('show');
+
+      teacherSelect.innerHTML = '<option value="">Select a teacher…</option>';
+      list.forEach(t => {
+        const opt = document.createElement('option');
+        opt.value = (t.slug || t.teacher_slug || '').trim();
+        const dept = t.department ? (' • ' + t.department) : '';
+        opt.textContent = (t.name || 'Teacher') + dept;
+        opt.dataset.photo = t.photo || '';
+        opt.dataset.name = t.name || 'Teacher';
+        opt.dataset.department = t.department || '';
+        teacherSelect.appendChild(opt);
+      });
+
+      teacherSelect.disabled = false;
+    }catch(e){
+      teacherSelect.disabled = true;
+      teacherSelect.innerHTML = '<option value="">Failed to load teachers</option>';
+      showError('Failed to load teachers. Try again.');
+    }
+  }
+
+  teacherSelect.addEventListener('change', () => {
+    clearError();
+    const opt = teacherSelect.options[teacherSelect.selectedIndex];
+    const slug = (teacherSelect.value || '').trim();
+    teacherSlug.value = slug;
+
+    if (!slug) {
+      teacherPreview.style.display = 'none';
+      teacherPreview.innerHTML = '';
+      setSubmitEnabled();
+      return;
+    }
+
+    const photo = opt.dataset.photo || '';
+    const name  = opt.dataset.name || 'Teacher';
+    const dept  = opt.dataset.department || '';
+
+    teacherPreview.innerHTML = `
+      <div class="teacher-row">
+        <div class="avatar">${photo ? `<img src="${escapeHtml(photo)}" alt="">` : `<i class="fa-solid fa-chalkboard-user"></i>`}</div>
+        <div class="tmain">
+          <strong>${escapeHtml(name)}</strong>
+          <span>${escapeHtml(dept || 'Selected')}</span>
+        </div>
+      </div>
+    `;
+    teacherPreview.style.display = 'block';
+
+    setSubmitEnabled();
+  });
+
+// -------------------------------------------------------
+// Mapper: teacher suggest (ALWAYS produces a usable slug)
+// -------------------------------------------------------
+let tTimer = null;
+let selectedTeacherForMap = null;
+let selectedTeacherSlugForMap = ''; // <-- the important part
+
+function showTeacherMenu(){ teacherMenu.classList.add('show'); }
+function hideTeacherMenu(){ teacherMenu.classList.remove('show'); teacherMenu.innerHTML = ''; }
+
+function slugifyName(name){
+  return String(name || '')
+    .trim()
+    .toLowerCase()
+    .replace(/['"]/g, '')                 // remove quotes
+    .replace(/[^a-z0-9]+/g, '-')          // non-alnum -> dash
+    .replace(/^-+|-+$/g, '')              // trim dashes
+    .replace(/-{2,}/g, '-');              // collapse
+}
+
+function getDisplayNameFromResult(r){
+  // Try common shapes
+  if (!r) return '';
+  if (typeof r.label === 'string' && r.label.trim()) return r.label.trim();
+  if (typeof r.name === 'string' && r.name.trim()) return r.name.trim();
+
+  const first = (r.first_name || r.firstname || '').toString().trim();
+  const last  = (r.last_name  || r.lastname  || '').toString().trim();
+  const full = (first + ' ' + last).trim();
+  return full;
+}
+
+function safePathFromUrl(urlLike){
+  try{
+    const u = new URL(String(urlLike), window.location.origin);
+    return u.pathname || '';
+  }catch(e){
+    return String(urlLike || '');
+  }
+}
+
+function extractTeacherSlug(result){
+  // Prefer explicit fields
+  if (result && typeof result.slug === 'string' && result.slug.trim()) return result.slug.trim();
+  if (result && typeof result.teacher_slug === 'string' && result.teacher_slug.trim()) return result.teacher_slug.trim();
+  if (result && typeof result.value === 'string' && result.value.trim()) return result.value.trim();
+
+  // Try parsing a URL path if present
+  const path = safePathFromUrl(result && (result.url || result.href || result.link));
+  const m =
+    path.match(/\/teacher\/([^\/?#]+)/i) ||
+    path.match(/\/teachers\/([^\/?#]+)/i) ||
+    path.match(/\/t\/([^\/?#]+)/i) ||
+    path.match(/\/staff\/([^\/?#]+)/i);
+  if (m) return decodeURIComponent(m[1]);
+
+  // LAST RESORT: generate from display name
+  const display = getDisplayNameFromResult(result);
+  const generated = slugifyName(display);
+  return generated;
+}
+
+function setMapBtnState(){
+  const ok = courseSlug.value.trim() && selectedTeacherSlugForMap;
+  mapBtn.disabled = !ok;
+}
+
+async function fetchTeacherSuggest(q){
+  const url = '/api/suggest.php?q=' + encodeURIComponent(q);
+  const res = await fetch(url, { credentials: 'same-origin' });
+  const raw = await res.text();
+  let json = null;
+  try { json = JSON.parse(raw); } catch(e) { json = null; }
+  if (!json || json.ok !== true) return [];
+  return Array.isArray(json.results) ? json.results : [];
+}
+
+teacherSearch.addEventListener('input', () => {
+  const q = teacherSearch.value.trim();
+  selectedTeacherForMap = null;
+  selectedTeacherSlugForMap = '';
+  setMapBtnState();
+
+  if (tTimer) window.clearTimeout(tTimer);
+  if (q.length < 1) { hideTeacherMenu(); return; }
+
+  tTimer = window.setTimeout(async () => {
+    try{
+      const results = await fetchTeacherSuggest(q);
+      if (teacherSearch.value.trim() !== q) return;
+
+      teacherMenu.innerHTML = '';
+      if (!results.length) {
+        teacherMenu.innerHTML = '<div class="item"><div><div class="main">No matches</div><div class="meta">Try a different search</div></div></div>';
+        showTeacherMenu();
+        return;
+      }
+
+      results.forEach(r => {
+        const display = getDisplayNameFromResult(r) || 'Teacher';
+        const slugForThis = extractTeacherSlug(r); // ALWAYS returns something (if display exists)
+
+        const div = document.createElement('div');
+        div.className = 'item';
+        div.tabIndex = 0;
+
+        const left = document.createElement('div');
+        left.style.minWidth = '0';
+
+        const main = document.createElement('div');
+        main.className = 'main';
+        main.textContent = display;
+
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        meta.textContent = (r.meta || '').toString().trim() || ('Slug: ' + slugForThis);
+
+        left.appendChild(main);
+        left.appendChild(meta);
+
+        const right = document.createElement('div');
+        right.style.color = '#6a7486';
+        right.style.fontWeight = '900';
+        right.style.fontSize = '12px';
+        right.textContent = 'Select';
+
+        div.appendChild(left);
+        div.appendChild(right);
+
+        div.addEventListener('click', () => {
+          selectedTeacherForMap = r;
+          selectedTeacherSlugForMap = slugForThis || '';
+          teacherSearch.value = display;
+          hideTeacherMenu();
+          setMapBtnState();
+        });
+
+        div.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') div.click();
+        });
+
+        teacherMenu.appendChild(div);
+      });
+
+      showTeacherMenu();
+    }catch(e){
+      hideTeacherMenu();
+    }
+  }, 120);
+});
+
+document.addEventListener('click', (e) => {
+  const wrap = document.getElementById('teacherSuggestWrap');
+  if (wrap && !wrap.contains(e.target)) hideTeacherMenu();
+});
+
+// -------------------------------------------------------
+// Map teacher to course (uses selectedTeacherSlugForMap)
+// -------------------------------------------------------
+mapBtn.addEventListener('click', async () => {
+  clearError();
+
+  const cSlug = courseSlug.value.trim();
+  const tSlug = (selectedTeacherSlugForMap || '').trim();
+
+  if (!cSlug) { showError('Pick a course first.'); return; }
+  if (!tSlug) { showError('Pick a teacher to link.'); return; }
+
+  mapBtn.disabled = true;
+  mapBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Linking…';
+
+  try{
+    const res = await fetch('/api/map-teacher-to-course.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
+      body: JSON.stringify({
+        course_slug: cSlug,
+        teacher_slug: tSlug
+      })
+    });
+
+    let json = null;
+    try { json = await res.json(); } catch(e) { json = null; }
+
+    if (!res.ok || !json || !json.ok) {
+      const msg = (json && json.error) ? json.error : 'Could not create mapping.';
+      showError(msg);
+      mapBtn.disabled = false;
+      mapBtn.innerHTML = '<i class="fa-solid fa-link"></i> Link teacher';
+      setMapBtnState();
+      return;
+    }
+
+    showToast('Linked', 'Teacher mapped to course. Now select them.');
+    mapper.classList.remove('show');
+
+    await loadTeachersForCourse(cSlug);
+
+    // Try auto-select (if the new mapping is immediately returned)
+    teacherSelect.value = tSlug;
+    teacherSelect.dispatchEvent(new Event('change'));
+
+    mapBtn.innerHTML = '<i class="fa-solid fa-link"></i> Link teacher';
+    setMapBtnState();
+  }catch(e){
+    showError('Network error. Try again.');
+    mapBtn.disabled = false;
+    mapBtn.innerHTML = '<i class="fa-solid fa-link"></i> Link teacher';
+    setMapBtnState();
+  }
+});
+
+  // -------------------- Prefill course --------------------
+  async function initPrefill(){
+    if (!prefillSlug) return;
+
+    courseInput.value = prefillLabel || prefillSlug;
+    courseSlug.value  = prefillSlug;
+
+    if (isLocked) courseInput.disabled = true;
+
+    hardResetTeacherState();
+    loadTeachersForCourse(prefillSlug);
+  }
+
+  // -------------------- Submit --------------------
+  function getRating(key){
+    const inp = document.getElementById('val-' + key);
+    const rng = document.getElementById('rng-' + key);
+    const v = inp ? inp.value : (rng ? rng.value : '4.0');
+    const n = Number(v);
+    if (!Number.isFinite(n)) return 4.0;
+    return Math.min(5, Math.max(1, n));
+  }
+
+  submitBtn.addEventListener('click', async () => {
+    clearError();
+
+    const cSlug = courseSlug.value.trim();
+    const tSlug = teacherSlug.value.trim();
+    const comment = (commentEl.value || '').trim();
+
+    if (!cSlug || !tSlug) { showError('Select a course and a teacher.'); return; }
+    if (!comment.length) { showError('Comment is required.'); return; }
+
+    const payload = {
+      course_slug: cSlug,
+      teacher_slug: tSlug,
+      anon_device_id: getAnonDeviceId(),
+      overall:  getRating('overall'),
+      clarity:  getRating('clarity'),
+      fairness: getRating('fairness'),
+      workload: getRating('workload'),
+      comment:  comment
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>Posting…';
+
+    try{
+      const res = await fetch('/api/ratings/create.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'same-origin',
+        body: JSON.stringify(payload)
+      });
+
+      const json = await res.json();
+
+      if (!res.ok || !json || !json.ok) {
+        const msg = (json && json.error) ? json.error : 'Could not post review.';
+        showError(msg);
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i>Post review';
+        return;
+      }
+
+      showToast('Posted', 'Redirecting to the course…');
+      const redirect = (json.redirect || ('/course/' + cSlug + '#reviews'));
+      const u = new URL(redirect, window.location.origin);
+      if (!u.searchParams.has('posted')) u.searchParams.set('posted','1');
+      window.location.href = u.toString();
+    }catch(e){
+      showError('Network error. Try again.');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i>Post review';
+    }
+  });
+
+  // -------------------- Start --------------------
+  initPrefill();
+  setSubmitEnabled();
+  setMapBtnState();
+})();
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"31b5de29b2114489940d7725ac95fdfc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
